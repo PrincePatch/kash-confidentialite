@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kash — Data deletion</title>
+<meta name="description" content="How to delete all Kash data: erase everything from inside the app, or uninstall it. No account, no server, no request needed." />
+<style>
+  :root{
+    color-scheme: dark;
+    --bg:#0A0F1A;
+    --card:#141C2B;
+    --ink:#E9EEF7;
+    --muted:#96A3B8;
+    --line:#233047;
+    --accent:#5EE6C0;
+    --marque:#4C8DFF;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none !important}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size:16px; line-height:1.65;
+    overflow-wrap:break-word;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+
+  /* Barre de langues : masquée tant que le script ne l'a pas activée (voir le repli sans JS en bas de page). */
+  .langues{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;margin:0 0 26px}
+  .langues button{
+    font:inherit;font-size:13px;font-weight:600;cursor:pointer;
+    background:var(--card);color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:6px 14px;
+  }
+  .langues button:hover{color:var(--ink);border-color:var(--marque)}
+  .langues button.actif{background:var(--marque);border-color:var(--marque);color:#08111F}
+
+  header.top{display:flex;align-items:center;gap:14px;margin:0 0 8px}
+  .logo{
+    width:40px;height:40px;flex:0 0 40px;border-radius:12px;
+    background:var(--card);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .logo svg{width:22px;height:22px;display:block}
+  h1{font-size:26px;line-height:1.25;margin:0;font-weight:700}
+  .maj{color:var(--muted);font-size:14px;margin:0 0 22px}
+  .ref{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;color:var(--muted)}
+
+  h2{font-size:19px;line-height:1.35;margin:34px 0 10px;font-weight:700}
+  h2 .n{color:var(--accent);font-weight:700;margin-right:8px;font-variant-numeric:tabular-nums}
+  p{margin:0 0 14px}
+  ul,ol{padding-left:22px;margin:0 0 14px}
+  li{margin:7px 0}
+  a{color:var(--accent)}
+  a:hover{color:var(--marque)}
+
+  /* Suite d'étapes numérotées de l'écran « Données et confidentialité ». */
+  ol.etapes{
+    counter-reset:etape;list-style:none;padding:0;margin:16px 0 14px;
+  }
+  ol.etapes li{
+    counter-increment:etape;position:relative;padding:0 0 0 40px;margin:0 0 12px;
+  }
+  ol.etapes li::before{
+    content:counter(etape);position:absolute;left:0;top:2px;
+    width:26px;height:26px;border-radius:8px;
+    background:var(--card);border:1px solid var(--line);color:var(--accent);
+    font-size:13px;font-weight:700;line-height:24px;text-align:center;
+  }
+  .bouton{
+    display:inline-block;background:rgba(94,230,192,0.10);
+    border:1px solid var(--line);border-radius:8px;
+    padding:1px 8px;font-weight:600;color:var(--ink);white-space:nowrap;
+  }
+
+  .tableau{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:16px 0;-webkit-overflow-scrolling:touch}
+  table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--card);color:var(--muted);font-weight:600;white-space:nowrap}
+  tbody tr:last-child td{border-bottom:0}
+
+  .note{
+    background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:14px;padding:18px 20px;margin:22px 0 6px;
+  }
+  .note p{margin:0 0 10px;font-size:15px}
+  .note p:last-child{margin:0}
+  .note b{color:var(--accent)}
+
+  footer{
+    margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:14px;
+  }
+  footer p{margin:0 0 8px}
+  footer p:last-child{margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Boutons pastilles : la langue courante porte la classe « actif ». -->
+  <nav class="langues" id="langues" aria-label="Language" hidden>
+    <button type="button" id="pill-en" data-lang="en">English</button>
+    <button type="button" id="pill-fr" data-lang="fr">Français</button>
+    <button type="button" id="pill-es" data-lang="es">Español</button>
+    <button type="button" id="pill-pt" data-lang="pt">Português</button>
+    <button type="button" id="pill-de" data-lang="de">Deutsch</button>
+    <button type="button" id="pill-it" data-lang="it">Italiano</button>
+  </nav>
+
+  <!-- =========================================================
+       ENGLISH — version par défaut, jamais masquée dans le HTML.
+       Sans JavaScript, c'est la seule section visible.
+       ========================================================= -->
+  <main id="main-en" data-titre="Kash — Data deletion">
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Deleting your data</h1>
+    </header>
+    <p class="maj">Kash app <span class="ref">com.florian.budgettickets</span>, published by the developer. Last updated: 9 September 2026.</p>
+
+    <div class="note">
+      <p><b>No request is needed.</b> Kash has no account and no server, so the developer holds none of your data.</p>
+      <p>Everything is on your phone, and you erase it yourself in a few seconds — either from inside the app, or by uninstalling it. There is nothing to ask for, and nobody else could do it for you.</p>
+    </div>
+
+    <h2><span class="n">1.</span>Erase everything from inside the app</h2>
+    <p>If you want to keep a copy of anything, do that first: <em>More › Export</em> produces a CSV file and a monthly PDF report, and <em>More › Backup</em> produces a complete encrypted archive including the photos. After deletion, nothing can be recovered.</p>
+    <ol class="etapes">
+      <li>Open <strong>Kash</strong>.</li>
+      <li>In the bottom bar, tap <span class="bouton">More</span>.</li>
+      <li>Under <em>Your data</em>, tap <span class="bouton">Data &amp; privacy</span>.</li>
+      <li>Scroll to the bottom of the screen and tap <span class="bouton">Delete all my data</span>.</li>
+      <li>First confirmation — <em>Delete all data?</em> — tap <span class="bouton">Continue</span>.</li>
+      <li>Second confirmation — <em>Last confirmation</em> — tap <span class="bouton">Delete everything</span>.</li>
+      <li>The app replies <em>All your data has been deleted.</em> It is done — and it cannot be undone.</li>
+    </ol>
+
+    <h2><span class="n">2.</span>Or simply uninstall the app</h2>
+    <p>Press and hold the Kash icon, then choose <strong>Uninstall</strong>. Or go to <strong>Android Settings › Apps › Kash › Uninstall</strong>.</p>
+    <p>Uninstalling removes the app&rsquo;s private storage in one go: the encrypted database, the receipt photos, the settings and the encryption key. Nothing is left behind on the phone, and nothing was ever copied to Google Drive, since Android&rsquo;s automatic backup is disabled for this app.</p>
+
+    <h2><span class="n">3.</span>What is deleted, and where it was</h2>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Data</th><th>Where it was stored</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><td>Receipts, item lines, amounts, dates, merchants</td><td>Local SQLite database encrypted with SQLCipher, in the app&rsquo;s private storage</td><td>Deleted</td></tr>
+          <tr><td>Receipt photos</td><td>Private folder of the app, on the device</td><td>Deleted</td></tr>
+          <tr><td>Categories (including your own), envelope budgets, detected subscriptions, price history</td><td>Same encrypted database</td><td>Deleted</td></tr>
+          <tr><td>Household members and split key</td><td>Same encrypted database</td><td>Deleted</td></tr>
+          <tr><td>Settings and preferences</td><td>Private storage of the app</td><td>Deleted</td></tr>
+          <tr><td>Scheduled local notifications</td><td>Android scheduler, on the phone</td><td>Cancelled</td></tr>
+          <tr><td>Database encryption key</td><td>Android Keystore</td><td>Destroyed</td></tr>
+          <tr><td>Files you exported or backed up yourself (CSV, PDF, backup archive)</td><td>Wherever you saved or sent them</td><td>Not affected — you delete those yourself</td></tr>
+          <tr><td>Data held on a server</td><td>Does not exist: no server, no account, no cloud backup</td><td>Nothing to delete</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2><span class="n">4.</span>Nothing is retained, and there is no waiting period</h2>
+    <p>Kash has no account and no server, so the developer holds none of your data: there is nothing to keep after deletion, no retention period, and nothing that could be restored.</p>
+    <p>Deletion is immediate and permanent the moment you confirm it in the app. No message needs to be sent, and no confirmation needs to be waited for.</p>
+    <p>For the full picture of what the app handles and where, see the <a href="confidentialite.html">privacy policy</a>.</p>
+
+    <h2><span class="n">5.</span>A question?</h2>
+    <p>Write to <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20data%20deletion">support.app.bv@gmail.com</a> — the subject line is filled in for you.</p>
+    <p>Please bear in mind that the developer cannot delete anything on your behalf, and cannot retrieve, restore or hand over any data: none of it exists outside your phone.</p>
+    <p>App concerned: <strong>Kash</strong> — <span class="ref">com.florian.budgettickets</span> — <a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash on Google Play</a>.</p>
+
+    <footer>
+      <p>This page is linked from the app: <strong>More › Data &amp; privacy › Published documents</strong>.</p>
+      <p>Support: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html">all legal pages</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== FRANÇAIS ===================== -->
+  <main id="main-fr" data-titre="Kash — Suppression des données" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Supprimer vos données</h1>
+    </header>
+    <p class="maj">Application Kash <span class="ref">com.florian.budgettickets</span>, publiée par l&rsquo;éditeur. Dernière mise à jour : 9 septembre 2026.</p>
+
+    <div class="note">
+      <p><b>Aucune demande n&rsquo;est nécessaire.</b> Kash n&rsquo;a ni compte ni serveur : l&rsquo;éditeur ne détient aucune de vos données.</p>
+      <p>Tout est sur votre téléphone, et c&rsquo;est vous qui effacez tout en quelques secondes — depuis l&rsquo;application, ou en la désinstallant. Il n&rsquo;y a rien à réclamer, et personne d&rsquo;autre ne pourrait le faire à votre place.</p>
+    </div>
+
+    <h2><span class="n">1.</span>Tout effacer depuis l&rsquo;application</h2>
+    <p>Si vous souhaitez conserver une copie de quoi que ce soit, faites-le avant : <em>Plus › Exporter</em> produit un fichier CSV et un rapport PDF mensuel, et <em>Plus › Sauvegarde</em> produit une archive chiffrée complète, photos comprises. Après la suppression, plus rien n&rsquo;est récupérable.</p>
+    <ol class="etapes">
+      <li>Ouvrez <strong>Kash</strong>.</li>
+      <li>Dans la barre du bas, touchez <span class="bouton">Plus</span>.</li>
+      <li>Dans <em>Vos données</em>, touchez <span class="bouton">Données et confidentialité</span>.</li>
+      <li>Descendez jusqu&rsquo;en bas de l&rsquo;écran et touchez <span class="bouton">Supprimer toutes mes données</span>.</li>
+      <li>Première confirmation — <em>Supprimer toutes les données ?</em> — touchez <span class="bouton">Continuer</span>.</li>
+      <li>Seconde confirmation — <em>Dernière confirmation</em> — touchez <span class="bouton">Tout supprimer</span>.</li>
+      <li>L&rsquo;application répond <em>Toutes vos données ont été supprimées.</em> C&rsquo;est fait — et c&rsquo;est irréversible.</li>
+    </ol>
+
+    <h2><span class="n">2.</span>Ou simplement désinstaller l&rsquo;application</h2>
+    <p>Appuyez longuement sur l&rsquo;icône de Kash, puis choisissez <strong>Désinstaller</strong>. Ou passez par <strong>Réglages Android › Applications › Kash › Désinstaller</strong>.</p>
+    <p>La désinstallation supprime d&rsquo;un coup le stockage privé de l&rsquo;application : la base chiffrée, les photos de tickets, les réglages et la clé de chiffrement. Rien ne subsiste sur le téléphone, et rien n&rsquo;avait jamais été copié vers Google Drive, puisque la sauvegarde automatique d&rsquo;Android est désactivée pour cette application.</p>
+
+    <h2><span class="n">3.</span>Ce qui est supprimé, et où cela se trouvait</h2>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Donnée</th><th>Lieu de conservation</th><th>Ce qui se passe</th></tr></thead>
+        <tbody>
+          <tr><td>Tickets, lignes d&rsquo;articles, montants, dates, enseignes</td><td>Base SQLite locale chiffrée avec SQLCipher, dans le stockage privé de l&rsquo;application</td><td>Supprimés</td></tr>
+          <tr><td>Photos des tickets</td><td>Dossier privé de l&rsquo;application, sur l&rsquo;appareil</td><td>Supprimées</td></tr>
+          <tr><td>Catégories (y compris les vôtres), budgets enveloppes, abonnements détectés, historique de prix</td><td>Même base chiffrée</td><td>Supprimés</td></tr>
+          <tr><td>Membres du foyer et clé de répartition</td><td>Même base chiffrée</td><td>Supprimés</td></tr>
+          <tr><td>Réglages et préférences</td><td>Stockage privé de l&rsquo;application</td><td>Supprimés</td></tr>
+          <tr><td>Notifications locales programmées</td><td>Planificateur d&rsquo;Android, sur le téléphone</td><td>Annulées</td></tr>
+          <tr><td>Clé de chiffrement de la base</td><td>Coffre-fort d&rsquo;Android (Keystore)</td><td>Détruite</td></tr>
+          <tr><td>Fichiers que vous avez exportés ou sauvegardés vous-même (CSV, PDF, archive de sauvegarde)</td><td>Là où vous les avez enregistrés ou envoyés</td><td>Non concernés — ceux-là, vous les supprimez vous-même</td></tr>
+          <tr><td>Données conservées sur un serveur</td><td>N&rsquo;existent pas : ni serveur, ni compte, ni sauvegarde dans le nuage</td><td>Rien à supprimer</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2><span class="n">4.</span>Rien n&rsquo;est conservé, et il n&rsquo;y a aucun délai</h2>
+    <p>Kash n&rsquo;a ni compte ni serveur : l&rsquo;éditeur ne détient aucune de vos données. Il n&rsquo;y a donc rien à conserver après la suppression, aucune durée de rétention, et rien qui puisse être restauré.</p>
+    <p>La suppression est immédiate et définitive dès que vous la confirmez dans l&rsquo;application. Aucun message à envoyer, aucune confirmation à attendre.</p>
+    <p>Pour le détail de ce que l&rsquo;application traite et où, consultez la <a href="confidentialite.html?lang=fr">politique de confidentialité</a>.</p>
+
+    <h2><span class="n">5.</span>Une question ?</h2>
+    <p>Écrivez à <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20suppression%20des%20donn%C3%A9es">support.app.bv@gmail.com</a> — l&rsquo;objet du message est prérempli.</p>
+    <p>Gardez à l&rsquo;esprit que l&rsquo;éditeur ne peut rien supprimer à votre place, et ne peut ni récupérer, ni restaurer, ni transmettre la moindre donnée : aucune n&rsquo;existe en dehors de votre téléphone.</p>
+    <p>Application concernée : <strong>Kash</strong> — <span class="ref">com.florian.budgettickets</span> — <a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash sur Google Play</a>.</p>
+
+    <footer>
+      <p>Cette page est accessible depuis l&rsquo;application : <strong>Plus › Données et confidentialité › Documents publiés</strong>.</p>
+      <p>Assistance : <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=fr">toutes les pages légales</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== ESPAÑOL ===================== -->
+  <main id="main-es" data-titre="Kash — Eliminación de datos" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Eliminar tus datos</h1>
+    </header>
+    <p class="maj">Aplicación Kash <span class="ref">com.florian.budgettickets</span>, publicada por el desarrollador. Última actualización: 9 de septiembre de 2026.</p>
+
+    <div class="note">
+      <p><b>No hace falta ninguna solicitud.</b> Kash no tiene cuenta ni servidor: el desarrollador no posee ninguno de tus datos.</p>
+      <p>Todo está en tu teléfono y eres tú quien lo borra en unos segundos — desde la aplicación o desinstalándola. No hay nada que reclamar, y nadie más podría hacerlo por ti.</p>
+    </div>
+
+    <h2><span class="n">1.</span>Borrarlo todo desde la aplicación</h2>
+    <p>Si quieres conservar una copia de algo, hazlo antes: <em>Más › Exportar</em> genera un archivo CSV y un informe PDF mensual, y <em>Más › Copia de seguridad</em> genera un archivo cifrado completo, con las fotos incluidas. Después de la eliminación no se puede recuperar nada.</p>
+    <ol class="etapes">
+      <li>Abre <strong>Kash</strong>.</li>
+      <li>En la barra inferior, toca <span class="bouton">Más</span>.</li>
+      <li>En <em>Tus datos</em>, toca <span class="bouton">Datos y privacidad</span>.</li>
+      <li>Baja hasta el final de la pantalla y toca <span class="bouton">Eliminar todos mis datos</span>.</li>
+      <li>Primera confirmación — <em>¿Eliminar todos los datos?</em> — toca <span class="bouton">Continuar</span>.</li>
+      <li>Segunda confirmación — <em>Última confirmación</em> — toca <span class="bouton">Eliminar todo</span>.</li>
+      <li>La aplicación responde <em>Todos tus datos han sido eliminados.</em> Ya está — y no se puede deshacer.</li>
+    </ol>
+
+    <h2><span class="n">2.</span>O simplemente desinstalar la aplicación</h2>
+    <p>Mantén pulsado el icono de Kash y elige <strong>Desinstalar</strong>. O ve a <strong>Ajustes de Android › Aplicaciones › Kash › Desinstalar</strong>.</p>
+    <p>La desinstalación elimina de una vez el almacenamiento privado de la aplicación: la base de datos cifrada, las fotos de los tickets, los ajustes y la clave de cifrado. No queda nada en el teléfono, y nunca se había copiado nada a Google Drive, porque la copia de seguridad automática de Android está desactivada para esta aplicación.</p>
+
+    <h2><span class="n">3.</span>Qué se elimina y dónde estaba</h2>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Dato</th><th>Dónde se guardaba</th><th>Qué ocurre</th></tr></thead>
+        <tbody>
+          <tr><td>Tickets, líneas de artículos, importes, fechas, comercios</td><td>Base SQLite local cifrada con SQLCipher, en el almacenamiento privado de la aplicación</td><td>Eliminados</td></tr>
+          <tr><td>Fotos de los tickets</td><td>Carpeta privada de la aplicación, en el dispositivo</td><td>Eliminadas</td></tr>
+          <tr><td>Categorías (incluidas las tuyas), presupuestos por sobres, suscripciones detectadas, historial de precios</td><td>La misma base cifrada</td><td>Eliminados</td></tr>
+          <tr><td>Miembros del hogar y clave de reparto</td><td>La misma base cifrada</td><td>Eliminados</td></tr>
+          <tr><td>Ajustes y preferencias</td><td>Almacenamiento privado de la aplicación</td><td>Eliminados</td></tr>
+          <tr><td>Notificaciones locales programadas</td><td>Planificador de Android, en el teléfono</td><td>Canceladas</td></tr>
+          <tr><td>Clave de cifrado de la base de datos</td><td>Almacén de claves de Android (Keystore)</td><td>Destruida</td></tr>
+          <tr><td>Archivos que hayas exportado o respaldado tú (CSV, PDF, archivo de copia de seguridad)</td><td>Donde los hayas guardado o enviado</td><td>No afectados — esos los borras tú</td></tr>
+          <tr><td>Datos guardados en un servidor</td><td>No existen: ni servidor, ni cuenta, ni copia en la nube</td><td>Nada que eliminar</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2><span class="n">4.</span>No se conserva nada y no hay ningún plazo</h2>
+    <p>Kash no tiene cuenta ni servidor: el desarrollador no posee ninguno de tus datos. No hay, por tanto, nada que conservar después de la eliminación, ningún plazo de retención y nada que pudiera restaurarse.</p>
+    <p>La eliminación es inmediata y definitiva en cuanto la confirmas en la aplicación. No hay que enviar ningún mensaje ni esperar ninguna confirmación.</p>
+    <p>Para el detalle de lo que trata la aplicación y dónde, consulta la <a href="confidentialite.html?lang=es">política de privacidad</a>.</p>
+
+    <h2><span class="n">5.</span>¿Alguna duda?</h2>
+    <p>Escribe a <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20eliminaci%C3%B3n%20de%20datos">support.app.bv@gmail.com</a> — el asunto va rellenado.</p>
+    <p>Ten en cuenta que el desarrollador no puede eliminar nada en tu lugar, ni recuperar, restaurar o entregar dato alguno: ninguno existe fuera de tu teléfono.</p>
+    <p>Aplicación afectada: <strong>Kash</strong> — <span class="ref">com.florian.budgettickets</span> — <a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash en Google Play</a>.</p>
+
+    <footer>
+      <p>Esta página es accesible desde la aplicación: <strong>Más › Datos y privacidad › Documentos publicados</strong>.</p>
+      <p>Soporte: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=es">todas las páginas legales</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== PORTUGUÊS ===================== -->
+  <main id="main-pt" data-titre="Kash — Eliminação de dados" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Eliminar os seus dados</h1>
+    </header>
+    <p class="maj">Aplicação Kash <span class="ref">com.florian.budgettickets</span>, publicada pelo programador. Última atualização: 9 de setembro de 2026.</p>
+
+    <div class="note">
+      <p><b>Não é preciso qualquer pedido.</b> O Kash não tem conta nem servidor: o programador não detém nenhum dos seus dados.</p>
+      <p>Está tudo no seu telemóvel e é você que apaga tudo em poucos segundos — a partir da aplicação ou desinstalando-a. Não há nada a requerer, e mais ninguém o poderia fazer por si.</p>
+    </div>
+
+    <h2><span class="n">1.</span>Apagar tudo a partir da aplicação</h2>
+    <p>Se quiser guardar uma cópia de alguma coisa, faça-o antes: <em>Mais › Exportar</em> produz um ficheiro CSV e um relatório PDF mensal, e <em>Mais › Cópia de segurança</em> produz um ficheiro cifrado completo, com as fotografias incluídas. Depois da eliminação, nada é recuperável.</p>
+    <ol class="etapes">
+      <li>Abra o <strong>Kash</strong>.</li>
+      <li>Na barra inferior, toque em <span class="bouton">Mais</span>.</li>
+      <li>Em <em>Os seus dados</em>, toque em <span class="bouton">Dados e privacidade</span>.</li>
+      <li>Desça até ao fim do ecrã e toque em <span class="bouton">Eliminar todos os meus dados</span>.</li>
+      <li>Primeira confirmação — <em>Eliminar todos os dados?</em> — toque em <span class="bouton">Continuar</span>.</li>
+      <li>Segunda confirmação — <em>Última confirmação</em> — toque em <span class="bouton">Eliminar tudo</span>.</li>
+      <li>A aplicação responde <em>Todos os seus dados foram eliminados.</em> Está feito — e é irreversível.</li>
+    </ol>
+
+    <h2><span class="n">2.</span>Ou simplesmente desinstalar a aplicação</h2>
+    <p>Mantenha o ícone do Kash premido e escolha <strong>Desinstalar</strong>. Ou vá a <strong>Definições do Android › Aplicações › Kash › Desinstalar</strong>.</p>
+    <p>A desinstalação remove de uma só vez o armazenamento privado da aplicação: a base de dados cifrada, as fotografias dos talões, as definições e a chave de cifra. Nada fica no telemóvel, e nada tinha alguma vez sido copiado para o Google Drive, uma vez que a cópia de segurança automática do Android está desativada para esta aplicação.</p>
+
+    <h2><span class="n">3.</span>O que é eliminado e onde estava</h2>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Dado</th><th>Onde estava guardado</th><th>O que acontece</th></tr></thead>
+        <tbody>
+          <tr><td>Talões, linhas de artigos, valores, datas, lojas</td><td>Base SQLite local cifrada com SQLCipher, no armazenamento privado da aplicação</td><td>Eliminados</td></tr>
+          <tr><td>Fotografias dos talões</td><td>Pasta privada da aplicação, no dispositivo</td><td>Eliminadas</td></tr>
+          <tr><td>Categorias (incluindo as suas), orçamentos por envelope, subscrições detetadas, histórico de preços</td><td>A mesma base cifrada</td><td>Eliminados</td></tr>
+          <tr><td>Membros do agregado e chave de repartição</td><td>A mesma base cifrada</td><td>Eliminados</td></tr>
+          <tr><td>Definições e preferências</td><td>Armazenamento privado da aplicação</td><td>Eliminadas</td></tr>
+          <tr><td>Notificações locais agendadas</td><td>Agendador do Android, no telemóvel</td><td>Canceladas</td></tr>
+          <tr><td>Chave de cifra da base de dados</td><td>Cofre de chaves do Android (Keystore)</td><td>Destruída</td></tr>
+          <tr><td>Ficheiros que exportou ou salvaguardou (CSV, PDF, ficheiro de cópia de segurança)</td><td>Onde os guardou ou enviou</td><td>Não afetados — esses apaga-os você</td></tr>
+          <tr><td>Dados guardados num servidor</td><td>Não existem: sem servidor, sem conta, sem cópia na nuvem</td><td>Nada a eliminar</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2><span class="n">4.</span>Nada é conservado e não há qualquer prazo</h2>
+    <p>O Kash não tem conta nem servidor: o programador não detém nenhum dos seus dados. Não há, portanto, nada a conservar depois da eliminação, nenhum prazo de retenção e nada que pudesse ser restaurado.</p>
+    <p>A eliminação é imediata e definitiva assim que a confirma na aplicação. Não há mensagem para enviar nem confirmação para esperar.</p>
+    <p>Para o detalhe do que a aplicação trata e onde, consulte a <a href="confidentialite.html?lang=pt">política de privacidade</a>.</p>
+
+    <h2><span class="n">5.</span>Alguma questão?</h2>
+    <p>Escreva para <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20elimina%C3%A7%C3%A3o%20de%20dados">support.app.bv@gmail.com</a> — o assunto já vai preenchido.</p>
+    <p>Tenha presente que o programador não pode apagar nada em seu lugar, nem recuperar, restaurar ou entregar qualquer dado: nenhum existe fora do seu telemóvel.</p>
+    <p>Aplicação em causa: <strong>Kash</strong> — <span class="ref">com.florian.budgettickets</span> — <a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash no Google Play</a>.</p>
+
+    <footer>
+      <p>Esta página está acessível a partir da aplicação: <strong>Mais › Dados e privacidade › Documentos publicados</strong>.</p>
+      <p>Apoio: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=pt">todas as páginas legais</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== DEUTSCH ===================== -->
+  <main id="main-de" data-titre="Kash — Datenlöschung" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Deine Daten löschen</h1>
+    </header>
+    <p class="maj">App Kash <span class="ref">com.florian.budgettickets</span>, herausgegeben vom Entwickler. Zuletzt aktualisiert: 9. September 2026.</p>
+
+    <div class="note">
+      <p><b>Es ist kein Antrag nötig.</b> Kash hat weder Konto noch Server: Der Entwickler besitzt keine deiner Daten.</p>
+      <p>Alles liegt auf deinem Telefon, und du löschst es in wenigen Sekunden selbst — in der App oder durch Deinstallieren. Es gibt nichts einzufordern, und niemand sonst könnte es für dich tun.</p>
+    </div>
+
+    <h2><span class="n">1.</span>Alles direkt in der App löschen</h2>
+    <p>Wenn du etwas behalten möchtest, tu das vorher: <em>Mehr › Exportieren</em> erzeugt eine CSV-Datei und einen monatlichen PDF-Bericht, <em>Mehr › Sicherung</em> ein vollständiges verschlüsseltes Archiv samt Fotos. Nach dem Löschen lässt sich nichts mehr zurückholen.</p>
+    <ol class="etapes">
+      <li>Öffne <strong>Kash</strong>.</li>
+      <li>Tippe in der unteren Leiste auf <span class="bouton">Mehr</span>.</li>
+      <li>Tippe unter <em>Deine Daten</em> auf <span class="bouton">Daten und Datenschutz</span>.</li>
+      <li>Scrolle ganz nach unten und tippe auf <span class="bouton">Alle meine Daten löschen</span>.</li>
+      <li>Erste Bestätigung — <em>Alle Daten löschen?</em> — tippe auf <span class="bouton">Weiter</span>.</li>
+      <li>Zweite Bestätigung — <em>Letzte Bestätigung</em> — tippe auf <span class="bouton">Alles löschen</span>.</li>
+      <li>Die App meldet <em>Alle deine Daten wurden gelöscht.</em> Damit ist es erledigt — und nicht rückgängig zu machen.</li>
+    </ol>
+
+    <h2><span class="n">2.</span>Oder die App einfach deinstallieren</h2>
+    <p>Halte das Kash-Symbol gedrückt und wähle <strong>Deinstallieren</strong>. Oder gehe zu <strong>Android-Einstellungen › Apps › Kash › Deinstallieren</strong>.</p>
+    <p>Das Deinstallieren entfernt den privaten Speicher der App in einem Zug: die verschlüsselte Datenbank, die Belegfotos, die Einstellungen und den Schlüssel. Auf dem Telefon bleibt nichts zurück, und zu Google Drive war ohnehin nie etwas kopiert worden, da die automatische Android-Sicherung für diese App deaktiviert ist.</p>
+
+    <h2><span class="n">3.</span>Was gelöscht wird — und wo es lag</h2>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Daten</th><th>Bisheriger Speicherort</th><th>Was geschieht</th></tr></thead>
+        <tbody>
+          <tr><td>Belege, Artikelzeilen, Beträge, Daten, Händler</td><td>Lokale, mit SQLCipher verschlüsselte SQLite-Datenbank im privaten Speicher der App</td><td>Gelöscht</td></tr>
+          <tr><td>Belegfotos</td><td>Privater Ordner der App, auf dem Gerät</td><td>Gelöscht</td></tr>
+          <tr><td>Kategorien (auch eigene), Umschlag-Budgets, erkannte Abos, Preisverlauf</td><td>Dieselbe verschlüsselte Datenbank</td><td>Gelöscht</td></tr>
+          <tr><td>Haushaltsmitglieder und Verteilungsschlüssel</td><td>Dieselbe verschlüsselte Datenbank</td><td>Gelöscht</td></tr>
+          <tr><td>Einstellungen und Vorlieben</td><td>Privater Speicher der App</td><td>Gelöscht</td></tr>
+          <tr><td>Geplante lokale Mitteilungen</td><td>Android-Planer, auf dem Telefon</td><td>Abgebrochen</td></tr>
+          <tr><td>Schlüssel zur Datenbankverschlüsselung</td><td>Android-Schlüsselspeicher (Keystore)</td><td>Vernichtet</td></tr>
+          <tr><td>Dateien, die du selbst exportiert oder gesichert hast (CSV, PDF, Sicherungsarchiv)</td><td>Dort, wo du sie gespeichert oder hingesendet hast</td><td>Nicht betroffen — die löschst du selbst</td></tr>
+          <tr><td>Daten auf einem Server</td><td>Existieren nicht: kein Server, kein Konto, keine Cloud-Sicherung</td><td>Nichts zu löschen</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2><span class="n">4.</span>Nichts wird aufbewahrt, und es gibt keine Frist</h2>
+    <p>Kash hat weder Konto noch Server: Der Entwickler besitzt keine deiner Daten. Nach dem Löschen gibt es also nichts aufzubewahren, keine Aufbewahrungsfrist und nichts, was wiederhergestellt werden könnte.</p>
+    <p>Die Löschung wirkt sofort und endgültig, sobald du sie in der App bestätigst. Es muss keine Nachricht geschickt und auf keine Bestätigung gewartet werden.</p>
+    <p>Was die App im Einzelnen verarbeitet und wo, steht in der <a href="confidentialite.html?lang=de">Datenschutzerklärung</a>.</p>
+
+    <h2><span class="n">5.</span>Noch Fragen?</h2>
+    <p>Schreib an <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20Datenl%C3%B6schung">support.app.bv@gmail.com</a> — der Betreff ist bereits ausgefüllt.</p>
+    <p>Bedenke dabei: Der Entwickler kann nichts an deiner Stelle löschen und keine Daten abrufen, wiederherstellen oder herausgeben — außerhalb deines Telefons existieren keine.</p>
+    <p>Betroffene App: <strong>Kash</strong> — <span class="ref">com.florian.budgettickets</span> — <a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash bei Google Play</a>.</p>
+
+    <footer>
+      <p>Diese Seite ist aus der App heraus verlinkt: <strong>Mehr › Daten und Datenschutz › Veröffentlichte Dokumente</strong>.</p>
+      <p>Support: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=de">alle rechtlichen Seiten</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== ITALIANO ===================== -->
+  <main id="main-it" data-titre="Kash — Cancellazione dei dati" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Cancellare i tuoi dati</h1>
+    </header>
+    <p class="maj">App Kash <span class="ref">com.florian.budgettickets</span>, pubblicata dallo sviluppatore. Ultimo aggiornamento: 9 settembre 2026.</p>
+
+    <div class="note">
+      <p><b>Nessuna richiesta è necessaria.</b> Kash non ha account né server: lo sviluppatore non detiene alcun tuo dato.</p>
+      <p>È tutto sul tuo telefono e sei tu a cancellarlo in pochi secondi — dall&rsquo;app oppure disinstallandola. Non c&rsquo;è nulla da chiedere, e nessun altro potrebbe farlo al posto tuo.</p>
+    </div>
+
+    <h2><span class="n">1.</span>Cancellare tutto dall&rsquo;app</h2>
+    <p>Se vuoi conservare una copia di qualcosa, fallo prima: <em>Altro › Esporta</em> produce un file CSV e un rapporto PDF mensile, e <em>Altro › Backup</em> produce un archivio cifrato completo, foto comprese. Dopo la cancellazione non si recupera più nulla.</p>
+    <ol class="etapes">
+      <li>Apri <strong>Kash</strong>.</li>
+      <li>Nella barra in basso tocca <span class="bouton">Altro</span>.</li>
+      <li>In <em>I tuoi dati</em>, tocca <span class="bouton">Dati e privacy</span>.</li>
+      <li>Scorri fino in fondo alla schermata e tocca <span class="bouton">Elimina tutti i miei dati</span>.</li>
+      <li>Prima conferma — <em>Eliminare tutti i dati?</em> — tocca <span class="bouton">Continua</span>.</li>
+      <li>Seconda conferma — <em>Ultima conferma</em> — tocca <span class="bouton">Elimina tutto</span>.</li>
+      <li>L&rsquo;app risponde <em>Tutti i tuoi dati sono stati eliminati.</em> È fatta — ed è irreversibile.</li>
+    </ol>
+
+    <h2><span class="n">2.</span>Oppure disinstallare semplicemente l&rsquo;app</h2>
+    <p>Tieni premuta l&rsquo;icona di Kash e scegli <strong>Disinstalla</strong>. Oppure vai in <strong>Impostazioni Android › App › Kash › Disinstalla</strong>.</p>
+    <p>La disinstallazione rimuove in un colpo solo l&rsquo;archivio privato dell&rsquo;app: il database cifrato, le foto degli scontrini, le impostazioni e la chiave di cifratura. Sul telefono non resta nulla, e su Google Drive non era comunque mai stato copiato niente, perché il backup automatico di Android è disattivato per questa app.</p>
+
+    <h2><span class="n">3.</span>Che cosa viene cancellato e dove si trovava</h2>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Dato</th><th>Dove era conservato</th><th>Che cosa succede</th></tr></thead>
+        <tbody>
+          <tr><td>Scontrini, righe articolo, importi, date, negozi</td><td>Database SQLite locale cifrato con SQLCipher, nell&rsquo;archivio privato dell&rsquo;app</td><td>Cancellati</td></tr>
+          <tr><td>Foto degli scontrini</td><td>Cartella privata dell&rsquo;app, sul dispositivo</td><td>Cancellate</td></tr>
+          <tr><td>Categorie (comprese le tue), budget a buste, abbonamenti rilevati, storico dei prezzi</td><td>Lo stesso database cifrato</td><td>Cancellati</td></tr>
+          <tr><td>Membri della famiglia e chiave di ripartizione</td><td>Lo stesso database cifrato</td><td>Cancellati</td></tr>
+          <tr><td>Impostazioni e preferenze</td><td>Archivio privato dell&rsquo;app</td><td>Cancellate</td></tr>
+          <tr><td>Notifiche locali programmate</td><td>Pianificatore di Android, sul telefono</td><td>Annullate</td></tr>
+          <tr><td>Chiave di cifratura del database</td><td>Archivio sicuro di Android (Keystore)</td><td>Distrutta</td></tr>
+          <tr><td>File che hai esportato o salvato tu (CSV, PDF, archivio di backup)</td><td>Dove li hai salvati o inviati</td><td>Non interessati — quelli li cancelli tu</td></tr>
+          <tr><td>Dati conservati su un server</td><td>Non esistono: nessun server, nessun account, nessun backup nel cloud</td><td>Nulla da cancellare</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2><span class="n">4.</span>Non viene conservato nulla e non c&rsquo;è alcun termine</h2>
+    <p>Kash non ha account né server: lo sviluppatore non detiene alcun tuo dato. Dopo la cancellazione non c&rsquo;è quindi nulla da conservare, nessun periodo di conservazione e nulla che possa essere ripristinato.</p>
+    <p>La cancellazione è immediata e definitiva non appena la confermi nell&rsquo;app. Non serve inviare alcun messaggio né attendere alcuna conferma.</p>
+    <p>Per il dettaglio di che cosa tratta l&rsquo;app e dove, consulta l&rsquo;<a href="confidentialite.html?lang=it">informativa sulla privacy</a>.</p>
+
+    <h2><span class="n">5.</span>Hai una domanda?</h2>
+    <p>Scrivi a <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20cancellazione%20dei%20dati">support.app.bv@gmail.com</a> — l&rsquo;oggetto è già compilato.</p>
+    <p>Tieni presente che lo sviluppatore non può cancellare nulla al posto tuo, né recuperare, ripristinare o consegnare alcun dato: fuori dal tuo telefono non ne esiste nessuno.</p>
+    <p>App interessata: <strong>Kash</strong> — <span class="ref">com.florian.budgettickets</span> — <a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash su Google Play</a>.</p>
+
+    <footer>
+      <p>Questa pagina è raggiungibile dall&rsquo;app: <strong>Altro › Dati e privacy › Documenti pubblicati</strong>.</p>
+      <p>Assistenza: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=it">tutte le pagine legali</a></p>
+    </footer>
+  </main>
+
+</div>
+
+<script>
+/* =========================================================================
+   Choix de la langue — vanilla, aucune requête externe.
+   Ordre de priorité :
+     1. le paramètre « ?lang=xx » de l'URL, qui l'emporte sur tout le reste :
+        l'application ouvre ces pages avec la langue choisie dans ses réglages,
+        laquelle peut différer de celle du téléphone ;
+     2. sinon navigator.languages / navigator.language, comparés sur le
+        préfixe de deux lettres (« fr-CA » correspond donc à « fr ») ;
+     3. sinon l'anglais.
+   Repli sans JavaScript : la section anglaise n'a PAS l'attribut « hidden »
+   dans le HTML, elle reste donc visible telle quelle ; les cinq autres
+   restent masquées et la barre de langues, masquée elle aussi, n'affiche
+   pas de boutons inertes.
+   ========================================================================= */
+(function () {
+  var LANGUES = ['en', 'fr', 'es', 'pt', 'de', 'it'];
+  var DEFAUT = 'en';
+
+  /** Renvoie le code à deux lettres si la langue est gérée, sinon une chaîne vide. */
+  function normaliser(valeur) {
+    var code = String(valeur || '').slice(0, 2).toLowerCase();
+    return LANGUES.indexOf(code) > -1 ? code : '';
+  }
+
+  /** Applique l'ordre de priorité décrit ci-dessus. */
+  function langueChoisie() {
+    var parametre = /[?&]lang=([^&#]*)/.exec(location.search);
+    var depuisUrl = parametre ? normaliser(decodeURIComponent(parametre[1])) : '';
+    if (depuisUrl) return depuisUrl;
+
+    var liste = (navigator.languages && navigator.languages.length)
+      ? navigator.languages
+      : [navigator.language || ''];
+    for (var i = 0; i < liste.length; i++) {
+      var trouvee = normaliser(liste[i]);
+      if (trouvee) return trouvee;
+    }
+    return DEFAUT;
+  }
+
+  /** Affiche une seule section et met la pastille correspondante en « actif ». */
+  function appliquer(langue) {
+    if (LANGUES.indexOf(langue) < 0) langue = DEFAUT;
+    for (var i = 0; i < LANGUES.length; i++) {
+      var code = LANGUES[i];
+      var section = document.getElementById('main-' + code);
+      var pastille = document.getElementById('pill-' + code);
+      if (section) {
+        section.hidden = (code !== langue);
+        if (code === langue && section.getAttribute('data-titre')) {
+          document.title = section.getAttribute('data-titre');
+        }
+      }
+      if (pastille) {
+        if (code === langue) {
+          pastille.className = 'actif';
+          pastille.setAttribute('aria-current', 'true');
+        } else {
+          pastille.className = '';
+          pastille.removeAttribute('aria-current');
+        }
+      }
+    }
+    document.documentElement.lang = langue;
+  }
+
+  var barre = document.getElementById('langues');
+  if (barre) {
+    barre.hidden = false; /* les boutons ne servent que si le script tourne */
+    barre.addEventListener('click', function (evenement) {
+      var cible = evenement.target;
+      var demande = cible && cible.getAttribute ? cible.getAttribute('data-lang') : null;
+      if (demande) appliquer(demande);
+    });
+  }
+
+  appliquer(langueChoisie());
+})();
+</script>
+</body>
+</html>

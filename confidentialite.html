@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kash — Privacy policy</title>
+<meta name="description" content="Privacy policy of the Kash app: fully on-device, no account, no network calls, on-device OCR, encrypted local database." />
+<style>
+  :root{
+    color-scheme: dark;
+    --bg:#0A0F1A;
+    --card:#141C2B;
+    --ink:#E9EEF7;
+    --muted:#96A3B8;
+    --line:#233047;
+    --accent:#5EE6C0;
+    --marque:#4C8DFF;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none !important}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size:16px; line-height:1.65;
+    overflow-wrap:break-word;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+
+  /* Barre de langues : masquée tant que le script ne l'a pas activée (voir le repli sans JS en bas de page). */
+  .langues{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;margin:0 0 26px}
+  .langues button{
+    font:inherit;font-size:13px;font-weight:600;cursor:pointer;
+    background:var(--card);color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:6px 14px;
+  }
+  .langues button:hover{color:var(--ink);border-color:var(--marque)}
+  .langues button.actif{background:var(--marque);border-color:var(--marque);color:#08111F}
+
+  header.top{display:flex;align-items:center;gap:14px;margin:0 0 8px}
+  .logo{
+    width:40px;height:40px;flex:0 0 40px;border-radius:12px;
+    background:var(--card);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .logo svg{width:22px;height:22px;display:block}
+  h1{font-size:26px;line-height:1.25;margin:0;font-weight:700}
+  .maj{color:var(--muted);font-size:14px;margin:0 0 22px}
+  .ref{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;color:var(--muted)}
+
+  h2{font-size:19px;line-height:1.35;margin:34px 0 10px;font-weight:700}
+  h2 .n{color:var(--accent);font-weight:700;margin-right:8px;font-variant-numeric:tabular-nums}
+  p{margin:0 0 14px}
+  ul,ol{padding-left:22px;margin:0 0 14px}
+  li{margin:7px 0}
+  a{color:var(--accent)}
+  a:hover{color:var(--marque)}
+
+  .tableau{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:16px 0;-webkit-overflow-scrolling:touch}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:15px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--card);color:var(--muted);font-weight:600;white-space:nowrap}
+  tbody tr:last-child td{border-bottom:0}
+
+  .note{
+    background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:14px;padding:18px 20px;margin:22px 0 6px;
+  }
+  .note p{margin:0 0 10px;font-size:15px}
+  .note p:last-child{margin:0}
+  .note b{color:var(--accent)}
+
+  footer{
+    margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:14px;
+  }
+  footer p{margin:0 0 8px}
+  footer p:last-child{margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Boutons pastilles : la langue courante porte la classe « actif ». -->
+  <nav class="langues" id="langues" aria-label="Language" hidden>
+    <button type="button" id="pill-en" data-lang="en">English</button>
+    <button type="button" id="pill-fr" data-lang="fr">Français</button>
+    <button type="button" id="pill-es" data-lang="es">Español</button>
+    <button type="button" id="pill-pt" data-lang="pt">Português</button>
+    <button type="button" id="pill-de" data-lang="de">Deutsch</button>
+    <button type="button" id="pill-it" data-lang="it">Italiano</button>
+  </nav>
+
+  <!-- =========================================================
+       ENGLISH — version par défaut, jamais masquée dans le HTML.
+       Sans JavaScript, c'est la seule section visible.
+       ========================================================= -->
+  <main id="main-en" data-titre="Kash — Privacy policy">
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Privacy policy</h1>
+    </header>
+    <p class="maj">Kash app <span class="ref">com.florian.budgettickets</span>, published by the developer. Last updated: 9 September 2026.</p>
+
+    <div class="note">
+      <p><b>The short version.</b> Kash works entirely on your phone. No account, no bank connection, no server.</p>
+      <p>The app makes no network calls, contains no advertising and no analytics. Receipts are read by an OCR engine bundled inside the app, so the photo never leaves the device. Everything is kept in a local database encrypted with SQLCipher, whose key stays in the Android Keystore.</p>
+      <p>The developer therefore holds none of your data, and could not retrieve it even if asked.</p>
+    </div>
+
+    <h2><span class="n">1.</span>Who is responsible, and what this policy covers</h2>
+    <p>Kash is an Android app published on Google Play by an independent developer, referred to below as <strong>the developer</strong>. Contact: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a>.</p>
+    <p>This policy covers the Kash application (package <span class="ref">com.florian.budgettickets</span>) and these pages. It describes what the app handles on your device, what it never does, and how to erase everything.</p>
+    <p>Where the General Data Protection Regulation (GDPR) applies, the developer is the party responsible for the app. In practice, all the processing described below happens on your device alone: the developer never receives, stores or accesses any of your data.</p>
+
+    <h2><span class="n">2.</span>What data the app handles, and where it stays</h2>
+    <p>Kash handles the following on your device. There is deliberately no <em>our servers</em> column, because there are no servers.</p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Data</th><th>Purpose</th><th>Where it is stored</th></tr></thead>
+        <tbody>
+          <tr><td>Photo of a receipt</td><td>Keeping an image of the purchase and re-reading it later</td><td>Private storage of the app, on the device</td></tr>
+          <tr><td>Text extracted from the photo (merchant, date, total, item lines)</td><td>Filling in the receipt without typing it</td><td>Encrypted local database</td></tr>
+          <tr><td>Amounts, dates, merchants</td><td>Spending history, statistics, price history per item</td><td>Encrypted local database</td></tr>
+          <tr><td>Categories, including the ones you create</td><td>Sorting your spending</td><td>Encrypted local database</td></tr>
+          <tr><td>Envelope budgets and alert thresholds</td><td>Monitoring and end-of-month projection</td><td>Encrypted local database</td></tr>
+          <tr><td>Recurring payments detected as subscriptions</td><td>Reminding you of a due date</td><td>Encrypted local database</td></tr>
+          <tr><td>Household members and split key</td><td>Splitting shared spending</td><td>Encrypted local database</td></tr>
+          <tr><td>Settings (theme, language, notification schedule, app lock)</td><td>Making the app behave the way you set it</td><td>Private storage of the app</td></tr>
+          <tr><td>Exports and backups you create yourself</td><td>Keeping or moving your own data</td><td>Wherever you choose to save or send them — see §9</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>None of this is transmitted. There is no user identifier, no advertising identifier, no account and no e-mail address, because none of them is needed.</p>
+
+    <h2><span class="n">3.</span>On-device reading of receipts (OCR)</h2>
+    <p>When you photograph or import a receipt, the text is read by <strong>Google ML Kit</strong> text recognition. That component is bundled inside the app and runs on the phone&rsquo;s own processor. It needs no internet connection and works in aeroplane mode.</p>
+    <p><strong>The photo is never uploaded, and neither is the extracted text.</strong> Nothing is sent to Google, to the developer or to anyone else: both stay in the app&rsquo;s private storage and in the encrypted database.</p>
+    <p>Automatic reading is imperfect, so Kash always asks you to check what it found before saving, and flags the fields it read with low confidence. You can correct every one of them.</p>
+
+    <h2><span class="n">4.</span>What the app never does</h2>
+    <ul>
+      <li>No account, no sign-in, no e-mail address, no password.</li>
+      <li>No bank connection: no Open Banking, no card linking, no import of bank statements.</li>
+      <li>No network calls at all — the app talks to no server, not even the developer&rsquo;s.</li>
+      <li>No advertising, no advertising SDK, no advertising identifier.</li>
+      <li>No analytics or audience measurement: no Firebase, no Google Analytics, no Meta SDK.</li>
+      <li>No cloud backup: Android&rsquo;s automatic backup is disabled for this app (<span class="ref">allowBackup=false</span>), so your data is never copied to Google Drive.</li>
+      <li>No sale, no sharing, no transfer of your data to a third party — there is nothing to sell or to share.</li>
+      <li>No microphone: audio recording is explicitly disabled in the camera component.</li>
+    </ul>
+
+    <h2><span class="n">5.</span>Permissions, and why each one is requested</h2>
+    <p>Android asks for a permission the first time the feature actually needs it. You can refuse, and change your mind later in the system settings; only the matching feature stops working.</p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Permission</th><th>Purpose</th><th>Optional?</th></tr></thead>
+        <tbody>
+          <tr><td>Camera</td><td>Photographing a receipt in order to scan it</td><td>Yes — you can type a receipt in by hand or import a picture instead</td></tr>
+          <tr><td>Photos and media</td><td>Importing an existing picture of a receipt from your gallery</td><td>Yes — requested only when you import</td></tr>
+          <tr><td>Notifications</td><td>Local budget alerts, weekly reminder, subscription due dates</td><td>Yes — the app works without them</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Kash uses no other permission. The optional biometric lock relies on the system&rsquo;s own check: Android answers yes or no, and the app never sees your fingerprint or your face (see §7).</p>
+
+    <h2><span class="n">6.</span>Legal basis</h2>
+    <p>For the optional features above — camera, photo library, notifications — the legal basis is your <strong>consent</strong>, Art. 6(1)(a) GDPR, given through the Android permission prompt and withdrawable at any time in the system settings.</p>
+    <p>For everything else, the processing is <strong>purely local</strong>: the data never leaves your device. There is therefore no transmission, no recipient, no processor and no transfer outside the European Union. The developer is not a recipient of your data.</p>
+    <p>The data you enter belongs to you: you decide what to record, what to correct and what to erase.</p>
+
+    <h2><span class="n">7.</span>Security</h2>
+    <ul>
+      <li>The database is SQLite encrypted with <strong>SQLCipher (AES-256)</strong>.</li>
+      <li>The encryption key is generated on the device and kept in the <strong>Android Keystore</strong>. It never leaves the phone and the developer never knows it.</li>
+      <li>Receipt photos are kept in the app&rsquo;s private storage, which other apps cannot read.</li>
+      <li>An optional <strong>biometric lock</strong> (fingerprint or face, depending on the device) can be switched on to open the app.</li>
+      <li>Android&rsquo;s automatic cloud backup is <strong>disabled</strong>, so no copy of the database or of your photos is ever uploaded to Google Drive.</li>
+    </ul>
+    <p>No protection survives a compromised device: keep a screen lock, keep Android up to date, and be careful with rooted phones and with apps installed outside Google Play.</p>
+
+    <h2><span class="n">8.</span>Notifications</h2>
+    <p>Kash can show three kinds of notification: an alert when a budget envelope reaches a threshold, an optional weekly reminder, and a reminder for a subscription due date.</p>
+    <p>They are all <strong>local notifications</strong>, scheduled by Android on your phone. There is no push server, no device token and no notification identifier. Their content is computed on the device and never leaves it.</p>
+    <p>You can switch them off in the app or in the Android settings.</p>
+
+    <h2><span class="n">9.</span>Exports and backups</h2>
+    <p>Kash can produce a <strong>CSV export</strong>, a <strong>monthly PDF report</strong> and an <strong>encrypted backup archive</strong> that includes the receipt photos. All three are created only when you ask for them.</p>
+    <p>The file is written on your device and handed to the phone&rsquo;s own share sheet, so you choose what happens next: save it, send it to yourself, or cancel. The app uploads nothing and has no destination of its own.</p>
+    <p>Once a file has left the app — into your Downloads folder, an e-mail or a cloud drive — it is no longer covered by the protections described here. It is an ordinary file, under your control and under the terms of whichever service you sent it to.</p>
+
+    <h2><span class="n">10.</span>Retention and deletion</h2>
+    <p>Your data stays on your device for as long as you keep it. Kash deletes nothing on its own and applies no expiry date.</p>
+    <p>You can erase everything at any time from <strong>More › Data &amp; privacy › Delete all my data</strong>. That destroys the database, the receipt photos <em>and</em> the encryption key, and cancels the scheduled notifications. The action is immediate and cannot be undone.</p>
+    <p>Uninstalling the app removes all of it as well, since everything lives in the app&rsquo;s private storage.</p>
+    <p>There is no server-side copy, so there is nothing to keep, nothing to request and nothing the developer could restore. Exports and backups that you have already saved elsewhere are not affected — those you delete yourself. Step-by-step instructions are on the <a href="suppression.html">data deletion page</a>.</p>
+
+    <h2><span class="n">11.</span>Children</h2>
+    <p>Kash is not designed for children and is not directed at them. Since the app collects nothing and transmits nothing, it cannot collect a child&rsquo;s data either.</p>
+
+    <h2><span class="n">12.</span>Your rights, and how they are exercised</h2>
+    <p>Under the GDPR you have the rights of access, rectification, erasure, restriction, objection and portability. Because your data exists only on your device and the developer holds no copy, those rights are exercised <strong>directly in the app</strong>, immediately and without having to ask anyone:</p>
+    <ul>
+      <li><strong>Access</strong> — everything is visible in the app.</li>
+      <li><strong>Rectification</strong> — every field of a receipt, a category or a budget can be edited.</li>
+      <li><strong>Portability</strong> — <em>More › Export</em> produces a CSV file and a monthly PDF report; <em>More › Backup</em> produces a complete archive.</li>
+      <li><strong>Erasure</strong> — <em>More › Data &amp; privacy › Delete all my data</em>, or uninstall the app.</li>
+    </ul>
+    <p>A request sent to the developer cannot produce more than this: there is no file to send you, no copy to correct and nothing to delete on the other side.</p>
+    <p>If you nevertheless believe your rights are not respected, you may lodge a complaint with your national supervisory authority. In France that is the CNIL — <a href="https://www.cnil.fr">www.cnil.fr</a>.</p>
+
+    <h2><span class="n">13.</span>Changes to this policy</h2>
+    <p>This policy may be updated, for instance if a feature changes. The date at the top always indicates the version in force, and this page keeps the same address. A significant change would be announced in a new version of the app.</p>
+
+    <h2><span class="n">14.</span>Contact</h2>
+    <p>Any question about this policy: <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20privacy">support.app.bv@gmail.com</a>.</p>
+    <p>Store listing: <a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash on Google Play</a>.</p>
+
+    <footer>
+      <p>This page is linked from the app: <strong>More › Data &amp; privacy › Published documents</strong>.</p>
+      <p>Support: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html">all legal pages</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== FRANÇAIS ===================== -->
+  <main id="main-fr" data-titre="Kash — Politique de confidentialité" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Politique de confidentialité</h1>
+    </header>
+    <p class="maj">Application Kash <span class="ref">com.florian.budgettickets</span>, publiée par l&rsquo;éditeur. Dernière mise à jour : 9 septembre 2026.</p>
+
+    <div class="note">
+      <p><b>La version courte.</b> Kash fonctionne entièrement sur votre téléphone. Pas de compte, pas de connexion bancaire, pas de serveur.</p>
+      <p>L&rsquo;application n&rsquo;effectue aucun appel réseau, ne contient ni publicité ni mesure d&rsquo;audience. Les tickets sont lus par un moteur de reconnaissance de texte embarqué dans l&rsquo;application : la photo ne quitte donc jamais l&rsquo;appareil. Tout est conservé dans une base locale chiffrée avec SQLCipher, dont la clé reste dans le coffre-fort d&rsquo;Android.</p>
+      <p>L&rsquo;éditeur ne détient donc aucune de vos données, et ne pourrait pas les récupérer même si on le lui demandait.</p>
+    </div>
+
+    <h2><span class="n">1.</span>Qui est responsable, et ce que couvre cette politique</h2>
+    <p>Kash est une application Android publiée sur Google Play par un développeur indépendant, désigné ci-dessous par <strong>l&rsquo;éditeur</strong>. Contact : <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a>.</p>
+    <p>Cette politique couvre l&rsquo;application Kash (paquet <span class="ref">com.florian.budgettickets</span>) et les présentes pages. Elle décrit ce que l&rsquo;application traite sur votre appareil, ce qu&rsquo;elle ne fait jamais, et comment tout effacer.</p>
+    <p>Là où le Règlement général sur la protection des données (RGPD) s&rsquo;applique, l&rsquo;éditeur est le responsable de l&rsquo;application. En pratique, tous les traitements décrits ci-dessous ont lieu sur votre seul appareil : l&rsquo;éditeur ne reçoit, ne stocke et ne consulte jamais aucune de vos données.</p>
+
+    <h2><span class="n">2.</span>Les données traitées, et où elles restent</h2>
+    <p>Kash traite les éléments suivants sur votre appareil. Il n&rsquo;y a volontairement pas de colonne <em>nos serveurs</em>, puisqu&rsquo;il n&rsquo;y a pas de serveur.</p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Donnée</th><th>Finalité</th><th>Lieu de conservation</th></tr></thead>
+        <tbody>
+          <tr><td>Photo d&rsquo;un ticket</td><td>Garder une image de l&rsquo;achat et pouvoir la relire</td><td>Stockage privé de l&rsquo;application, sur l&rsquo;appareil</td></tr>
+          <tr><td>Texte extrait de la photo (enseigne, date, total, lignes d&rsquo;articles)</td><td>Remplir le ticket sans le saisir à la main</td><td>Base locale chiffrée</td></tr>
+          <tr><td>Montants, dates, enseignes</td><td>Historique des dépenses, statistiques, historique de prix par article</td><td>Base locale chiffrée</td></tr>
+          <tr><td>Catégories, y compris celles que vous créez</td><td>Classer vos dépenses</td><td>Base locale chiffrée</td></tr>
+          <tr><td>Budgets enveloppes et seuils d&rsquo;alerte</td><td>Suivi et projection de fin de mois</td><td>Base locale chiffrée</td></tr>
+          <tr><td>Paiements récurrents détectés comme abonnements</td><td>Vous rappeler une échéance</td><td>Base locale chiffrée</td></tr>
+          <tr><td>Membres du foyer et clé de répartition</td><td>Répartir les dépenses communes</td><td>Base locale chiffrée</td></tr>
+          <tr><td>Réglages (thème, langue, horaires de notification, verrouillage)</td><td>Faire fonctionner l&rsquo;application comme vous l&rsquo;avez réglée</td><td>Stockage privé de l&rsquo;application</td></tr>
+          <tr><td>Exports et sauvegardes que vous créez vous-même</td><td>Conserver ou déplacer vos propres données</td><td>Là où vous choisissez de les enregistrer ou de les envoyer — voir §9</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Rien de tout cela n&rsquo;est transmis. Il n&rsquo;existe ni identifiant utilisateur, ni identifiant publicitaire, ni compte, ni adresse e-mail : aucun n&rsquo;est nécessaire.</p>
+
+    <h2><span class="n">3.</span>Lecture des tickets sur l&rsquo;appareil (OCR)</h2>
+    <p>Quand vous photographiez ou importez un ticket, le texte est lu par la reconnaissance de texte <strong>Google ML Kit</strong>. Ce composant est embarqué dans l&rsquo;application et s&rsquo;exécute sur le processeur du téléphone. Il ne demande aucune connexion Internet et fonctionne en mode avion.</p>
+    <p><strong>La photo n&rsquo;est jamais envoyée sur Internet, le texte extrait non plus.</strong> Rien n&rsquo;est transmis à Google, à l&rsquo;éditeur ni à qui que ce soit : les deux restent dans le stockage privé de l&rsquo;application et dans la base chiffrée.</p>
+    <p>La lecture automatique n&rsquo;est pas infaillible : Kash vous demande toujours de vérifier ce qu&rsquo;il a trouvé avant d&rsquo;enregistrer et signale les champs lus avec une faible confiance. Vous pouvez les corriger tous.</p>
+
+    <h2><span class="n">4.</span>Ce que l&rsquo;application ne fait jamais</h2>
+    <ul>
+      <li>Aucun compte, aucune connexion, aucune adresse e-mail, aucun mot de passe.</li>
+      <li>Aucune connexion bancaire : ni <em>Open Banking</em>, ni rattachement de carte, ni import de relevés.</li>
+      <li>Aucun appel réseau — l&rsquo;application ne parle à aucun serveur, pas même à celui de l&rsquo;éditeur.</li>
+      <li>Aucune publicité, aucun SDK publicitaire, aucun identifiant publicitaire.</li>
+      <li>Aucune mesure d&rsquo;audience : ni Firebase, ni Google Analytics, ni SDK Meta.</li>
+      <li>Aucune sauvegarde dans le nuage : la sauvegarde automatique d&rsquo;Android est désactivée pour cette application (<span class="ref">allowBackup=false</span>), vos données ne sont donc jamais copiées vers Google Drive.</li>
+      <li>Aucune vente, aucun partage, aucune transmission de vos données à un tiers — il n&rsquo;y a rien à vendre ni à partager.</li>
+      <li>Aucun micro : l&rsquo;enregistrement audio est explicitement désactivé dans le composant appareil photo.</li>
+    </ul>
+
+    <h2><span class="n">5.</span>Les permissions, et pourquoi chacune est demandée</h2>
+    <p>Android demande une permission la première fois que la fonction en a réellement besoin. Vous pouvez refuser, et revenir sur votre choix plus tard dans les réglages du système ; seule la fonction correspondante cesse alors de fonctionner.</p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Permission</th><th>Finalité</th><th>Facultative ?</th></tr></thead>
+        <tbody>
+          <tr><td>Appareil photo</td><td>Photographier un ticket pour le scanner</td><td>Oui — vous pouvez aussi saisir un ticket à la main ou importer une photo</td></tr>
+          <tr><td>Photos et médias</td><td>Importer depuis la galerie une photo de ticket déjà prise</td><td>Oui — demandée uniquement au moment d&rsquo;un import</td></tr>
+          <tr><td>Notifications</td><td>Alertes de budget locales, rappel hebdomadaire, échéances d&rsquo;abonnement</td><td>Oui — l&rsquo;application fonctionne sans</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Kash n&rsquo;utilise aucune autre permission. Le verrouillage biométrique facultatif s&rsquo;appuie sur la vérification du système : Android répond oui ou non, et l&rsquo;application ne voit jamais votre empreinte ni votre visage (voir §7).</p>
+
+    <h2><span class="n">6.</span>Base légale</h2>
+    <p>Pour les fonctions facultatives ci-dessus — appareil photo, galerie, notifications — la base légale est votre <strong>consentement</strong>, article 6.1.a du RGPD, donné par la demande de permission d&rsquo;Android et retirable à tout moment dans les réglages du système.</p>
+    <p>Pour tout le reste, le traitement est <strong>purement local</strong> : les données ne quittent jamais votre appareil. Il n&rsquo;y a donc ni transmission, ni destinataire, ni sous-traitant, ni transfert hors de l&rsquo;Union européenne. L&rsquo;éditeur n&rsquo;est pas destinataire de vos données.</p>
+    <p>Les données que vous saisissez vous appartiennent : vous décidez de ce que vous enregistrez, corrigez et effacez.</p>
+
+    <h2><span class="n">7.</span>Sécurité</h2>
+    <ul>
+      <li>La base de données est une base SQLite chiffrée avec <strong>SQLCipher (AES-256)</strong>.</li>
+      <li>La clé de chiffrement est générée sur l&rsquo;appareil et conservée dans le <strong>coffre-fort d&rsquo;Android (Keystore)</strong>. Elle ne quitte jamais le téléphone et l&rsquo;éditeur ne la connaît pas.</li>
+      <li>Les photos de tickets sont conservées dans le stockage privé de l&rsquo;application, illisible par les autres applications.</li>
+      <li>Un <strong>verrouillage biométrique</strong> facultatif (empreinte ou visage selon l&rsquo;appareil) peut être activé à l&rsquo;ouverture.</li>
+      <li>La sauvegarde automatique d&rsquo;Android est <strong>désactivée</strong> : aucune copie de la base ni de vos photos n&rsquo;est envoyée vers Google Drive.</li>
+    </ul>
+    <p>Aucune protection ne résiste à un appareil compromis : gardez un verrouillage d&rsquo;écran, maintenez Android à jour, et méfiez-vous des téléphones « rootés » et des applications installées hors de Google Play.</p>
+
+    <h2><span class="n">8.</span>Notifications</h2>
+    <p>Kash peut afficher trois sortes de notifications : une alerte quand une enveloppe de budget atteint un seuil, un rappel hebdomadaire facultatif, et le rappel d&rsquo;une échéance d&rsquo;abonnement.</p>
+    <p>Ce sont toutes des <strong>notifications locales</strong>, programmées par Android sur votre téléphone. Il n&rsquo;y a ni serveur de notification <em>push</em>, ni jeton d&rsquo;appareil, ni identifiant de notification. Leur contenu est calculé sur l&rsquo;appareil et ne le quitte pas.</p>
+    <p>Vous pouvez les désactiver dans l&rsquo;application ou dans les réglages d&rsquo;Android.</p>
+
+    <h2><span class="n">9.</span>Exports et sauvegardes</h2>
+    <p>Kash peut produire un <strong>export CSV</strong>, un <strong>rapport PDF mensuel</strong> et une <strong>archive de sauvegarde chiffrée</strong> contenant les photos de tickets. Les trois ne sont créés que si vous les demandez.</p>
+    <p>Le fichier est écrit sur votre appareil, puis remis au menu de partage du téléphone : c&rsquo;est vous qui décidez de la suite — l&rsquo;enregistrer, vous l&rsquo;envoyer, ou annuler. L&rsquo;application n&rsquo;envoie rien et n&rsquo;a aucune destination propre.</p>
+    <p>Une fois qu&rsquo;un fichier a quitté l&rsquo;application — dossier Téléchargements, e-mail, espace de stockage en ligne — il n&rsquo;est plus couvert par les protections décrites ici. C&rsquo;est un fichier ordinaire, sous votre contrôle et soumis aux conditions du service auquel vous l&rsquo;avez confié.</p>
+
+    <h2><span class="n">10.</span>Conservation et suppression</h2>
+    <p>Vos données restent sur votre appareil aussi longtemps que vous les gardez. Kash n&rsquo;efface rien de lui-même et n&rsquo;applique aucune date de péremption.</p>
+    <p>Vous pouvez tout effacer à tout moment depuis <strong>Plus › Données et confidentialité › Supprimer toutes mes données</strong>. Cela détruit la base de données, les photos de tickets <em>et</em> la clé de chiffrement, et annule les notifications programmées. L&rsquo;action est immédiate et irréversible.</p>
+    <p>La désinstallation de l&rsquo;application supprime elle aussi l&rsquo;ensemble, puisque tout réside dans le stockage privé de l&rsquo;application.</p>
+    <p>Il n&rsquo;existe aucune copie côté serveur : il n&rsquo;y a donc rien à conserver, rien à demander, et rien que l&rsquo;éditeur pourrait restaurer. Les exports et sauvegardes que vous avez déjà enregistrés ailleurs ne sont pas concernés — ceux-là, vous les supprimez vous-même. La marche à suivre détaillée figure sur la <a href="suppression.html?lang=fr">page de suppression des données</a>.</p>
+
+    <h2><span class="n">11.</span>Enfants</h2>
+    <p>Kash n&rsquo;est ni conçue pour les enfants ni destinée à eux. Comme l&rsquo;application ne collecte rien et ne transmet rien, elle ne peut pas davantage collecter les données d&rsquo;un enfant.</p>
+
+    <h2><span class="n">12.</span>Vos droits, et comment ils s&rsquo;exercent</h2>
+    <p>Le RGPD vous ouvre les droits d&rsquo;accès, de rectification, d&rsquo;effacement, de limitation, d&rsquo;opposition et de portabilité. Comme vos données n&rsquo;existent que sur votre appareil et que l&rsquo;éditeur n&rsquo;en détient aucune copie, ces droits s&rsquo;exercent <strong>directement dans l&rsquo;application</strong>, immédiatement et sans avoir à demander quoi que ce soit :</p>
+    <ul>
+      <li><strong>Accès</strong> — tout est visible dans l&rsquo;application.</li>
+      <li><strong>Rectification</strong> — chaque champ d&rsquo;un ticket, d&rsquo;une catégorie ou d&rsquo;un budget est modifiable.</li>
+      <li><strong>Portabilité</strong> — <em>Plus › Exporter</em> produit un fichier CSV et un rapport PDF mensuel ; <em>Plus › Sauvegarde</em> produit une archive complète.</li>
+      <li><strong>Effacement</strong> — <em>Plus › Données et confidentialité › Supprimer toutes mes données</em>, ou la désinstallation.</li>
+    </ul>
+    <p>Une demande adressée à l&rsquo;éditeur ne peut pas aller plus loin : il n&rsquo;y a aucun fichier à vous envoyer, aucune copie à corriger et rien à supprimer de l&rsquo;autre côté.</p>
+    <p>Si vous estimez malgré tout que vos droits ne sont pas respectés, vous pouvez saisir votre autorité de contrôle. En France, il s&rsquo;agit de la CNIL — <a href="https://www.cnil.fr">www.cnil.fr</a>.</p>
+
+    <h2><span class="n">13.</span>Modifications de cette politique</h2>
+    <p>Cette politique peut être mise à jour, par exemple si une fonction évolue. La date en haut de page indique toujours la version en vigueur, et cette page conserve la même adresse. Une modification importante serait annoncée dans une nouvelle version de l&rsquo;application.</p>
+
+    <h2><span class="n">14.</span>Contact</h2>
+    <p>Toute question sur cette politique : <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20confidentialit%C3%A9">support.app.bv@gmail.com</a>.</p>
+    <p>Fiche du magasin : <a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash sur Google Play</a>.</p>
+
+    <footer>
+      <p>Cette page est accessible depuis l&rsquo;application : <strong>Plus › Données et confidentialité › Documents publiés</strong>.</p>
+      <p>Assistance : <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=fr">toutes les pages légales</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== ESPAÑOL ===================== -->
+  <main id="main-es" data-titre="Kash — Política de privacidad" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Política de privacidad</h1>
+    </header>
+    <p class="maj">Aplicación Kash <span class="ref">com.florian.budgettickets</span>, publicada por el desarrollador. Última actualización: 9 de septiembre de 2026.</p>
+
+    <div class="note">
+      <p><b>La versión corta.</b> Kash funciona íntegramente en tu teléfono. Sin cuenta, sin conexión bancaria, sin servidor.</p>
+      <p>La aplicación no realiza ninguna llamada de red y no incluye publicidad ni analítica. Los tickets los lee un motor de reconocimiento de texto integrado en la propia aplicación, así que la foto nunca sale del dispositivo. Todo se guarda en una base de datos local cifrada con SQLCipher, cuya clave permanece en el almacén de claves de Android.</p>
+      <p>Por tanto, el desarrollador no tiene ninguno de tus datos y no podría recuperarlos aunque se lo pidieran.</p>
+    </div>
+
+    <h2><span class="n">1.</span>Quién es responsable y qué cubre esta política</h2>
+    <p>Kash es una aplicación Android publicada en Google Play por un desarrollador independiente, al que se denomina aquí <strong>el desarrollador</strong>. Contacto: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a>.</p>
+    <p>Esta política cubre la aplicación Kash (paquete <span class="ref">com.florian.budgettickets</span>) y estas páginas. Explica qué trata la aplicación en tu dispositivo, qué no hace nunca y cómo borrarlo todo.</p>
+    <p>Allí donde se aplica el Reglamento General de Protección de Datos (RGPD), el desarrollador es el responsable de la aplicación. En la práctica, todos los tratamientos descritos a continuación ocurren únicamente en tu dispositivo: el desarrollador nunca recibe, guarda ni consulta ninguno de tus datos.</p>
+
+    <h2><span class="n">2.</span>Qué datos trata la aplicación y dónde se quedan</h2>
+    <p>Kash trata lo siguiente en tu dispositivo. No hay, deliberadamente, una columna <em>nuestros servidores</em>, porque no hay servidores.</p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Dato</th><th>Finalidad</th><th>Dónde se guarda</th></tr></thead>
+        <tbody>
+          <tr><td>Foto de un ticket</td><td>Conservar una imagen de la compra y poder releerla</td><td>Almacenamiento privado de la aplicación, en el dispositivo</td></tr>
+          <tr><td>Texto extraído de la foto (comercio, fecha, total, líneas de artículos)</td><td>Rellenar el ticket sin teclearlo</td><td>Base de datos local cifrada</td></tr>
+          <tr><td>Importes, fechas, comercios</td><td>Historial de gastos, estadísticas, historial de precios por artículo</td><td>Base de datos local cifrada</td></tr>
+          <tr><td>Categorías, incluidas las que creas tú</td><td>Clasificar tus gastos</td><td>Base de datos local cifrada</td></tr>
+          <tr><td>Presupuestos por sobres y umbrales de aviso</td><td>Seguimiento y proyección de fin de mes</td><td>Base de datos local cifrada</td></tr>
+          <tr><td>Pagos recurrentes detectados como suscripciones</td><td>Recordarte un vencimiento</td><td>Base de datos local cifrada</td></tr>
+          <tr><td>Miembros del hogar y clave de reparto</td><td>Repartir los gastos comunes</td><td>Base de datos local cifrada</td></tr>
+          <tr><td>Ajustes (tema, idioma, horarios de notificación, bloqueo)</td><td>Que la aplicación se comporte como la has configurado</td><td>Almacenamiento privado de la aplicación</td></tr>
+          <tr><td>Exportaciones y copias de seguridad que creas tú</td><td>Conservar o mover tus propios datos</td><td>Donde decidas guardarlas o enviarlas — véase §9</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Nada de esto se transmite. No hay identificador de usuario, ni identificador publicitario, ni cuenta, ni dirección de correo: ninguno hace falta.</p>
+
+    <h2><span class="n">3.</span>Lectura de los tickets en el dispositivo (OCR)</h2>
+    <p>Cuando fotografías o importas un ticket, el texto lo lee el reconocimiento de texto de <strong>Google ML Kit</strong>. Ese componente va integrado en la aplicación y se ejecuta en el propio procesador del teléfono. No necesita conexión a internet y funciona en modo avión.</p>
+    <p><strong>La foto no se sube nunca, y el texto extraído tampoco.</strong> No se envía nada a Google, ni al desarrollador, ni a nadie: ambos se quedan en el almacenamiento privado de la aplicación y en la base de datos cifrada.</p>
+    <p>La lectura automática no es infalible, así que Kash siempre te pide comprobar lo que ha encontrado antes de guardar y señala los campos leídos con poca confianza. Puedes corregirlos todos.</p>
+
+    <h2><span class="n">4.</span>Lo que la aplicación no hace nunca</h2>
+    <ul>
+      <li>Ninguna cuenta, ningún inicio de sesión, ninguna dirección de correo, ninguna contraseña.</li>
+      <li>Ninguna conexión bancaria: ni <em>Open Banking</em>, ni vinculación de tarjetas, ni importación de extractos.</li>
+      <li>Ninguna llamada de red — la aplicación no habla con ningún servidor, ni siquiera con el del desarrollador.</li>
+      <li>Ninguna publicidad, ningún SDK publicitario, ningún identificador publicitario.</li>
+      <li>Ninguna analítica ni medición de audiencia: ni Firebase, ni Google Analytics, ni SDK de Meta.</li>
+      <li>Ninguna copia en la nube: la copia de seguridad automática de Android está desactivada para esta aplicación (<span class="ref">allowBackup=false</span>), por lo que tus datos nunca se copian a Google Drive.</li>
+      <li>Ninguna venta, ninguna cesión, ninguna transmisión de tus datos a terceros — no hay nada que vender ni que compartir.</li>
+      <li>Ningún micrófono: la grabación de audio está explícitamente desactivada en el componente de cámara.</li>
+    </ul>
+
+    <h2><span class="n">5.</span>Permisos y por qué se pide cada uno</h2>
+    <p>Android pide un permiso la primera vez que la función lo necesita de verdad. Puedes negarte y cambiar de opinión más adelante en los ajustes del sistema; solo deja de funcionar la función correspondiente.</p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Permiso</th><th>Finalidad</th><th>¿Opcional?</th></tr></thead>
+        <tbody>
+          <tr><td>Cámara</td><td>Fotografiar un ticket para escanearlo</td><td>Sí — también puedes introducir el ticket a mano o importar una foto</td></tr>
+          <tr><td>Fotos y multimedia</td><td>Importar desde la galería una foto de ticket ya hecha</td><td>Sí — solo se pide en el momento de importar</td></tr>
+          <tr><td>Notificaciones</td><td>Avisos de presupuesto locales, recordatorio semanal, vencimientos de suscripciones</td><td>Sí — la aplicación funciona sin ellas</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Kash no utiliza ningún otro permiso. El bloqueo biométrico opcional se apoya en la comprobación del propio sistema: Android responde sí o no, y la aplicación nunca ve tu huella ni tu cara (véase §7).</p>
+
+    <h2><span class="n">6.</span>Base jurídica</h2>
+    <p>Para las funciones opcionales anteriores — cámara, galería, notificaciones — la base jurídica es tu <strong>consentimiento</strong>, artículo 6.1.a del RGPD, prestado mediante la solicitud de permiso de Android y retirable en cualquier momento en los ajustes del sistema.</p>
+    <p>Para todo lo demás, el tratamiento es <strong>puramente local</strong>: los datos no salen nunca de tu dispositivo. No hay, por tanto, ni transmisión, ni destinatario, ni encargado del tratamiento, ni transferencia fuera de la Unión Europea. El desarrollador no es destinatario de tus datos.</p>
+    <p>Los datos que introduces son tuyos: tú decides qué registras, qué corriges y qué borras.</p>
+
+    <h2><span class="n">7.</span>Seguridad</h2>
+    <ul>
+      <li>La base de datos es SQLite cifrada con <strong>SQLCipher (AES-256)</strong>.</li>
+      <li>La clave de cifrado se genera en el dispositivo y se guarda en el <strong>almacén de claves de Android (Keystore)</strong>. Nunca sale del teléfono y el desarrollador no la conoce.</li>
+      <li>Las fotos de los tickets se guardan en el almacenamiento privado de la aplicación, ilegible para otras aplicaciones.</li>
+      <li>Puedes activar un <strong>bloqueo biométrico</strong> opcional (huella o cara, según el dispositivo) para abrir la aplicación.</li>
+      <li>La copia de seguridad automática de Android está <strong>desactivada</strong>: ninguna copia de la base de datos ni de tus fotos se sube a Google Drive.</li>
+    </ul>
+    <p>Ninguna protección sobrevive a un dispositivo comprometido: mantén el bloqueo de pantalla, mantén Android actualizado y desconfía de los teléfonos con <em>root</em> y de las aplicaciones instaladas fuera de Google Play.</p>
+
+    <h2><span class="n">8.</span>Notificaciones</h2>
+    <p>Kash puede mostrar tres tipos de notificación: un aviso cuando un sobre de presupuesto alcanza un umbral, un recordatorio semanal opcional y el recordatorio del vencimiento de una suscripción.</p>
+    <p>Todas son <strong>notificaciones locales</strong>, programadas por Android en tu teléfono. No hay servidor de notificaciones <em>push</em>, ni token de dispositivo, ni identificador de notificación. Su contenido se calcula en el dispositivo y no sale de él.</p>
+    <p>Puedes desactivarlas en la aplicación o en los ajustes de Android.</p>
+
+    <h2><span class="n">9.</span>Exportaciones y copias de seguridad</h2>
+    <p>Kash puede generar una <strong>exportación CSV</strong>, un <strong>informe PDF mensual</strong> y un <strong>archivo de copia de seguridad cifrado</strong> que incluye las fotos de los tickets. Los tres se crean solo cuando tú los pides.</p>
+    <p>El archivo se escribe en tu dispositivo y se entrega al menú de compartir del propio teléfono, así que tú decides qué pasa después: guardarlo, enviártelo o cancelar. La aplicación no sube nada y no tiene ningún destino propio.</p>
+    <p>Cuando un archivo ha salido de la aplicación — a la carpeta de descargas, a un correo, a un disco en la nube — deja de estar cubierto por las protecciones descritas aquí. Es un archivo corriente, bajo tu control y sujeto a las condiciones del servicio al que lo hayas confiado.</p>
+
+    <h2><span class="n">10.</span>Conservación y eliminación</h2>
+    <p>Tus datos permanecen en tu dispositivo mientras tú los conserves. Kash no borra nada por su cuenta ni aplica ninguna fecha de caducidad.</p>
+    <p>Puedes borrarlo todo cuando quieras desde <strong>Más › Datos y privacidad › Eliminar todos mis datos</strong>. Eso destruye la base de datos, las fotos de los tickets <em>y</em> la clave de cifrado, y cancela las notificaciones programadas. La acción es inmediata e irreversible.</p>
+    <p>Desinstalar la aplicación elimina también todo el conjunto, porque todo reside en el almacenamiento privado de la aplicación.</p>
+    <p>No existe ninguna copia en un servidor, así que no hay nada que conservar, nada que solicitar y nada que el desarrollador pudiera restaurar. Las exportaciones y copias que ya hayas guardado en otro sitio no se ven afectadas: esas las borras tú. Las instrucciones detalladas están en la <a href="suppression.html?lang=es">página de eliminación de datos</a>.</p>
+
+    <h2><span class="n">11.</span>Menores</h2>
+    <p>Kash no está diseñada para menores ni dirigida a ellos. Como la aplicación no recoge nada ni transmite nada, tampoco puede recoger los datos de un menor.</p>
+
+    <h2><span class="n">12.</span>Tus derechos y cómo se ejercen</h2>
+    <p>El RGPD te reconoce los derechos de acceso, rectificación, supresión, limitación, oposición y portabilidad. Como tus datos existen únicamente en tu dispositivo y el desarrollador no tiene ninguna copia, esos derechos se ejercen <strong>directamente en la aplicación</strong>, de forma inmediata y sin pedírselo a nadie:</p>
+    <ul>
+      <li><strong>Acceso</strong> — todo está a la vista en la aplicación.</li>
+      <li><strong>Rectificación</strong> — cada campo de un ticket, de una categoría o de un presupuesto es editable.</li>
+      <li><strong>Portabilidad</strong> — <em>Más › Exportar</em> genera un archivo CSV y un informe PDF mensual; <em>Más › Copia de seguridad</em> genera un archivo completo.</li>
+      <li><strong>Supresión</strong> — <em>Más › Datos y privacidad › Eliminar todos mis datos</em>, o desinstalar la aplicación.</li>
+    </ul>
+    <p>Una solicitud dirigida al desarrollador no puede dar más de sí: no hay ningún archivo que enviarte, ninguna copia que corregir y nada que borrar del otro lado.</p>
+    <p>Si aun así consideras que tus derechos no se respetan, puedes reclamar ante tu autoridad de control. En Francia es la CNIL — <a href="https://www.cnil.fr">www.cnil.fr</a>; en España, la Agencia Española de Protección de Datos.</p>
+
+    <h2><span class="n">13.</span>Cambios en esta política</h2>
+    <p>Esta política puede actualizarse, por ejemplo si cambia alguna función. La fecha de la parte superior indica siempre la versión vigente, y esta página conserva la misma dirección. Un cambio importante se anunciaría en una nueva versión de la aplicación.</p>
+
+    <h2><span class="n">14.</span>Contacto</h2>
+    <p>Cualquier duda sobre esta política: <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20privacidad">support.app.bv@gmail.com</a>.</p>
+    <p>Ficha de la tienda: <a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash en Google Play</a>.</p>
+
+    <footer>
+      <p>Esta página es accesible desde la aplicación: <strong>Más › Datos y privacidad › Documentos publicados</strong>.</p>
+      <p>Soporte: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=es">todas las páginas legales</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== PORTUGUÊS ===================== -->
+  <main id="main-pt" data-titre="Kash — Política de privacidade" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Política de privacidade</h1>
+    </header>
+    <p class="maj">Aplicação Kash <span class="ref">com.florian.budgettickets</span>, publicada pelo programador. Última atualização: 9 de setembro de 2026.</p>
+
+    <div class="note">
+      <p><b>A versão curta.</b> O Kash funciona inteiramente no seu telemóvel. Sem conta, sem ligação bancária, sem servidor.</p>
+      <p>A aplicação não faz qualquer chamada de rede e não contém publicidade nem análise de utilização. Os talões são lidos por um motor de reconhecimento de texto integrado na própria aplicação, pelo que a fotografia nunca sai do dispositivo. Tudo fica numa base de dados local cifrada com SQLCipher, cuja chave permanece no cofre de chaves do Android.</p>
+      <p>O programador não detém, portanto, nenhum dos seus dados, e não os conseguiria obter mesmo que lhos pedissem.</p>
+    </div>
+
+    <h2><span class="n">1.</span>Quem é responsável e o que abrange esta política</h2>
+    <p>O Kash é uma aplicação Android publicada no Google Play por um programador independente, aqui designado por <strong>o programador</strong>. Contacto: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a>.</p>
+    <p>Esta política abrange a aplicação Kash (pacote <span class="ref">com.florian.budgettickets</span>) e as presentes páginas. Descreve o que a aplicação trata no seu dispositivo, o que nunca faz e como apagar tudo.</p>
+    <p>Onde o Regulamento Geral sobre a Proteção de Dados (RGPD) se aplica, o programador é o responsável pela aplicação. Na prática, todos os tratamentos descritos abaixo ocorrem apenas no seu dispositivo: o programador nunca recebe, guarda nem consulta qualquer um dos seus dados.</p>
+
+    <h2><span class="n">2.</span>Que dados a aplicação trata e onde ficam</h2>
+    <p>O Kash trata os seguintes elementos no seu dispositivo. Não existe, deliberadamente, uma coluna <em>os nossos servidores</em>, porque não há servidores.</p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Dado</th><th>Finalidade</th><th>Onde é guardado</th></tr></thead>
+        <tbody>
+          <tr><td>Fotografia de um talão</td><td>Guardar uma imagem da compra e poder relê-la</td><td>Armazenamento privado da aplicação, no dispositivo</td></tr>
+          <tr><td>Texto extraído da fotografia (loja, data, total, linhas de artigos)</td><td>Preencher o talão sem o escrever à mão</td><td>Base de dados local cifrada</td></tr>
+          <tr><td>Valores, datas, lojas</td><td>Histórico de despesas, estatísticas, histórico de preços por artigo</td><td>Base de dados local cifrada</td></tr>
+          <tr><td>Categorias, incluindo as que cria</td><td>Organizar as suas despesas</td><td>Base de dados local cifrada</td></tr>
+          <tr><td>Orçamentos por envelope e limites de alerta</td><td>Acompanhamento e projeção de fim de mês</td><td>Base de dados local cifrada</td></tr>
+          <tr><td>Pagamentos recorrentes detetados como subscrições</td><td>Lembrar-lhe um vencimento</td><td>Base de dados local cifrada</td></tr>
+          <tr><td>Membros do agregado e chave de repartição</td><td>Repartir as despesas comuns</td><td>Base de dados local cifrada</td></tr>
+          <tr><td>Definições (tema, idioma, horários de notificação, bloqueio)</td><td>Fazer a aplicação funcionar como a configurou</td><td>Armazenamento privado da aplicação</td></tr>
+          <tr><td>Exportações e cópias de segurança que cria</td><td>Guardar ou transferir os seus próprios dados</td><td>Onde escolher guardá-las ou enviá-las — ver §9</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Nada disto é transmitido. Não existe identificador de utilizador, identificador publicitário, conta nem endereço de e-mail: nenhum é necessário.</p>
+
+    <h2><span class="n">3.</span>Leitura dos talões no dispositivo (OCR)</h2>
+    <p>Quando fotografa ou importa um talão, o texto é lido pelo reconhecimento de texto do <strong>Google ML Kit</strong>. Esse componente está integrado na aplicação e corre no processador do próprio telemóvel. Não precisa de ligação à internet e funciona em modo de voo.</p>
+    <p><strong>A fotografia nunca é enviada, e o texto extraído também não.</strong> Nada é transmitido à Google, ao programador ou a quem quer que seja: ambos permanecem no armazenamento privado da aplicação e na base de dados cifrada.</p>
+    <p>A leitura automática não é infalível, por isso o Kash pede-lhe sempre para verificar o que encontrou antes de guardar e assinala os campos lidos com pouca confiança. Pode corrigi-los todos.</p>
+
+    <h2><span class="n">4.</span>O que a aplicação nunca faz</h2>
+    <ul>
+      <li>Nenhuma conta, nenhum início de sessão, nenhum endereço de e-mail, nenhuma palavra-passe.</li>
+      <li>Nenhuma ligação bancária: sem <em>Open Banking</em>, sem associação de cartões, sem importação de extratos.</li>
+      <li>Nenhuma chamada de rede — a aplicação não fala com nenhum servidor, nem sequer com o do programador.</li>
+      <li>Nenhuma publicidade, nenhum SDK publicitário, nenhum identificador publicitário.</li>
+      <li>Nenhuma análise de utilização: sem Firebase, sem Google Analytics, sem SDK da Meta.</li>
+      <li>Nenhuma cópia na nuvem: a cópia de segurança automática do Android está desativada para esta aplicação (<span class="ref">allowBackup=false</span>), pelo que os seus dados nunca são copiados para o Google Drive.</li>
+      <li>Nenhuma venda, nenhuma partilha, nenhuma transmissão dos seus dados a terceiros — não há nada para vender nem para partilhar.</li>
+      <li>Nenhum microfone: a gravação de áudio está explicitamente desativada no componente de câmara.</li>
+    </ul>
+
+    <h2><span class="n">5.</span>Permissões e porque cada uma é pedida</h2>
+    <p>O Android pede uma permissão na primeira vez que a funcionalidade realmente precisa dela. Pode recusar e mudar de ideias mais tarde nas definições do sistema; só a funcionalidade correspondente deixa de funcionar.</p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Permissão</th><th>Finalidade</th><th>Facultativa?</th></tr></thead>
+        <tbody>
+          <tr><td>Câmara</td><td>Fotografar um talão para o digitalizar</td><td>Sim — também pode introduzir o talão à mão ou importar uma fotografia</td></tr>
+          <tr><td>Fotografias e multimédia</td><td>Importar da galeria uma fotografia de talão já tirada</td><td>Sim — pedida apenas no momento da importação</td></tr>
+          <tr><td>Notificações</td><td>Alertas de orçamento locais, lembrete semanal, vencimentos de subscrições</td><td>Sim — a aplicação funciona sem elas</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>O Kash não utiliza qualquer outra permissão. O bloqueio biométrico facultativo assenta na verificação do próprio sistema: o Android responde sim ou não, e a aplicação nunca vê a sua impressão digital nem o seu rosto (ver §7).</p>
+
+    <h2><span class="n">6.</span>Fundamento jurídico</h2>
+    <p>Para as funcionalidades facultativas acima — câmara, galeria, notificações — o fundamento jurídico é o seu <strong>consentimento</strong>, artigo 6.º, n.º 1, alínea a) do RGPD, dado através do pedido de permissão do Android e retirável a qualquer momento nas definições do sistema.</p>
+    <p>Para todo o resto, o tratamento é <strong>puramente local</strong>: os dados nunca saem do seu dispositivo. Não há, por isso, transmissão, destinatário, subcontratante nem transferência para fora da União Europeia. O programador não é destinatário dos seus dados.</p>
+    <p>Os dados que introduz são seus: é você que decide o que regista, o que corrige e o que apaga.</p>
+
+    <h2><span class="n">7.</span>Segurança</h2>
+    <ul>
+      <li>A base de dados é SQLite cifrada com <strong>SQLCipher (AES-256)</strong>.</li>
+      <li>A chave de cifra é gerada no dispositivo e guardada no <strong>cofre de chaves do Android (Keystore)</strong>. Nunca sai do telemóvel e o programador não a conhece.</li>
+      <li>As fotografias dos talões ficam no armazenamento privado da aplicação, ilegível por outras aplicações.</li>
+      <li>Pode ativar um <strong>bloqueio biométrico</strong> facultativo (impressão digital ou rosto, conforme o dispositivo) para abrir a aplicação.</li>
+      <li>A cópia de segurança automática do Android está <strong>desativada</strong>: nenhuma cópia da base de dados ou das suas fotografias é enviada para o Google Drive.</li>
+    </ul>
+    <p>Nenhuma proteção resiste a um dispositivo comprometido: mantenha o bloqueio de ecrã, mantenha o Android atualizado e desconfie de telemóveis com <em>root</em> e de aplicações instaladas fora do Google Play.</p>
+
+    <h2><span class="n">8.</span>Notificações</h2>
+    <p>O Kash pode mostrar três tipos de notificação: um alerta quando um envelope de orçamento atinge um limite, um lembrete semanal facultativo e o lembrete do vencimento de uma subscrição.</p>
+    <p>São todas <strong>notificações locais</strong>, agendadas pelo Android no seu telemóvel. Não há servidor de notificações <em>push</em>, nem token de dispositivo, nem identificador de notificação. O conteúdo é calculado no dispositivo e não sai dele.</p>
+    <p>Pode desativá-las na aplicação ou nas definições do Android.</p>
+
+    <h2><span class="n">9.</span>Exportações e cópias de segurança</h2>
+    <p>O Kash pode produzir uma <strong>exportação CSV</strong>, um <strong>relatório PDF mensal</strong> e um <strong>ficheiro de cópia de segurança cifrado</strong> que inclui as fotografias dos talões. Os três só são criados quando os pede.</p>
+    <p>O ficheiro é escrito no seu dispositivo e entregue ao menu de partilha do próprio telemóvel, pelo que é você que decide o que acontece a seguir: guardá-lo, enviá-lo para si ou cancelar. A aplicação não envia nada e não tem qualquer destino próprio.</p>
+    <p>Assim que um ficheiro sai da aplicação — para a pasta de transferências, um e-mail ou um disco na nuvem — deixa de estar coberto pelas proteções aqui descritas. Passa a ser um ficheiro comum, sob o seu controlo e sujeito às condições do serviço a que o confiou.</p>
+
+    <h2><span class="n">10.</span>Conservação e eliminação</h2>
+    <p>Os seus dados permanecem no dispositivo enquanto os quiser manter. O Kash não apaga nada por si próprio e não aplica qualquer prazo de validade.</p>
+    <p>Pode apagar tudo a qualquer momento em <strong>Mais › Dados e privacidade › Eliminar todos os meus dados</strong>. Isso destrói a base de dados, as fotografias dos talões <em>e</em> a chave de cifra, e cancela as notificações agendadas. A ação é imediata e irreversível.</p>
+    <p>Desinstalar a aplicação remove igualmente tudo, uma vez que tudo reside no armazenamento privado da aplicação.</p>
+    <p>Não existe qualquer cópia do lado de um servidor, pelo que não há nada a conservar, nada a pedir e nada que o programador pudesse restaurar. As exportações e cópias que já tenha guardado noutro sítio não são afetadas — essas apaga-as você. As instruções detalhadas estão na <a href="suppression.html?lang=pt">página de eliminação de dados</a>.</p>
+
+    <h2><span class="n">11.</span>Crianças</h2>
+    <p>O Kash não foi concebido para crianças nem se dirige a elas. Como a aplicação não recolhe nada e não transmite nada, também não pode recolher os dados de uma criança.</p>
+
+    <h2><span class="n">12.</span>Os seus direitos e como se exercem</h2>
+    <p>O RGPD confere-lhe os direitos de acesso, retificação, apagamento, limitação, oposição e portabilidade. Como os seus dados existem apenas no seu dispositivo e o programador não guarda qualquer cópia, esses direitos exercem-se <strong>diretamente na aplicação</strong>, de imediato e sem ter de pedir seja o que for:</p>
+    <ul>
+      <li><strong>Acesso</strong> — está tudo visível na aplicação.</li>
+      <li><strong>Retificação</strong> — qualquer campo de um talão, de uma categoria ou de um orçamento pode ser editado.</li>
+      <li><strong>Portabilidade</strong> — <em>Mais › Exportar</em> produz um ficheiro CSV e um relatório PDF mensal; <em>Mais › Cópia de segurança</em> produz um ficheiro completo.</li>
+      <li><strong>Apagamento</strong> — <em>Mais › Dados e privacidade › Eliminar todos os meus dados</em>, ou desinstalar a aplicação.</li>
+    </ul>
+    <p>Um pedido dirigido ao programador não pode ir mais longe: não há ficheiro para lhe enviar, cópia para corrigir nem nada para apagar do outro lado.</p>
+    <p>Se ainda assim considerar que os seus direitos não são respeitados, pode apresentar reclamação junto da sua autoridade de controlo. Em França é a CNIL — <a href="https://www.cnil.fr">www.cnil.fr</a>; em Portugal, a CNPD.</p>
+
+    <h2><span class="n">13.</span>Alterações a esta política</h2>
+    <p>Esta política pode ser atualizada, por exemplo se uma funcionalidade mudar. A data no topo indica sempre a versão em vigor e esta página mantém o mesmo endereço. Uma alteração significativa seria anunciada numa nova versão da aplicação.</p>
+
+    <h2><span class="n">14.</span>Contacto</h2>
+    <p>Qualquer questão sobre esta política: <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20privacidade">support.app.bv@gmail.com</a>.</p>
+    <p>Página na loja: <a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash no Google Play</a>.</p>
+
+    <footer>
+      <p>Esta página está acessível a partir da aplicação: <strong>Mais › Dados e privacidade › Documentos publicados</strong>.</p>
+      <p>Apoio: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=pt">todas as páginas legais</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== DEUTSCH ===================== -->
+  <main id="main-de" data-titre="Kash — Datenschutzerklärung" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Datenschutzerklärung</h1>
+    </header>
+    <p class="maj">App Kash <span class="ref">com.florian.budgettickets</span>, herausgegeben vom Entwickler. Zuletzt aktualisiert: 9. September 2026.</p>
+
+    <div class="note">
+      <p><b>Die Kurzfassung.</b> Kash arbeitet vollständig auf deinem Telefon. Kein Konto, keine Bankverbindung, kein Server.</p>
+      <p>Die App stellt keine Netzwerkverbindungen her und enthält weder Werbung noch Analyse. Belege werden von einer Texterkennung gelesen, die in der App selbst mitgeliefert wird — das Foto verlässt das Gerät also nie. Alles liegt in einer lokalen, mit SQLCipher verschlüsselten Datenbank, deren Schlüssel im Android-Schlüsselspeicher bleibt.</p>
+      <p>Der Entwickler besitzt daher keine deiner Daten und könnte sie auch auf Anfrage nicht herausgeben.</p>
+    </div>
+
+    <h2><span class="n">1.</span>Wer verantwortlich ist und was diese Erklärung abdeckt</h2>
+    <p>Kash ist eine Android-App, die von einem unabhängigen Entwickler — im Folgenden <strong>der Entwickler</strong> — bei Google Play veröffentlicht wird. Kontakt: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a>.</p>
+    <p>Diese Erklärung gilt für die App Kash (Paket <span class="ref">com.florian.budgettickets</span>) und für diese Seiten. Sie beschreibt, was die App auf deinem Gerät verarbeitet, was sie nie tut und wie du alles löschst.</p>
+    <p>Soweit die Datenschutz-Grundverordnung (DSGVO) gilt, ist der Entwickler der für die App Verantwortliche. Praktisch findet jede unten beschriebene Verarbeitung ausschließlich auf deinem Gerät statt: Der Entwickler erhält, speichert und sieht keine deiner Daten.</p>
+
+    <h2><span class="n">2.</span>Welche Daten die App verarbeitet — und wo sie bleiben</h2>
+    <p>Kash verarbeitet auf deinem Gerät Folgendes. Eine Spalte <em>unsere Server</em> fehlt bewusst, denn es gibt keine Server.</p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Daten</th><th>Zweck</th><th>Speicherort</th></tr></thead>
+        <tbody>
+          <tr><td>Foto eines Belegs</td><td>Ein Bild des Einkaufs behalten und später erneut auslesen</td><td>Privater Speicher der App, auf dem Gerät</td></tr>
+          <tr><td>Aus dem Foto gelesener Text (Händler, Datum, Summe, Artikelzeilen)</td><td>Den Beleg ausfüllen, ohne zu tippen</td><td>Verschlüsselte lokale Datenbank</td></tr>
+          <tr><td>Beträge, Daten, Händler</td><td>Ausgabenverlauf, Statistiken, Preisverlauf je Artikel</td><td>Verschlüsselte lokale Datenbank</td></tr>
+          <tr><td>Kategorien, auch die selbst angelegten</td><td>Ausgaben einsortieren</td><td>Verschlüsselte lokale Datenbank</td></tr>
+          <tr><td>Umschlag-Budgets und Warnschwellen</td><td>Überblick und Hochrechnung zum Monatsende</td><td>Verschlüsselte lokale Datenbank</td></tr>
+          <tr><td>Als Abo erkannte wiederkehrende Zahlungen</td><td>An eine Fälligkeit erinnern</td><td>Verschlüsselte lokale Datenbank</td></tr>
+          <tr><td>Haushaltsmitglieder und Verteilungsschlüssel</td><td>Gemeinsame Ausgaben aufteilen</td><td>Verschlüsselte lokale Datenbank</td></tr>
+          <tr><td>Einstellungen (Design, Sprache, Zeiten für Mitteilungen, App-Sperre)</td><td>Die App so laufen lassen, wie du sie eingestellt hast</td><td>Privater Speicher der App</td></tr>
+          <tr><td>Exporte und Sicherungen, die du selbst erstellst</td><td>Eigene Daten aufbewahren oder verschieben</td><td>Dort, wo du sie speicherst oder hinsendest — siehe §9</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Nichts davon wird übertragen. Es gibt keine Nutzerkennung, keine Werbe-ID, kein Konto und keine E-Mail-Adresse, weil nichts davon gebraucht wird.</p>
+
+    <h2><span class="n">3.</span>Belegerkennung auf dem Gerät (OCR)</h2>
+    <p>Wenn du einen Beleg fotografierst oder importierst, liest die Texterkennung von <strong>Google ML Kit</strong> den Text. Diese Komponente ist in der App enthalten und läuft auf dem Prozessor des Telefons. Sie braucht keine Internetverbindung und funktioniert im Flugmodus.</p>
+    <p><strong>Das Foto wird nie hochgeladen, der erkannte Text ebenso wenig.</strong> Nichts geht an Google, an den Entwickler oder an sonst jemanden: Beides bleibt im privaten Speicher der App und in der verschlüsselten Datenbank.</p>
+    <p>Die automatische Erkennung ist nicht fehlerfrei. Kash bittet dich deshalb immer, das Ergebnis vor dem Speichern zu prüfen, und markiert Felder, die unsicher gelesen wurden. Du kannst jedes davon korrigieren.</p>
+
+    <h2><span class="n">4.</span>Was die App nie tut</h2>
+    <ul>
+      <li>Kein Konto, keine Anmeldung, keine E-Mail-Adresse, kein Passwort.</li>
+      <li>Keine Bankverbindung: kein <em>Open Banking</em>, keine Kartenverknüpfung, kein Import von Kontoauszügen.</li>
+      <li>Überhaupt keine Netzwerkverbindungen — die App spricht mit keinem Server, auch nicht mit dem des Entwicklers.</li>
+      <li>Keine Werbung, kein Werbe-SDK, keine Werbe-ID.</li>
+      <li>Keine Analyse oder Reichweitenmessung: kein Firebase, kein Google Analytics, kein Meta-SDK.</li>
+      <li>Keine Cloud-Sicherung: Die automatische Android-Sicherung ist für diese App deaktiviert (<span class="ref">allowBackup=false</span>), deine Daten werden also nie zu Google Drive kopiert.</li>
+      <li>Kein Verkauf, keine Weitergabe, keine Übermittlung deiner Daten an Dritte — es gibt nichts zu verkaufen oder zu teilen.</li>
+      <li>Kein Mikrofon: Die Audioaufnahme ist in der Kamerakomponente ausdrücklich deaktiviert.</li>
+    </ul>
+
+    <h2><span class="n">5.</span>Berechtigungen und warum sie erfragt werden</h2>
+    <p>Android fragt eine Berechtigung erst dann ab, wenn die Funktion sie wirklich braucht. Du kannst ablehnen und dich später in den Systemeinstellungen anders entscheiden; nur die jeweilige Funktion entfällt dann.</p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Berechtigung</th><th>Zweck</th><th>Optional?</th></tr></thead>
+        <tbody>
+          <tr><td>Kamera</td><td>Einen Beleg zum Scannen fotografieren</td><td>Ja — du kannst einen Beleg auch von Hand eingeben oder ein Foto importieren</td></tr>
+          <tr><td>Fotos und Medien</td><td>Ein bereits vorhandenes Belegfoto aus der Galerie importieren</td><td>Ja — wird nur beim Importieren abgefragt</td></tr>
+          <tr><td>Mitteilungen</td><td>Lokale Budget-Hinweise, wöchentliche Erinnerung, Abo-Fälligkeiten</td><td>Ja — die App funktioniert auch ohne</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Weitere Berechtigungen nutzt Kash nicht. Die optionale biometrische Sperre stützt sich auf die Prüfung des Systems: Android antwortet mit Ja oder Nein, und die App sieht weder deinen Fingerabdruck noch dein Gesicht (siehe §7).</p>
+
+    <h2><span class="n">6.</span>Rechtsgrundlage</h2>
+    <p>Für die oben genannten optionalen Funktionen — Kamera, Galerie, Mitteilungen — ist die Rechtsgrundlage deine <strong>Einwilligung</strong>, Art. 6 Abs. 1 lit. a DSGVO, erteilt über die Berechtigungsabfrage von Android und jederzeit in den Systemeinstellungen widerrufbar.</p>
+    <p>Alles Übrige wird <strong>rein lokal</strong> verarbeitet: Die Daten verlassen dein Gerät nie. Es gibt daher keine Übermittlung, keinen Empfänger, keinen Auftragsverarbeiter und keine Übermittlung außerhalb der Europäischen Union. Der Entwickler ist kein Empfänger deiner Daten.</p>
+    <p>Die Daten, die du eingibst, gehören dir: Du entscheidest, was du erfasst, korrigierst und löschst.</p>
+
+    <h2><span class="n">7.</span>Sicherheit</h2>
+    <ul>
+      <li>Die Datenbank ist eine mit <strong>SQLCipher (AES-256)</strong> verschlüsselte SQLite-Datenbank.</li>
+      <li>Der Schlüssel wird auf dem Gerät erzeugt und im <strong>Android-Schlüsselspeicher (Keystore)</strong> verwahrt. Er verlässt das Telefon nie, und der Entwickler kennt ihn nicht.</li>
+      <li>Belegfotos liegen im privaten Speicher der App, den andere Apps nicht lesen können.</li>
+      <li>Eine optionale <strong>biometrische Sperre</strong> (Fingerabdruck oder Gesicht, je nach Gerät) lässt sich zum Öffnen der App aktivieren.</li>
+      <li>Die automatische Cloud-Sicherung von Android ist <strong>deaktiviert</strong>: Weder die Datenbank noch deine Fotos werden zu Google Drive hochgeladen.</li>
+    </ul>
+    <p>Kein Schutz übersteht ein kompromittiertes Gerät: Behalte eine Displaysperre bei, halte Android aktuell und sei vorsichtig mit gerooteten Telefonen und mit Apps aus Quellen außerhalb von Google Play.</p>
+
+    <h2><span class="n">8.</span>Mitteilungen</h2>
+    <p>Kash kann drei Arten von Mitteilungen anzeigen: einen Hinweis, wenn ein Budget-Umschlag eine Schwelle erreicht, eine optionale wöchentliche Erinnerung und die Erinnerung an eine Abo-Fälligkeit.</p>
+    <p>Es handelt sich ausnahmslos um <strong>lokale Mitteilungen</strong>, die Android auf deinem Telefon plant. Es gibt keinen Push-Server, kein Gerätetoken und keine Mitteilungs-Kennung. Der Inhalt wird auf dem Gerät berechnet und verlässt es nicht.</p>
+    <p>Du kannst sie in der App oder in den Android-Einstellungen abschalten.</p>
+
+    <h2><span class="n">9.</span>Exporte und Sicherungen</h2>
+    <p>Kash kann einen <strong>CSV-Export</strong>, einen <strong>monatlichen PDF-Bericht</strong> und ein <strong>verschlüsseltes Sicherungsarchiv</strong> mit den Belegfotos erzeugen. Alle drei entstehen nur auf deine Anforderung hin.</p>
+    <p>Die Datei wird auf deinem Gerät geschrieben und an das Teilen-Menü des Telefons übergeben. Was danach geschieht, entscheidest du: speichern, dir selbst schicken oder abbrechen. Die App lädt nichts hoch und hat kein eigenes Ziel.</p>
+    <p>Sobald eine Datei die App verlassen hat — im Download-Ordner, in einer E-Mail, in einem Cloud-Speicher — gilt der hier beschriebene Schutz nicht mehr. Sie ist dann eine gewöhnliche Datei unter deiner Kontrolle und den Bedingungen des Dienstes, dem du sie anvertraut hast.</p>
+
+    <h2><span class="n">10.</span>Aufbewahrung und Löschung</h2>
+    <p>Deine Daten bleiben so lange auf deinem Gerät, wie du sie behältst. Kash löscht nichts von selbst und kennt keine Verfallsfrist.</p>
+    <p>Du kannst jederzeit alles löschen: <strong>Mehr › Daten und Datenschutz › Alle meine Daten löschen</strong>. Das vernichtet die Datenbank, die Belegfotos <em>und</em> den Schlüssel und bricht geplante Mitteilungen ab. Der Vorgang wirkt sofort und lässt sich nicht rückgängig machen.</p>
+    <p>Auch das Deinstallieren der App entfernt alles, denn alles liegt im privaten Speicher der App.</p>
+    <p>Es gibt keine Kopie auf einem Server — also nichts aufzubewahren, nichts zu beantragen und nichts, was der Entwickler wiederherstellen könnte. Exporte und Sicherungen, die du bereits anderswo abgelegt hast, sind davon nicht betroffen: Die löschst du selbst. Die Schritt-für-Schritt-Anleitung steht auf der <a href="suppression.html?lang=de">Seite zur Datenlöschung</a>.</p>
+
+    <h2><span class="n">11.</span>Kinder</h2>
+    <p>Kash ist nicht für Kinder gemacht und richtet sich nicht an sie. Da die App nichts erhebt und nichts überträgt, kann sie auch keine Daten von Kindern erheben.</p>
+
+    <h2><span class="n">12.</span>Deine Rechte und wie du sie ausübst</h2>
+    <p>Die DSGVO gibt dir Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und Datenübertragbarkeit. Da deine Daten nur auf deinem Gerät existieren und der Entwickler keine Kopie hat, übst du diese Rechte <strong>unmittelbar in der App</strong> aus, sofort und ohne jemanden fragen zu müssen:</p>
+    <ul>
+      <li><strong>Auskunft</strong> — alles ist in der App sichtbar.</li>
+      <li><strong>Berichtigung</strong> — jedes Feld eines Belegs, einer Kategorie oder eines Budgets lässt sich bearbeiten.</li>
+      <li><strong>Übertragbarkeit</strong> — <em>Mehr › Exportieren</em> erzeugt eine CSV-Datei und einen monatlichen PDF-Bericht; <em>Mehr › Sicherung</em> erzeugt ein vollständiges Archiv.</li>
+      <li><strong>Löschung</strong> — <em>Mehr › Daten und Datenschutz › Alle meine Daten löschen</em> oder Deinstallation.</li>
+    </ul>
+    <p>Eine Anfrage an den Entwickler kann nicht mehr bewirken: Es gibt keine Datei, die dir geschickt werden könnte, keine Kopie zum Berichtigen und nichts, was auf der anderen Seite zu löschen wäre.</p>
+    <p>Solltest du dennoch der Ansicht sein, dass deine Rechte nicht gewahrt werden, kannst du dich bei deiner Aufsichtsbehörde beschweren. In Frankreich ist das die CNIL — <a href="https://www.cnil.fr">www.cnil.fr</a>; in Deutschland die Datenschutzaufsicht deines Bundeslandes.</p>
+
+    <h2><span class="n">13.</span>Änderungen dieser Erklärung</h2>
+    <p>Diese Erklärung kann aktualisiert werden, etwa wenn sich eine Funktion ändert. Das Datum oben nennt stets die geltende Fassung, und diese Seite behält ihre Adresse. Eine wesentliche Änderung würde in einer neuen Version der App angekündigt.</p>
+
+    <h2><span class="n">14.</span>Kontakt</h2>
+    <p>Fragen zu dieser Erklärung: <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20Datenschutz">support.app.bv@gmail.com</a>.</p>
+    <p>Store-Eintrag: <a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash bei Google Play</a>.</p>
+
+    <footer>
+      <p>Diese Seite ist aus der App heraus verlinkt: <strong>Mehr › Daten und Datenschutz › Veröffentlichte Dokumente</strong>.</p>
+      <p>Support: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=de">alle rechtlichen Seiten</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== ITALIANO ===================== -->
+  <main id="main-it" data-titre="Kash — Informativa sulla privacy" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Informativa sulla privacy</h1>
+    </header>
+    <p class="maj">App Kash <span class="ref">com.florian.budgettickets</span>, pubblicata dallo sviluppatore. Ultimo aggiornamento: 9 settembre 2026.</p>
+
+    <div class="note">
+      <p><b>La versione breve.</b> Kash funziona interamente sul tuo telefono. Nessun account, nessun collegamento bancario, nessun server.</p>
+      <p>L&rsquo;app non effettua alcuna chiamata di rete e non contiene pubblicità né analisi di utilizzo. Gli scontrini vengono letti da un motore di riconoscimento del testo incluso nell&rsquo;app stessa: la foto non esce mai dal dispositivo. Tutto resta in un database locale cifrato con SQLCipher, la cui chiave rimane nell&rsquo;archivio sicuro di Android.</p>
+      <p>Lo sviluppatore non detiene quindi alcun tuo dato e non potrebbe recuperarlo nemmeno se glielo si chiedesse.</p>
+    </div>
+
+    <h2><span class="n">1.</span>Chi è responsabile e che cosa copre questa informativa</h2>
+    <p>Kash è un&rsquo;app Android pubblicata su Google Play da uno sviluppatore indipendente, qui indicato come <strong>lo sviluppatore</strong>. Contatto: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a>.</p>
+    <p>Questa informativa copre l&rsquo;app Kash (pacchetto <span class="ref">com.florian.budgettickets</span>) e le presenti pagine. Descrive che cosa l&rsquo;app tratta sul tuo dispositivo, che cosa non fa mai e come cancellare tutto.</p>
+    <p>Dove si applica il Regolamento generale sulla protezione dei dati (GDPR), lo sviluppatore è il titolare per quanto riguarda l&rsquo;app. In pratica, tutti i trattamenti descritti di seguito avvengono unicamente sul tuo dispositivo: lo sviluppatore non riceve, non conserva e non consulta mai alcun tuo dato.</p>
+
+    <h2><span class="n">2.</span>Quali dati tratta l&rsquo;app e dove restano</h2>
+    <p>Kash tratta sul tuo dispositivo quanto segue. Manca volutamente una colonna <em>i nostri server</em>, perché di server non ce ne sono.</p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Dato</th><th>Finalità</th><th>Dove viene conservato</th></tr></thead>
+        <tbody>
+          <tr><td>Foto di uno scontrino</td><td>Conservare un&rsquo;immagine dell&rsquo;acquisto e poterla rileggere</td><td>Archivio privato dell&rsquo;app, sul dispositivo</td></tr>
+          <tr><td>Testo estratto dalla foto (negozio, data, totale, righe articolo)</td><td>Compilare lo scontrino senza digitarlo</td><td>Database locale cifrato</td></tr>
+          <tr><td>Importi, date, negozi</td><td>Storico delle spese, statistiche, storico prezzi per articolo</td><td>Database locale cifrato</td></tr>
+          <tr><td>Categorie, comprese quelle che crei tu</td><td>Classificare le tue spese</td><td>Database locale cifrato</td></tr>
+          <tr><td>Budget a buste e soglie di avviso</td><td>Monitoraggio e proiezione di fine mese</td><td>Database locale cifrato</td></tr>
+          <tr><td>Pagamenti ricorrenti rilevati come abbonamenti</td><td>Ricordarti una scadenza</td><td>Database locale cifrato</td></tr>
+          <tr><td>Membri della famiglia e chiave di ripartizione</td><td>Ripartire le spese comuni</td><td>Database locale cifrato</td></tr>
+          <tr><td>Impostazioni (tema, lingua, orari delle notifiche, blocco)</td><td>Far funzionare l&rsquo;app come l&rsquo;hai impostata</td><td>Archivio privato dell&rsquo;app</td></tr>
+          <tr><td>Esportazioni e backup che crei tu</td><td>Conservare o spostare i tuoi dati</td><td>Dove scegli di salvarli o inviarli — vedi §9</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Nulla di tutto questo viene trasmesso. Non esiste un identificativo utente, né un identificativo pubblicitario, né un account, né un indirizzo e-mail: nessuno di questi serve.</p>
+
+    <h2><span class="n">3.</span>Lettura degli scontrini sul dispositivo (OCR)</h2>
+    <p>Quando fotografi o importi uno scontrino, il testo viene letto dal riconoscimento del testo di <strong>Google ML Kit</strong>. Il componente è incluso nell&rsquo;app e gira sul processore del telefono. Non richiede alcuna connessione a internet e funziona in modalità aereo.</p>
+    <p><strong>La foto non viene mai caricata, e nemmeno il testo estratto.</strong> Nulla viene inviato a Google, allo sviluppatore o a chiunque altro: entrambi restano nell&rsquo;archivio privato dell&rsquo;app e nel database cifrato.</p>
+    <p>La lettura automatica non è infallibile: Kash ti chiede sempre di verificare quanto ha trovato prima di salvare e segnala i campi letti con scarsa affidabilità. Puoi correggerli tutti.</p>
+
+    <h2><span class="n">4.</span>Ciò che l&rsquo;app non fa mai</h2>
+    <ul>
+      <li>Nessun account, nessun accesso, nessun indirizzo e-mail, nessuna password.</li>
+      <li>Nessun collegamento bancario: né <em>Open Banking</em>, né carte collegate, né importazione di estratti conto.</li>
+      <li>Nessuna chiamata di rete — l&rsquo;app non dialoga con alcun server, nemmeno con quello dello sviluppatore.</li>
+      <li>Nessuna pubblicità, nessun SDK pubblicitario, nessun identificativo pubblicitario.</li>
+      <li>Nessuna analisi di utilizzo: né Firebase, né Google Analytics, né SDK di Meta.</li>
+      <li>Nessun backup nel cloud: il backup automatico di Android è disattivato per questa app (<span class="ref">allowBackup=false</span>), quindi i tuoi dati non vengono mai copiati su Google Drive.</li>
+      <li>Nessuna vendita, nessuna condivisione, nessuna trasmissione dei tuoi dati a terzi — non c&rsquo;è nulla da vendere o da condividere.</li>
+      <li>Nessun microfono: la registrazione audio è esplicitamente disattivata nel componente fotocamera.</li>
+    </ul>
+
+    <h2><span class="n">5.</span>Le autorizzazioni e perché ciascuna viene richiesta</h2>
+    <p>Android chiede un&rsquo;autorizzazione la prima volta che la funzione ne ha davvero bisogno. Puoi rifiutare e cambiare idea più tardi nelle impostazioni di sistema; smette di funzionare soltanto la funzione corrispondente.</p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Autorizzazione</th><th>Finalità</th><th>Facoltativa?</th></tr></thead>
+        <tbody>
+          <tr><td>Fotocamera</td><td>Fotografare uno scontrino per scansionarlo</td><td>Sì — puoi anche inserire lo scontrino a mano o importare una foto</td></tr>
+          <tr><td>Foto e contenuti multimediali</td><td>Importare dalla galleria una foto di scontrino già scattata</td><td>Sì — richiesta solo al momento dell&rsquo;importazione</td></tr>
+          <tr><td>Notifiche</td><td>Avvisi di budget locali, promemoria settimanale, scadenze degli abbonamenti</td><td>Sì — l&rsquo;app funziona anche senza</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Kash non usa nessun&rsquo;altra autorizzazione. Il blocco biometrico facoltativo si appoggia alla verifica del sistema: Android risponde sì o no, e l&rsquo;app non vede mai la tua impronta né il tuo volto (vedi §7).</p>
+
+    <h2><span class="n">6.</span>Base giuridica</h2>
+    <p>Per le funzioni facoltative sopra elencate — fotocamera, galleria, notifiche — la base giuridica è il tuo <strong>consenso</strong>, art. 6, par. 1, lett. a) del GDPR, prestato tramite la richiesta di autorizzazione di Android e revocabile in qualsiasi momento nelle impostazioni di sistema.</p>
+    <p>Per tutto il resto il trattamento è <strong>puramente locale</strong>: i dati non escono mai dal tuo dispositivo. Non vi è quindi trasmissione, né destinatario, né responsabile del trattamento, né trasferimento fuori dall&rsquo;Unione europea. Lo sviluppatore non è destinatario dei tuoi dati.</p>
+    <p>I dati che inserisci sono tuoi: decidi tu che cosa registrare, che cosa correggere e che cosa cancellare.</p>
+
+    <h2><span class="n">7.</span>Sicurezza</h2>
+    <ul>
+      <li>Il database è SQLite cifrato con <strong>SQLCipher (AES-256)</strong>.</li>
+      <li>La chiave di cifratura è generata sul dispositivo e conservata nell&rsquo;<strong>archivio sicuro di Android (Keystore)</strong>. Non lascia mai il telefono e lo sviluppatore non la conosce.</li>
+      <li>Le foto degli scontrini restano nell&rsquo;archivio privato dell&rsquo;app, illeggibile dalle altre applicazioni.</li>
+      <li>Puoi attivare un <strong>blocco biometrico</strong> facoltativo (impronta o volto, a seconda del dispositivo) all&rsquo;apertura dell&rsquo;app.</li>
+      <li>Il backup automatico di Android è <strong>disattivato</strong>: nessuna copia del database o delle tue foto viene caricata su Google Drive.</li>
+    </ul>
+    <p>Nessuna protezione resiste a un dispositivo compromesso: tieni attivo il blocco schermo, mantieni Android aggiornato e diffida dei telefoni con <em>root</em> e delle app installate fuori da Google Play.</p>
+
+    <h2><span class="n">8.</span>Notifiche</h2>
+    <p>Kash può mostrare tre tipi di notifica: un avviso quando una busta di budget raggiunge una soglia, un promemoria settimanale facoltativo e il promemoria della scadenza di un abbonamento.</p>
+    <p>Sono tutte <strong>notifiche locali</strong>, programmate da Android sul tuo telefono. Non c&rsquo;è alcun server <em>push</em>, alcun token del dispositivo né alcun identificativo di notifica. Il contenuto è calcolato sul dispositivo e non ne esce.</p>
+    <p>Puoi disattivarle nell&rsquo;app o nelle impostazioni di Android.</p>
+
+    <h2><span class="n">9.</span>Esportazioni e backup</h2>
+    <p>Kash può produrre un&rsquo;<strong>esportazione CSV</strong>, un <strong>rapporto PDF mensile</strong> e un <strong>archivio di backup cifrato</strong> che include le foto degli scontrini. Tutti e tre vengono creati solo su tua richiesta.</p>
+    <p>Il file viene scritto sul tuo dispositivo e consegnato al menu di condivisione del telefono: sei tu a decidere il seguito — salvarlo, inviartelo o annullare. L&rsquo;app non carica nulla e non ha alcuna destinazione propria.</p>
+    <p>Una volta che un file è uscito dall&rsquo;app — nella cartella dei download, in un&rsquo;e-mail, in uno spazio cloud — non è più coperto dalle protezioni qui descritte. È un file come un altro, sotto il tuo controllo e soggetto alle condizioni del servizio a cui lo hai affidato.</p>
+
+    <h2><span class="n">10.</span>Conservazione e cancellazione</h2>
+    <p>I tuoi dati restano sul dispositivo finché li conservi. Kash non cancella nulla da solo e non applica alcuna scadenza.</p>
+    <p>Puoi cancellare tutto in qualsiasi momento da <strong>Altro › Dati e privacy › Elimina tutti i miei dati</strong>. L&rsquo;operazione distrugge il database, le foto degli scontrini <em>e</em> la chiave di cifratura, e annulla le notifiche programmate. È immediata e irreversibile.</p>
+    <p>Anche la disinstallazione dell&rsquo;app rimuove tutto, perché tutto risiede nell&rsquo;archivio privato dell&rsquo;app.</p>
+    <p>Non esiste alcuna copia lato server: non c&rsquo;è quindi nulla da conservare, nulla da richiedere e nulla che lo sviluppatore possa ripristinare. Le esportazioni e i backup che hai già salvato altrove non sono interessati: quelli li cancelli tu. Le istruzioni dettagliate sono nella <a href="suppression.html?lang=it">pagina di cancellazione dei dati</a>.</p>
+
+    <h2><span class="n">11.</span>Minori</h2>
+    <p>Kash non è pensata per i minori né si rivolge a loro. Poiché l&rsquo;app non raccoglie nulla e non trasmette nulla, non può nemmeno raccogliere i dati di un minore.</p>
+
+    <h2><span class="n">12.</span>I tuoi diritti e come si esercitano</h2>
+    <p>Il GDPR ti riconosce i diritti di accesso, rettifica, cancellazione, limitazione, opposizione e portabilità. Poiché i tuoi dati esistono soltanto sul tuo dispositivo e lo sviluppatore non ne conserva copia, tali diritti si esercitano <strong>direttamente nell&rsquo;app</strong>, subito e senza dover chiedere nulla a nessuno:</p>
+    <ul>
+      <li><strong>Accesso</strong> — è tutto visibile nell&rsquo;app.</li>
+      <li><strong>Rettifica</strong> — ogni campo di uno scontrino, di una categoria o di un budget è modificabile.</li>
+      <li><strong>Portabilità</strong> — <em>Altro › Esporta</em> produce un file CSV e un rapporto PDF mensile; <em>Altro › Backup</em> produce un archivio completo.</li>
+      <li><strong>Cancellazione</strong> — <em>Altro › Dati e privacy › Elimina tutti i miei dati</em>, oppure la disinstallazione.</li>
+    </ul>
+    <p>Una richiesta indirizzata allo sviluppatore non può ottenere di più: non c&rsquo;è alcun file da inviarti, nessuna copia da correggere e nulla da cancellare dall&rsquo;altra parte.</p>
+    <p>Se ritieni comunque che i tuoi diritti non siano rispettati, puoi rivolgerti alla tua autorità di controllo. In Francia è la CNIL — <a href="https://www.cnil.fr">www.cnil.fr</a>; in Italia, il Garante per la protezione dei dati personali.</p>
+
+    <h2><span class="n">13.</span>Modifiche a questa informativa</h2>
+    <p>Questa informativa può essere aggiornata, per esempio se una funzione cambia. La data in alto indica sempre la versione in vigore e questa pagina mantiene lo stesso indirizzo. Una modifica rilevante verrebbe annunciata in una nuova versione dell&rsquo;app.</p>
+
+    <h2><span class="n">14.</span>Contatti</h2>
+    <p>Per qualsiasi domanda su questa informativa: <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20privacy">support.app.bv@gmail.com</a>.</p>
+    <p>Scheda dello store: <a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash su Google Play</a>.</p>
+
+    <footer>
+      <p>Questa pagina è raggiungibile dall&rsquo;app: <strong>Altro › Dati e privacy › Documenti pubblicati</strong>.</p>
+      <p>Assistenza: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=it">tutte le pagine legali</a></p>
+    </footer>
+  </main>
+
+</div>
+
+<script>
+/* =========================================================================
+   Choix de la langue — vanilla, aucune requête externe.
+   Ordre de priorité :
+     1. le paramètre « ?lang=xx » de l'URL, qui l'emporte sur tout le reste :
+        l'application ouvre ces pages avec la langue choisie dans ses réglages,
+        laquelle peut différer de celle du téléphone ;
+     2. sinon navigator.languages / navigator.language, comparés sur le
+        préfixe de deux lettres (« fr-CA » correspond donc à « fr ») ;
+     3. sinon l'anglais.
+   Repli sans JavaScript : la section anglaise n'a PAS l'attribut « hidden »
+   dans le HTML, elle reste donc visible telle quelle ; les cinq autres
+   restent masquées et la barre de langues, masquée elle aussi, n'affiche
+   pas de boutons inertes.
+   ========================================================================= */
+(function () {
+  var LANGUES = ['en', 'fr', 'es', 'pt', 'de', 'it'];
+  var DEFAUT = 'en';
+
+  /** Renvoie le code à deux lettres si la langue est gérée, sinon une chaîne vide. */
+  function normaliser(valeur) {
+    var code = String(valeur || '').slice(0, 2).toLowerCase();
+    return LANGUES.indexOf(code) > -1 ? code : '';
+  }
+
+  /** Applique l'ordre de priorité décrit ci-dessus. */
+  function langueChoisie() {
+    var parametre = /[?&]lang=([^&#]*)/.exec(location.search);
+    var depuisUrl = parametre ? normaliser(decodeURIComponent(parametre[1])) : '';
+    if (depuisUrl) return depuisUrl;
+
+    var liste = (navigator.languages && navigator.languages.length)
+      ? navigator.languages
+      : [navigator.language || ''];
+    for (var i = 0; i < liste.length; i++) {
+      var trouvee = normaliser(liste[i]);
+      if (trouvee) return trouvee;
+    }
+    return DEFAUT;
+  }
+
+  /** Affiche une seule section et met la pastille correspondante en « actif ». */
+  function appliquer(langue) {
+    if (LANGUES.indexOf(langue) < 0) langue = DEFAUT;
+    for (var i = 0; i < LANGUES.length; i++) {
+      var code = LANGUES[i];
+      var section = document.getElementById('main-' + code);
+      var pastille = document.getElementById('pill-' + code);
+      if (section) {
+        section.hidden = (code !== langue);
+        if (code === langue && section.getAttribute('data-titre')) {
+          document.title = section.getAttribute('data-titre');
+        }
+      }
+      if (pastille) {
+        if (code === langue) {
+          pastille.className = 'actif';
+          pastille.setAttribute('aria-current', 'true');
+        } else {
+          pastille.className = '';
+          pastille.removeAttribute('aria-current');
+        }
+      }
+    }
+    document.documentElement.lang = langue;
+  }
+
+  var barre = document.getElementById('langues');
+  if (barre) {
+    barre.hidden = false; /* les boutons ne servent que si le script tourne */
+    barre.addEventListener('click', function (evenement) {
+      var cible = evenement.target;
+      var demande = cible && cible.getAttribute ? cible.getAttribute('data-lang') : null;
+      if (demande) appliquer(demande);
+    });
+  }
+
+  appliquer(langueChoisie());
+})();
+</script>
+</body>
+</html>

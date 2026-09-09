@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kash — Legal &amp; support</title>
+<meta name="description" content="Kash — household budget app built around scanning till receipts. Privacy policy, terms of use and data deletion." />
+<style>
+  :root{
+    color-scheme: dark;
+    --bg:#0A0F1A;
+    --card:#141C2B;
+    --ink:#E9EEF7;
+    --muted:#96A3B8;
+    --line:#233047;
+    --accent:#5EE6C0;
+    --marque:#4C8DFF;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none !important}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size:16px; line-height:1.65;
+    overflow-wrap:break-word;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+
+  /* Barre de langues : masquée tant que le script ne l'a pas activée (voir le repli sans JS en bas de page). */
+  .langues{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;margin:0 0 26px}
+  .langues button{
+    font:inherit;font-size:13px;font-weight:600;cursor:pointer;
+    background:var(--card);color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:6px 14px;
+  }
+  .langues button:hover{color:var(--ink);border-color:var(--marque)}
+  .langues button.actif{background:var(--marque);border-color:var(--marque);color:#08111F}
+
+  header.top{display:flex;align-items:center;gap:14px;margin:0 0 8px}
+  .logo{
+    width:40px;height:40px;flex:0 0 40px;border-radius:12px;
+    background:var(--card);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .logo svg{width:22px;height:22px;display:block}
+  h1{font-size:26px;line-height:1.25;margin:0;font-weight:700}
+  .maj{color:var(--muted);font-size:14px;margin:0 0 26px}
+  .ref{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;color:var(--muted)}
+
+  p{margin:0 0 14px}
+  a{color:var(--accent)}
+  a:hover{color:var(--marque)}
+
+  a.carte{
+    display:block;text-decoration:none;color:var(--ink);
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:18px 20px;margin-top:14px;
+  }
+  a.carte:hover,a.carte:focus-visible{border-color:var(--marque)}
+  a.carte strong{display:block;color:var(--marque);font-size:17px;margin-bottom:3px}
+  a.carte span{display:block;color:var(--muted);font-size:14px;line-height:1.55}
+
+  .note{
+    background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:14px;padding:16px 18px;margin:26px 0 0;
+  }
+  .note p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+
+  footer{
+    margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:14px;
+  }
+  footer p{margin:0 0 8px}
+  footer p:last-child{margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Boutons pastilles : la langue courante porte la classe « actif ». -->
+  <nav class="langues" id="langues" aria-label="Language" hidden>
+    <button type="button" id="pill-en" data-lang="en">English</button>
+    <button type="button" id="pill-fr" data-lang="fr">Français</button>
+    <button type="button" id="pill-es" data-lang="es">Español</button>
+    <button type="button" id="pill-pt" data-lang="pt">Português</button>
+    <button type="button" id="pill-de" data-lang="de">Deutsch</button>
+    <button type="button" id="pill-it" data-lang="it">Italiano</button>
+  </nav>
+
+  <!-- =========================================================
+       ENGLISH — version par défaut, jamais masquée dans le HTML.
+       Sans JavaScript, c'est la seule section visible.
+       ========================================================= -->
+  <main id="main-en" data-titre="Kash — Legal &amp; support">
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Kash — Legal &amp; support</h1>
+    </header>
+    <p class="maj">Android app <span class="ref">com.florian.budgettickets</span>, published by the developer. Last updated: 9 September 2026.</p>
+
+    <p>Kash is a household budget app built around scanning till receipts. You photograph a receipt, the app reads it on the phone itself, and the spending is filed into your categories and envelope budgets. No account, no bank connection, no server: everything stays on your device, in a database encrypted with SQLCipher, and nothing is ever sent anywhere.</p>
+
+    <a class="carte" href="confidentialite.html">
+      <strong>Privacy policy</strong>
+      <span>What the app handles, where it stays, and why nothing leaves your phone.</span>
+    </a>
+    <a class="carte" href="cgu.html">
+      <strong>Terms of use</strong>
+      <span>What Kash is, what it is not, and the rules that apply when you use it.</span>
+    </a>
+    <a class="carte" href="suppression.html">
+      <strong>Data deletion</strong>
+      <span>How to erase everything, from inside the app or by uninstalling it. No request needed.</span>
+    </a>
+
+    <div class="note">
+      <p>These three pages are also reachable from the app: <strong>More › Data &amp; privacy › Published documents</strong>.</p>
+    </div>
+
+    <footer>
+      <p>Support: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a></p>
+      <p><a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash on Google Play</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== FRANÇAIS ===================== -->
+  <main id="main-fr" data-titre="Kash — Informations légales et assistance" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Kash — Informations légales et assistance</h1>
+    </header>
+    <p class="maj">Application Android <span class="ref">com.florian.budgettickets</span>, publiée par l&rsquo;éditeur. Dernière mise à jour : 9 septembre 2026.</p>
+
+    <p>Kash est une application de budget familial construite autour du scan des tickets de caisse. Vous photographiez un ticket, l&rsquo;application le lit sur le téléphone lui-même, et la dépense se range dans vos catégories et vos budgets enveloppes. Ni compte, ni connexion bancaire, ni serveur : tout reste sur votre appareil, dans une base chiffrée avec SQLCipher, et rien n&rsquo;est jamais envoyé nulle part.</p>
+
+    <a class="carte" href="confidentialite.html?lang=fr">
+      <strong>Politique de confidentialité</strong>
+      <span>Ce que l&rsquo;application traite, où cela reste, et pourquoi rien ne quitte votre téléphone.</span>
+    </a>
+    <a class="carte" href="cgu.html?lang=fr">
+      <strong>Conditions d&rsquo;utilisation</strong>
+      <span>Ce qu&rsquo;est Kash, ce qu&rsquo;il n&rsquo;est pas, et les règles qui s&rsquo;appliquent quand vous l&rsquo;utilisez.</span>
+    </a>
+    <a class="carte" href="suppression.html?lang=fr">
+      <strong>Suppression des données</strong>
+      <span>Comment tout effacer, depuis l&rsquo;application ou en la désinstallant. Aucune demande n&rsquo;est nécessaire.</span>
+    </a>
+
+    <div class="note">
+      <p>Ces trois pages sont également accessibles depuis l&rsquo;application : <strong>Plus › Données et confidentialité › Documents publiés</strong>.</p>
+    </div>
+
+    <footer>
+      <p>Assistance : <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a></p>
+      <p><a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash sur Google Play</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== ESPAÑOL ===================== -->
+  <main id="main-es" data-titre="Kash — Información legal y soporte" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Kash — Información legal y soporte</h1>
+    </header>
+    <p class="maj">Aplicación Android <span class="ref">com.florian.budgettickets</span>, publicada por el desarrollador. Última actualización: 9 de septiembre de 2026.</p>
+
+    <p>Kash es una aplicación de presupuesto doméstico basada en el escaneo de tickets de compra. Fotografías un ticket, la aplicación lo lee en el propio teléfono y el gasto se ordena en tus categorías y en tus presupuestos por sobres. Sin cuenta, sin conexión bancaria y sin servidor: todo se queda en tu dispositivo, en una base de datos cifrada con SQLCipher, y nada se envía nunca a ninguna parte.</p>
+
+    <a class="carte" href="confidentialite.html?lang=es">
+      <strong>Política de privacidad</strong>
+      <span>Qué trata la aplicación, dónde se queda y por qué nada sale de tu teléfono.</span>
+    </a>
+    <a class="carte" href="cgu.html?lang=es">
+      <strong>Condiciones de uso</strong>
+      <span>Qué es Kash, qué no es y las reglas que se aplican cuando lo usas.</span>
+    </a>
+    <a class="carte" href="suppression.html?lang=es">
+      <strong>Eliminación de datos</strong>
+      <span>Cómo borrarlo todo, desde la aplicación o desinstalándola. No hace falta ninguna solicitud.</span>
+    </a>
+
+    <div class="note">
+      <p>Estas tres páginas también se pueden abrir desde la aplicación: <strong>Más › Datos y privacidad › Documentos publicados</strong>.</p>
+    </div>
+
+    <footer>
+      <p>Soporte: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a></p>
+      <p><a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash en Google Play</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== PORTUGUÊS ===================== -->
+  <main id="main-pt" data-titre="Kash — Informação legal e apoio" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Kash — Informação legal e apoio</h1>
+    </header>
+    <p class="maj">Aplicação Android <span class="ref">com.florian.budgettickets</span>, publicada pelo programador. Última atualização: 9 de setembro de 2026.</p>
+
+    <p>O Kash é uma aplicação de orçamento familiar construída em torno da digitalização de talões de compra. Fotografa um talão, a aplicação lê-o no próprio telemóvel e a despesa é arrumada nas suas categorias e nos seus orçamentos por envelope. Sem conta, sem ligação bancária e sem servidor: tudo fica no seu dispositivo, numa base de dados cifrada com SQLCipher, e nada é alguma vez enviado para lado nenhum.</p>
+
+    <a class="carte" href="confidentialite.html?lang=pt">
+      <strong>Política de privacidade</strong>
+      <span>O que a aplicação trata, onde fica e porque nada sai do seu telemóvel.</span>
+    </a>
+    <a class="carte" href="cgu.html?lang=pt">
+      <strong>Condições de utilização</strong>
+      <span>O que é o Kash, o que não é e as regras que se aplicam quando o utiliza.</span>
+    </a>
+    <a class="carte" href="suppression.html?lang=pt">
+      <strong>Eliminação de dados</strong>
+      <span>Como apagar tudo, dentro da aplicação ou desinstalando-a. Não é preciso qualquer pedido.</span>
+    </a>
+
+    <div class="note">
+      <p>Estas três páginas também estão acessíveis a partir da aplicação: <strong>Mais › Dados e privacidade › Documentos publicados</strong>.</p>
+    </div>
+
+    <footer>
+      <p>Apoio: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a></p>
+      <p><a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash no Google Play</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== DEUTSCH ===================== -->
+  <main id="main-de" data-titre="Kash — Rechtliches und Support" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Kash — Rechtliches und Support</h1>
+    </header>
+    <p class="maj">Android-App <span class="ref">com.florian.budgettickets</span>, herausgegeben vom Entwickler. Zuletzt aktualisiert: 9. September 2026.</p>
+
+    <p>Kash ist eine Haushaltsbudget-App, die auf dem Scannen von Kassenbons aufbaut. Du fotografierst einen Bon, die App liest ihn direkt auf dem Telefon aus, und die Ausgabe landet in deinen Kategorien und Umschlag-Budgets. Kein Konto, keine Bankverbindung, kein Server: Alles bleibt auf deinem Gerät, in einer mit SQLCipher verschlüsselten Datenbank, und nichts wird jemals irgendwohin gesendet.</p>
+
+    <a class="carte" href="confidentialite.html?lang=de">
+      <strong>Datenschutzerklärung</strong>
+      <span>Womit die App umgeht, wo es bleibt und warum nichts dein Telefon verlässt.</span>
+    </a>
+    <a class="carte" href="cgu.html?lang=de">
+      <strong>Nutzungsbedingungen</strong>
+      <span>Was Kash ist, was es nicht ist, und welche Regeln bei der Nutzung gelten.</span>
+    </a>
+    <a class="carte" href="suppression.html?lang=de">
+      <strong>Datenlöschung</strong>
+      <span>Wie du alles löschst — in der App oder durch Deinstallieren. Ganz ohne Antrag.</span>
+    </a>
+
+    <div class="note">
+      <p>Diese drei Seiten sind auch aus der App heraus erreichbar: <strong>Mehr › Daten und Datenschutz › Veröffentlichte Dokumente</strong>.</p>
+    </div>
+
+    <footer>
+      <p>Support: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a></p>
+      <p><a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash bei Google Play</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== ITALIANO ===================== -->
+  <main id="main-it" data-titre="Kash — Informazioni legali e assistenza" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Kash — Informazioni legali e assistenza</h1>
+    </header>
+    <p class="maj">App Android <span class="ref">com.florian.budgettickets</span>, pubblicata dallo sviluppatore. Ultimo aggiornamento: 9 settembre 2026.</p>
+
+    <p>Kash è un&rsquo;app per il budget familiare costruita attorno alla scansione degli scontrini. Fotografi uno scontrino, l&rsquo;app lo legge sul telefono stesso e la spesa finisce nelle tue categorie e nei tuoi budget a buste. Nessun account, nessun collegamento bancario, nessun server: tutto resta sul tuo dispositivo, in un database cifrato con SQLCipher, e niente viene mai inviato da nessuna parte.</p>
+
+    <a class="carte" href="confidentialite.html?lang=it">
+      <strong>Informativa sulla privacy</strong>
+      <span>Che cosa tratta l&rsquo;app, dove resta e perché niente esce dal tuo telefono.</span>
+    </a>
+    <a class="carte" href="cgu.html?lang=it">
+      <strong>Condizioni d&rsquo;uso</strong>
+      <span>Che cos&rsquo;è Kash, che cosa non è e le regole che si applicano quando lo usi.</span>
+    </a>
+    <a class="carte" href="suppression.html?lang=it">
+      <strong>Cancellazione dei dati</strong>
+      <span>Come cancellare tutto, dall&rsquo;app o disinstallandola. Nessuna richiesta necessaria.</span>
+    </a>
+
+    <div class="note">
+      <p>Queste tre pagine sono raggiungibili anche dall&rsquo;app: <strong>Altro › Dati e privacy › Documenti pubblicati</strong>.</p>
+    </div>
+
+    <footer>
+      <p>Assistenza: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a></p>
+      <p><a href="https://play.google.com/store/apps/details?id=com.florian.budgettickets">Kash su Google Play</a></p>
+    </footer>
+  </main>
+
+</div>
+
+<script>
+/* =========================================================================
+   Choix de la langue — vanilla, aucune requête externe.
+   Ordre de priorité :
+     1. le paramètre « ?lang=xx » de l'URL, qui l'emporte sur tout le reste :
+        l'application ouvre ces pages avec la langue choisie dans ses réglages,
+        laquelle peut différer de celle du téléphone ;
+     2. sinon navigator.languages / navigator.language, comparés sur le
+        préfixe de deux lettres (« fr-CA » correspond donc à « fr ») ;
+     3. sinon l'anglais.
+   Repli sans JavaScript : la section anglaise n'a PAS l'attribut « hidden »
+   dans le HTML, elle reste donc visible telle quelle ; les cinq autres
+   restent masquées et la barre de langues, masquée elle aussi, n'affiche
+   pas de boutons inertes.
+   ========================================================================= */
+(function () {
+  var LANGUES = ['en', 'fr', 'es', 'pt', 'de', 'it'];
+  var DEFAUT = 'en';
+
+  /** Renvoie le code à deux lettres si la langue est gérée, sinon une chaîne vide. */
+  function normaliser(valeur) {
+    var code = String(valeur || '').slice(0, 2).toLowerCase();
+    return LANGUES.indexOf(code) > -1 ? code : '';
+  }
+
+  /** Applique l'ordre de priorité décrit ci-dessus. */
+  function langueChoisie() {
+    var parametre = /[?&]lang=([^&#]*)/.exec(location.search);
+    var depuisUrl = parametre ? normaliser(decodeURIComponent(parametre[1])) : '';
+    if (depuisUrl) return depuisUrl;
+
+    var liste = (navigator.languages && navigator.languages.length)
+      ? navigator.languages
+      : [navigator.language || ''];
+    for (var i = 0; i < liste.length; i++) {
+      var trouvee = normaliser(liste[i]);
+      if (trouvee) return trouvee;
+    }
+    return DEFAUT;
+  }
+
+  /** Affiche une seule section et met la pastille correspondante en « actif ». */
+  function appliquer(langue) {
+    if (LANGUES.indexOf(langue) < 0) langue = DEFAUT;
+    for (var i = 0; i < LANGUES.length; i++) {
+      var code = LANGUES[i];
+      var section = document.getElementById('main-' + code);
+      var pastille = document.getElementById('pill-' + code);
+      if (section) {
+        section.hidden = (code !== langue);
+        if (code === langue && section.getAttribute('data-titre')) {
+          document.title = section.getAttribute('data-titre');
+        }
+      }
+      if (pastille) {
+        if (code === langue) {
+          pastille.className = 'actif';
+          pastille.setAttribute('aria-current', 'true');
+        } else {
+          pastille.className = '';
+          pastille.removeAttribute('aria-current');
+        }
+      }
+    }
+    document.documentElement.lang = langue;
+  }
+
+  var barre = document.getElementById('langues');
+  if (barre) {
+    barre.hidden = false; /* les boutons ne servent que si le script tourne */
+    barre.addEventListener('click', function (evenement) {
+      var cible = evenement.target;
+      var demande = cible && cible.getAttribute ? cible.getAttribute('data-lang') : null;
+      if (demande) appliquer(demande);
+    });
+  }
+
+  appliquer(langueChoisie());
+})();
+</script>
+</body>
+</html>

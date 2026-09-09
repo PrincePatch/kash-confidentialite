@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kash — Terms of use</title>
+<meta name="description" content="Terms of use of the Kash app: free, no advertising, no account, fully on-device receipt tracking." />
+<style>
+  :root{
+    color-scheme: dark;
+    --bg:#0A0F1A;
+    --card:#141C2B;
+    --ink:#E9EEF7;
+    --muted:#96A3B8;
+    --line:#233047;
+    --accent:#5EE6C0;
+    --marque:#4C8DFF;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none !important}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size:16px; line-height:1.65;
+    overflow-wrap:break-word;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+
+  /* Barre de langues : masquée tant que le script ne l'a pas activée (voir le repli sans JS en bas de page). */
+  .langues{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;margin:0 0 26px}
+  .langues button{
+    font:inherit;font-size:13px;font-weight:600;cursor:pointer;
+    background:var(--card);color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:6px 14px;
+  }
+  .langues button:hover{color:var(--ink);border-color:var(--marque)}
+  .langues button.actif{background:var(--marque);border-color:var(--marque);color:#08111F}
+
+  header.top{display:flex;align-items:center;gap:14px;margin:0 0 8px}
+  .logo{
+    width:40px;height:40px;flex:0 0 40px;border-radius:12px;
+    background:var(--card);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .logo svg{width:22px;height:22px;display:block}
+  h1{font-size:26px;line-height:1.25;margin:0;font-weight:700}
+  .maj{color:var(--muted);font-size:14px;margin:0 0 22px}
+  .ref{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;color:var(--muted)}
+
+  h2{font-size:19px;line-height:1.35;margin:34px 0 10px;font-weight:700}
+  h2 .n{color:var(--accent);font-weight:700;margin-right:8px;font-variant-numeric:tabular-nums}
+  p{margin:0 0 14px}
+  ul,ol{padding-left:22px;margin:0 0 14px}
+  li{margin:7px 0}
+  a{color:var(--accent)}
+  a:hover{color:var(--marque)}
+
+  .tableau{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:16px 0;-webkit-overflow-scrolling:touch}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:15px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--card);color:var(--muted);font-weight:600;white-space:nowrap}
+  tbody tr:last-child td{border-bottom:0}
+
+  .note{
+    background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:14px;padding:18px 20px;margin:22px 0 6px;
+  }
+  .note p{margin:0 0 10px;font-size:15px}
+  .note p:last-child{margin:0}
+  .note b{color:var(--accent)}
+
+  footer{
+    margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:14px;
+  }
+  footer p{margin:0 0 8px}
+  footer p:last-child{margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Boutons pastilles : la langue courante porte la classe « actif ». -->
+  <nav class="langues" id="langues" aria-label="Language" hidden>
+    <button type="button" id="pill-en" data-lang="en">English</button>
+    <button type="button" id="pill-fr" data-lang="fr">Français</button>
+    <button type="button" id="pill-es" data-lang="es">Español</button>
+    <button type="button" id="pill-pt" data-lang="pt">Português</button>
+    <button type="button" id="pill-de" data-lang="de">Deutsch</button>
+    <button type="button" id="pill-it" data-lang="it">Italiano</button>
+  </nav>
+
+  <!-- =========================================================
+       ENGLISH — version par défaut, jamais masquée dans le HTML.
+       Sans JavaScript, c'est la seule section visible.
+       ========================================================= -->
+  <main id="main-en" data-titre="Kash — Terms of use">
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Terms of use</h1>
+    </header>
+    <p class="maj">Kash app <span class="ref">com.florian.budgettickets</span>, published by the developer. Last updated: 9 September 2026.</p>
+
+    <h2><span class="n">1.</span>What the app is</h2>
+    <p>Kash is an Android app for keeping track of a household budget by scanning till receipts. You photograph a receipt or type it in by hand; the app reads it on the device, splits it into item lines, files it into categories — including the ones you create — and compares it with your envelope budgets, with an end-of-month projection.</p>
+    <p>Kash also detects recurring payments as subscriptions, keeps a price history for each item, lets you set up a local household with its members and a split key, and can produce a CSV export, a monthly PDF report and an encrypted local backup archive. An optional biometric lock protects access to the app.</p>
+    <p>Kash works offline, without an account and without a server. Installing and using the app means accepting these terms. If you do not accept them, do not use the app.</p>
+
+    <h2><span class="n">2.</span>Price and how the app is funded</h2>
+    <p>Kash is <strong>free</strong>. There is no advertising, no in-app purchase, no subscription and no paid feature.</p>
+    <p>Your data is not monetised in any way, and could not be: none of it ever leaves your device, so there is nothing to sell, to share or to exploit.</p>
+    <p>If that model ever changed, it would happen through a new version of the app and these terms would be updated first (see §10).</p>
+
+    <h2><span class="n">3.</span>No account, no cloud storage</h2>
+    <p>There is no account: nothing to create, to remember or to recover. The other side of that coin is that <strong>your data lives on your device and nowhere else</strong>, and that keeping it safe is your responsibility.</p>
+    <p>If your phone is lost, stolen, broken or reset, or if you uninstall the app, the data is gone. The developer keeps no copy and cannot restore anything.</p>
+    <p>We therefore strongly recommend making a backup regularly (<em>More › Backup</em>), keeping the encrypted archive somewhere safe, and making one before you change phones.</p>
+
+    <h2><span class="n">4.</span>Accuracy of automatic reading</h2>
+    <p>The automatic reading of receipts (OCR) and the automatic assignment of categories are <strong>best-effort</strong>. They can misread an amount, a date or a merchant, and can file a purchase in the wrong category — particularly on faded, crumpled or badly lit receipts.</p>
+    <p>Kash asks you to check every receipt before saving it and flags the fields read with low confidence. That check is yours to make.</p>
+    <p>Totals, statistics and end-of-month projections are indicative and depend entirely on what has been entered.</p>
+    <p><strong>Kash is not an accounting tool.</strong> It produces no accounting, tax or legally binding document. The CSV export and the PDF report are convenience documents for your own use: they are neither invoices nor certificates and prove nothing by themselves.</p>
+
+    <h2><span class="n">5.</span>Acceptable use</h2>
+    <p>Kash is intended for personal, private use. You agree:</p>
+    <ul>
+      <li>not to use the app for unlawful purposes;</li>
+      <li>not to record other people&rsquo;s data in it without their knowledge — this includes the members you add to a household;</li>
+      <li>not to try to circumvent the app&rsquo;s security measures, in particular the encryption of the database and the app lock;</li>
+      <li>not to decompile, modify or redistribute the app, except to the extent that the law permits regardless of any contractual clause.</li>
+    </ul>
+
+    <h2><span class="n">6.</span>Intellectual property</h2>
+    <p>The app, its name, its icon, its texts and its design belong to the developer. Downloading it grants you a personal, non-exclusive, non-transferable right of use, under the Google Play terms; it transfers no ownership.</p>
+    <p>The app includes third-party components which remain under their own licences, in particular <strong>Google ML Kit</strong> for text recognition and <strong>SQLCipher</strong> for database encryption.</p>
+    <p>The data you enter and the content you produce with the app remain yours. The developer claims no right over them and, holding no copy, could not exercise one in any case.</p>
+
+    <h2><span class="n">7.</span>Availability, updates, withdrawal</h2>
+    <p>The app is provided <strong>as is</strong>, with no guarantee of uninterrupted operation and no guarantee that it will work on every device or every version of Android.</p>
+    <p>Updates may add, change or remove features, in particular in order to follow the requirements of Android or of Google Play.</p>
+    <p>The developer may stop maintaining the app or withdraw it from Google Play at any time. Since everything is local, a copy that is already installed keeps working; even so, export or back up your data before uninstalling or changing phones.</p>
+
+    <h2><span class="n">8.</span>Limitation of liability</h2>
+    <p>To the extent permitted by law, the developer cannot be held liable for:</p>
+    <ul>
+      <li>the loss of the data held on your device, whatever the cause (loss, theft, breakage, reset, uninstall, absence of a backup);</li>
+      <li>reading or categorisation errors, or the consequences of decisions taken on the basis of the figures shown;</li>
+      <li>indirect damage of any kind, in particular financial loss.</li>
+    </ul>
+    <p>Kash is a personal tracking aid. It gives no financial, accounting or tax advice.</p>
+    <p>Nothing in these terms removes the rights that consumer law grants you and that cannot be waived by contract, nor limits liability in the event of gross negligence or wilful misconduct.</p>
+
+    <h2><span class="n">9.</span>Distribution through Google Play</h2>
+    <p>The app is distributed through Google Play. Downloading and installing it are also governed by Google&rsquo;s terms, which apply in addition to these. Google is not a party to this agreement and gives no warranty in respect of the app.</p>
+    <p>Any question relating to the store itself — installation, payment, refund — goes through Google Play.</p>
+
+    <h2><span class="n">10.</span>Changes to these terms</h2>
+    <p>These terms may be updated, in particular when features change. The date at the top of the page always indicates the version in force. Continuing to use the app after a new version has been published counts as acceptance of it. A significant change would be announced in a new version of the app.</p>
+
+    <h2><span class="n">11.</span>Governing law and contact</h2>
+    <p>These terms are governed by <strong>French law</strong>. If you are a consumer resident in another country of the European Union, you keep the benefit of the mandatory provisions of the law of your country of residence.</p>
+    <p>In the event of a dispute, please contact the developer first so that an amicable solution can be sought: <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20terms%20of%20use">support.app.bv@gmail.com</a>.</p>
+    <p>See also the <a href="confidentialite.html">privacy policy</a> and the <a href="suppression.html">data deletion page</a>.</p>
+
+    <footer>
+      <p>This page is linked from the app: <strong>More › Data &amp; privacy › Published documents</strong>.</p>
+      <p>Support: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html">all legal pages</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== FRANÇAIS ===================== -->
+  <main id="main-fr" data-titre="Kash — Conditions d&rsquo;utilisation" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Conditions d&rsquo;utilisation</h1>
+    </header>
+    <p class="maj">Application Kash <span class="ref">com.florian.budgettickets</span>, publiée par l&rsquo;éditeur. Dernière mise à jour : 9 septembre 2026.</p>
+
+    <h2><span class="n">1.</span>Ce qu&rsquo;est l&rsquo;application</h2>
+    <p>Kash est une application Android de suivi de budget familial par scan des tickets de caisse. Vous photographiez un ticket ou vous le saisissez à la main ; l&rsquo;application le lit sur l&rsquo;appareil, le détaille en lignes d&rsquo;articles, le classe dans vos catégories — y compris celles que vous créez — et le confronte à vos budgets enveloppes, avec une projection de fin de mois.</p>
+    <p>Kash détecte également les paiements récurrents comme abonnements, tient un historique de prix par article, permet de constituer un foyer local avec ses membres et une clé de répartition, et sait produire un export CSV, un rapport PDF mensuel et une archive de sauvegarde locale chiffrée. Un verrouillage biométrique facultatif protège l&rsquo;accès à l&rsquo;application.</p>
+    <p>Kash fonctionne hors ligne, sans compte et sans serveur. Installer et utiliser l&rsquo;application vaut acceptation des présentes conditions. Si vous ne les acceptez pas, n&rsquo;utilisez pas l&rsquo;application.</p>
+
+    <h2><span class="n">2.</span>Prix et financement</h2>
+    <p>Kash est <strong>gratuite</strong>. Il n&rsquo;y a ni publicité, ni achat intégré, ni abonnement, ni fonction payante.</p>
+    <p>Vos données ne sont monétisées d&rsquo;aucune manière, et ne pourraient pas l&rsquo;être : aucune ne quitte votre appareil, il n&rsquo;y a donc rien à vendre, à partager ni à exploiter.</p>
+    <p>Si ce modèle devait changer, ce serait par une nouvelle version de l&rsquo;application et les présentes conditions seraient mises à jour au préalable (voir §10).</p>
+
+    <h2><span class="n">3.</span>Pas de compte, pas de stockage en ligne</h2>
+    <p>Il n&rsquo;y a pas de compte : rien à créer, à retenir ni à récupérer. La contrepartie, c&rsquo;est que <strong>vos données vivent sur votre appareil et nulle part ailleurs</strong>, et que leur conservation est de votre responsabilité.</p>
+    <p>Si votre téléphone est perdu, volé, cassé ou réinitialisé, ou si vous désinstallez l&rsquo;application, les données disparaissent. L&rsquo;éditeur n&rsquo;en conserve aucune copie et ne peut rien restaurer.</p>
+    <p>Nous vous recommandons donc vivement de faire régulièrement une sauvegarde (<em>Plus › Sauvegarde</em>), de conserver l&rsquo;archive chiffrée en lieu sûr, et d&rsquo;en faire une avant tout changement de téléphone.</p>
+
+    <h2><span class="n">4.</span>Fiabilité de la lecture automatique</h2>
+    <p>La lecture automatique des tickets (OCR) et l&rsquo;attribution automatique des catégories sont fournies <strong>au mieux des possibilités</strong>. Elles peuvent se tromper sur un montant, une date ou une enseigne, et classer un achat dans la mauvaise catégorie — en particulier sur les tickets effacés, froissés ou mal éclairés.</p>
+    <p>Kash vous demande de vérifier chaque ticket avant de l&rsquo;enregistrer et signale les champs lus avec une faible confiance. Cette vérification vous incombe.</p>
+    <p>Les totaux, statistiques et projections de fin de mois sont indicatifs et dépendent entièrement de ce qui a été saisi.</p>
+    <p><strong>Kash n&rsquo;est pas un outil de comptabilité.</strong> L&rsquo;application ne produit aucun document comptable, fiscal ou juridiquement contraignant. L&rsquo;export CSV et le rapport PDF sont des documents de confort, à votre usage : ce ne sont ni des factures ni des attestations et ils ne prouvent rien par eux-mêmes.</p>
+
+    <h2><span class="n">5.</span>Usage acceptable</h2>
+    <p>Kash est destinée à un usage personnel et privé. Vous vous engagez :</p>
+    <ul>
+      <li>à ne pas utiliser l&rsquo;application à des fins illicites ;</li>
+      <li>à ne pas y enregistrer les données de tiers à leur insu — cela vaut pour les membres que vous ajoutez à un foyer ;</li>
+      <li>à ne pas tenter de contourner les mesures de sécurité de l&rsquo;application, en particulier le chiffrement de la base et le verrouillage ;</li>
+      <li>à ne pas décompiler, modifier ni redistribuer l&rsquo;application, hors des cas où la loi l&rsquo;autorise quelle que soit la clause contractuelle.</li>
+    </ul>
+
+    <h2><span class="n">6.</span>Propriété intellectuelle</h2>
+    <p>L&rsquo;application, son nom, son icône, ses textes et son design appartiennent à l&rsquo;éditeur. Le téléchargement vous confère un droit d&rsquo;usage personnel, non exclusif et non transférable, dans le cadre des conditions de Google Play ; il n&rsquo;emporte aucun transfert de propriété.</p>
+    <p>L&rsquo;application intègre des composants tiers qui restent soumis à leurs propres licences, notamment <strong>Google ML Kit</strong> pour la reconnaissance de texte et <strong>SQLCipher</strong> pour le chiffrement de la base.</p>
+    <p>Les données que vous saisissez et les contenus que vous produisez avec l&rsquo;application restent les vôtres. L&rsquo;éditeur ne revendique aucun droit dessus et, n&rsquo;en détenant aucune copie, ne pourrait de toute façon en exercer aucun.</p>
+
+    <h2><span class="n">7.</span>Disponibilité, mises à jour, retrait</h2>
+    <p>L&rsquo;application est fournie <strong>en l&rsquo;état</strong>, sans garantie de fonctionnement continu ni de compatibilité avec tous les appareils ou toutes les versions d&rsquo;Android.</p>
+    <p>Les mises à jour peuvent ajouter, modifier ou retirer des fonctions, notamment pour suivre les exigences d&rsquo;Android ou de Google Play.</p>
+    <p>L&rsquo;éditeur peut cesser de maintenir l&rsquo;application ou la retirer de Google Play à tout moment. Comme tout est local, une copie déjà installée continue de fonctionner ; exportez ou sauvegardez néanmoins vos données avant toute désinstallation ou changement de téléphone.</p>
+
+    <h2><span class="n">8.</span>Limitation de responsabilité</h2>
+    <p>Dans les limites permises par la loi, l&rsquo;éditeur ne peut être tenu responsable :</p>
+    <ul>
+      <li>de la perte des données conservées sur votre appareil, quelle qu&rsquo;en soit la cause (perte, vol, casse, réinitialisation, désinstallation, absence de sauvegarde) ;</li>
+      <li>des erreurs de lecture ou de catégorisation, ni des conséquences de décisions prises sur la base des chiffres affichés ;</li>
+      <li>des dommages indirects de toute nature, en particulier des pertes financières.</li>
+    </ul>
+    <p>Kash est une aide au suivi personnel. L&rsquo;application ne délivre aucun conseil financier, comptable ou fiscal.</p>
+    <p>Rien dans les présentes conditions ne supprime les droits que le droit de la consommation vous accorde et auxquels il ne peut être renoncé par contrat, ni ne limite la responsabilité en cas de faute lourde ou dolosive.</p>
+
+    <h2><span class="n">9.</span>Distribution par Google Play</h2>
+    <p>L&rsquo;application est distribuée par Google Play. Le téléchargement et l&rsquo;installation sont également régis par les conditions de Google, qui s&rsquo;appliquent en complément des présentes. Google n&rsquo;est pas partie au présent contrat et n&rsquo;apporte aucune garantie sur l&rsquo;application.</p>
+    <p>Toute question relative au magasin lui-même — installation, paiement, remboursement — passe par Google Play.</p>
+
+    <h2><span class="n">10.</span>Modification des présentes conditions</h2>
+    <p>Ces conditions peuvent être mises à jour, notamment lorsque les fonctions évoluent. La date en haut de page indique toujours la version en vigueur. La poursuite de l&rsquo;utilisation de l&rsquo;application après publication d&rsquo;une nouvelle version vaut acceptation. Une modification importante serait annoncée dans une nouvelle version de l&rsquo;application.</p>
+
+    <h2><span class="n">11.</span>Droit applicable et contact</h2>
+    <p>Les présentes conditions sont soumises au <strong>droit français</strong>. Si vous êtes un consommateur résidant dans un autre pays de l&rsquo;Union européenne, vous conservez le bénéfice des dispositions impératives de la loi de votre pays de résidence.</p>
+    <p>En cas de litige, contactez d&rsquo;abord l&rsquo;éditeur afin de rechercher une solution amiable : <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20conditions%20d%27utilisation">support.app.bv@gmail.com</a>.</p>
+    <p>Voir aussi la <a href="confidentialite.html?lang=fr">politique de confidentialité</a> et la <a href="suppression.html?lang=fr">page de suppression des données</a>.</p>
+
+    <footer>
+      <p>Cette page est accessible depuis l&rsquo;application : <strong>Plus › Données et confidentialité › Documents publiés</strong>.</p>
+      <p>Assistance : <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=fr">toutes les pages légales</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== ESPAÑOL ===================== -->
+  <main id="main-es" data-titre="Kash — Condiciones de uso" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Condiciones de uso</h1>
+    </header>
+    <p class="maj">Aplicación Kash <span class="ref">com.florian.budgettickets</span>, publicada por el desarrollador. Última actualización: 9 de septiembre de 2026.</p>
+
+    <h2><span class="n">1.</span>Qué es la aplicación</h2>
+    <p>Kash es una aplicación Android para llevar el presupuesto doméstico escaneando tickets de compra. Fotografías un ticket o lo introduces a mano; la aplicación lo lee en el dispositivo, lo desglosa en líneas de artículos, lo clasifica en tus categorías — incluidas las que creas tú — y lo compara con tus presupuestos por sobres, con una proyección de fin de mes.</p>
+    <p>Kash también detecta pagos recurrentes como suscripciones, mantiene un historial de precios por artículo, permite formar un hogar local con sus miembros y una clave de reparto, y sabe generar una exportación CSV, un informe PDF mensual y un archivo de copia de seguridad local cifrado. Un bloqueo biométrico opcional protege el acceso a la aplicación.</p>
+    <p>Kash funciona sin conexión, sin cuenta y sin servidor. Instalar y usar la aplicación implica aceptar estas condiciones. Si no las aceptas, no uses la aplicación.</p>
+
+    <h2><span class="n">2.</span>Precio y financiación</h2>
+    <p>Kash es <strong>gratuita</strong>. No hay publicidad, ni compras integradas, ni suscripción, ni funciones de pago.</p>
+    <p>Tus datos no se monetizan de ninguna forma, y no podrían serlo: ninguno sale de tu dispositivo, así que no hay nada que vender, compartir ni explotar.</p>
+    <p>Si ese modelo cambiara alguna vez, sería mediante una nueva versión de la aplicación y estas condiciones se actualizarían previamente (véase §10).</p>
+
+    <h2><span class="n">3.</span>Sin cuenta y sin almacenamiento en la nube</h2>
+    <p>No hay cuenta: nada que crear, recordar ni recuperar. La contrapartida es que <strong>tus datos viven en tu dispositivo y en ningún otro sitio</strong>, y que su conservación es responsabilidad tuya.</p>
+    <p>Si pierdes el teléfono, te lo roban, se rompe o lo restableces, o si desinstalas la aplicación, los datos desaparecen. El desarrollador no guarda ninguna copia y no puede restaurar nada.</p>
+    <p>Por eso te recomendamos encarecidamente hacer una copia de seguridad con regularidad (<em>Más › Copia de seguridad</em>), guardar el archivo cifrado en un lugar seguro y hacer una antes de cambiar de teléfono.</p>
+
+    <h2><span class="n">4.</span>Fiabilidad de la lectura automática</h2>
+    <p>La lectura automática de los tickets (OCR) y la asignación automática de categorías se ofrecen <strong>según el mejor esfuerzo posible</strong>. Pueden equivocarse en un importe, una fecha o un comercio, y clasificar una compra en la categoría equivocada, sobre todo en tickets borrosos, arrugados o mal iluminados.</p>
+    <p>Kash te pide que compruebes cada ticket antes de guardarlo y señala los campos leídos con poca confianza. Esa comprobación te corresponde a ti.</p>
+    <p>Los totales, las estadísticas y las proyecciones de fin de mes son orientativos y dependen enteramente de lo que se haya introducido.</p>
+    <p><strong>Kash no es una herramienta de contabilidad.</strong> No genera ningún documento contable, fiscal ni jurídicamente vinculante. La exportación CSV y el informe PDF son documentos de conveniencia, para tu propio uso: no son facturas ni certificados y por sí solos no prueban nada.</p>
+
+    <h2><span class="n">5.</span>Uso aceptable</h2>
+    <p>Kash está pensada para un uso personal y privado. Te comprometes a:</p>
+    <ul>
+      <li>no utilizar la aplicación con fines ilícitos;</li>
+      <li>no registrar en ella datos de terceros sin su conocimiento — esto incluye a los miembros que añades a un hogar;</li>
+      <li>no intentar eludir las medidas de seguridad de la aplicación, en particular el cifrado de la base de datos y el bloqueo;</li>
+      <li>no descompilar, modificar ni redistribuir la aplicación, salvo en la medida en que la ley lo permita sea cual sea la cláusula contractual.</li>
+    </ul>
+
+    <h2><span class="n">6.</span>Propiedad intelectual</h2>
+    <p>La aplicación, su nombre, su icono, sus textos y su diseño pertenecen al desarrollador. La descarga te otorga un derecho de uso personal, no exclusivo e intransferible, en el marco de las condiciones de Google Play; no implica ninguna transmisión de propiedad.</p>
+    <p>La aplicación integra componentes de terceros que siguen sujetos a sus propias licencias, en particular <strong>Google ML Kit</strong> para el reconocimiento de texto y <strong>SQLCipher</strong> para el cifrado de la base de datos.</p>
+    <p>Los datos que introduces y los contenidos que produces con la aplicación siguen siendo tuyos. El desarrollador no reivindica ningún derecho sobre ellos y, al no tener ninguna copia, tampoco podría ejercerlo.</p>
+
+    <h2><span class="n">7.</span>Disponibilidad, actualizaciones, retirada</h2>
+    <p>La aplicación se ofrece <strong>tal cual</strong>, sin garantía de funcionamiento continuo ni de compatibilidad con todos los dispositivos o versiones de Android.</p>
+    <p>Las actualizaciones pueden añadir, modificar o retirar funciones, en particular para adaptarse a los requisitos de Android o de Google Play.</p>
+    <p>El desarrollador puede dejar de mantener la aplicación o retirarla de Google Play en cualquier momento. Como todo es local, una copia ya instalada sigue funcionando; aun así, exporta o respalda tus datos antes de desinstalar o de cambiar de teléfono.</p>
+
+    <h2><span class="n">8.</span>Limitación de responsabilidad</h2>
+    <p>En los límites permitidos por la ley, el desarrollador no puede ser considerado responsable:</p>
+    <ul>
+      <li>de la pérdida de los datos guardados en tu dispositivo, sea cual sea la causa (pérdida, robo, rotura, restablecimiento, desinstalación, ausencia de copia de seguridad);</li>
+      <li>de los errores de lectura o de categorización, ni de las consecuencias de decisiones tomadas a partir de las cifras mostradas;</li>
+      <li>de daños indirectos de cualquier naturaleza, en particular pérdidas económicas.</li>
+    </ul>
+    <p>Kash es una ayuda al seguimiento personal. No presta ningún asesoramiento financiero, contable ni fiscal.</p>
+    <p>Nada en estas condiciones suprime los derechos que la normativa de consumo te reconoce y a los que no cabe renunciar por contrato, ni limita la responsabilidad en caso de culpa grave o dolo.</p>
+
+    <h2><span class="n">9.</span>Distribución a través de Google Play</h2>
+    <p>La aplicación se distribuye a través de Google Play. La descarga y la instalación se rigen además por las condiciones de Google, que se aplican junto con las presentes. Google no es parte de este contrato y no ofrece ninguna garantía sobre la aplicación.</p>
+    <p>Cualquier cuestión relativa a la propia tienda — instalación, pago, reembolso — se tramita a través de Google Play.</p>
+
+    <h2><span class="n">10.</span>Modificación de estas condiciones</h2>
+    <p>Estas condiciones pueden actualizarse, sobre todo cuando cambian las funciones. La fecha de la parte superior indica siempre la versión vigente. Seguir usando la aplicación tras la publicación de una nueva versión equivale a aceptarla. Un cambio importante se anunciaría en una nueva versión de la aplicación.</p>
+
+    <h2><span class="n">11.</span>Ley aplicable y contacto</h2>
+    <p>Estas condiciones se rigen por el <strong>derecho francés</strong>. Si eres un consumidor residente en otro país de la Unión Europea, conservas el beneficio de las disposiciones imperativas de la ley de tu país de residencia.</p>
+    <p>En caso de conflicto, contacta primero con el desarrollador para buscar una solución amistosa: <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20condiciones%20de%20uso">support.app.bv@gmail.com</a>.</p>
+    <p>Véase también la <a href="confidentialite.html?lang=es">política de privacidad</a> y la <a href="suppression.html?lang=es">página de eliminación de datos</a>.</p>
+
+    <footer>
+      <p>Esta página es accesible desde la aplicación: <strong>Más › Datos y privacidad › Documentos publicados</strong>.</p>
+      <p>Soporte: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=es">todas las páginas legales</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== PORTUGUÊS ===================== -->
+  <main id="main-pt" data-titre="Kash — Condições de utilização" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Condições de utilização</h1>
+    </header>
+    <p class="maj">Aplicação Kash <span class="ref">com.florian.budgettickets</span>, publicada pelo programador. Última atualização: 9 de setembro de 2026.</p>
+
+    <h2><span class="n">1.</span>O que é a aplicação</h2>
+    <p>O Kash é uma aplicação Android para acompanhar o orçamento familiar através da digitalização de talões de compra. Fotografa um talão ou introdu-lo à mão; a aplicação lê-o no dispositivo, decompõe-no em linhas de artigos, arruma-o nas suas categorias — incluindo as que cria — e confronta-o com os seus orçamentos por envelope, com uma projeção de fim de mês.</p>
+    <p>O Kash deteta ainda pagamentos recorrentes como subscrições, mantém um histórico de preços por artigo, permite constituir um agregado local com os seus membros e uma chave de repartição, e sabe produzir uma exportação CSV, um relatório PDF mensal e um ficheiro de cópia de segurança local cifrado. Um bloqueio biométrico facultativo protege o acesso à aplicação.</p>
+    <p>O Kash funciona offline, sem conta e sem servidor. Instalar e utilizar a aplicação significa aceitar as presentes condições. Se não as aceitar, não utilize a aplicação.</p>
+
+    <h2><span class="n">2.</span>Preço e financiamento</h2>
+    <p>O Kash é <strong>gratuito</strong>. Não há publicidade, nem compras dentro da aplicação, nem subscrição, nem funcionalidades pagas.</p>
+    <p>Os seus dados não são monetizados de forma alguma, nem poderiam sê-lo: nenhum sai do seu dispositivo, portanto não há nada para vender, partilhar ou explorar.</p>
+    <p>Se esse modelo mudasse algum dia, seria através de uma nova versão da aplicação e as presentes condições seriam previamente atualizadas (ver §10).</p>
+
+    <h2><span class="n">3.</span>Sem conta e sem armazenamento na nuvem</h2>
+    <p>Não existe conta: nada para criar, memorizar ou recuperar. A contrapartida é que <strong>os seus dados vivem no seu dispositivo e em mais lado nenhum</strong>, e que a sua conservação é da sua responsabilidade.</p>
+    <p>Se o telemóvel se perder, for roubado, partir ou for reposto, ou se desinstalar a aplicação, os dados desaparecem. O programador não guarda qualquer cópia e não pode restaurar nada.</p>
+    <p>Recomendamos vivamente, por isso, fazer regularmente uma cópia de segurança (<em>Mais › Cópia de segurança</em>), guardar o ficheiro cifrado em local seguro e criar uma antes de mudar de telemóvel.</p>
+
+    <h2><span class="n">4.</span>Fiabilidade da leitura automática</h2>
+    <p>A leitura automática dos talões (OCR) e a atribuição automática de categorias são prestadas <strong>na medida do possível</strong>. Podem enganar-se num valor, numa data ou numa loja, e arrumar uma compra na categoria errada — sobretudo em talões desbotados, amarrotados ou mal iluminados.</p>
+    <p>O Kash pede-lhe para verificar cada talão antes de o guardar e assinala os campos lidos com pouca confiança. Essa verificação cabe-lhe a si.</p>
+    <p>Os totais, as estatísticas e as projeções de fim de mês são indicativos e dependem inteiramente do que foi introduzido.</p>
+    <p><strong>O Kash não é uma ferramenta de contabilidade.</strong> Não produz qualquer documento contabilístico, fiscal ou juridicamente vinculativo. A exportação CSV e o relatório PDF são documentos de conveniência, para seu uso: não são faturas nem certificados e, por si só, não provam nada.</p>
+
+    <h2><span class="n">5.</span>Utilização aceitável</h2>
+    <p>O Kash destina-se a uma utilização pessoal e privada. Compromete-se a:</p>
+    <ul>
+      <li>não utilizar a aplicação para fins ilícitos;</li>
+      <li>não registar nela dados de terceiros sem o conhecimento destes — o que inclui os membros que adiciona a um agregado;</li>
+      <li>não tentar contornar as medidas de segurança da aplicação, em especial a cifragem da base de dados e o bloqueio;</li>
+      <li>não descompilar, modificar nem redistribuir a aplicação, salvo na medida em que a lei o permita independentemente de qualquer cláusula contratual.</li>
+    </ul>
+
+    <h2><span class="n">6.</span>Propriedade intelectual</h2>
+    <p>A aplicação, o seu nome, o seu ícone, os seus textos e o seu design pertencem ao programador. A transferência confere-lhe um direito de utilização pessoal, não exclusivo e intransmissível, no âmbito das condições do Google Play; não implica qualquer transmissão de propriedade.</p>
+    <p>A aplicação integra componentes de terceiros que permanecem sujeitos às respetivas licenças, em especial o <strong>Google ML Kit</strong> para o reconhecimento de texto e o <strong>SQLCipher</strong> para a cifragem da base de dados.</p>
+    <p>Os dados que introduz e os conteúdos que produz com a aplicação continuam a ser seus. O programador não reivindica qualquer direito sobre eles e, não detendo nenhuma cópia, também não poderia exercê-lo.</p>
+
+    <h2><span class="n">7.</span>Disponibilidade, atualizações, retirada</h2>
+    <p>A aplicação é fornecida <strong>tal como está</strong>, sem garantia de funcionamento contínuo nem de compatibilidade com todos os dispositivos ou versões do Android.</p>
+    <p>As atualizações podem acrescentar, alterar ou retirar funcionalidades, nomeadamente para acompanhar as exigências do Android ou do Google Play.</p>
+    <p>O programador pode deixar de manter a aplicação ou retirá-la do Google Play a qualquer momento. Como tudo é local, uma cópia já instalada continua a funcionar; ainda assim, exporte ou faça cópia de segurança dos seus dados antes de desinstalar ou de mudar de telemóvel.</p>
+
+    <h2><span class="n">8.</span>Limitação de responsabilidade</h2>
+    <p>Nos limites permitidos por lei, o programador não pode ser responsabilizado:</p>
+    <ul>
+      <li>pela perda dos dados guardados no seu dispositivo, seja qual for a causa (perda, roubo, avaria, reposição, desinstalação, ausência de cópia de segurança);</li>
+      <li>por erros de leitura ou de categorização, nem pelas consequências de decisões tomadas com base nos valores apresentados;</li>
+      <li>por danos indiretos de qualquer natureza, em especial perdas financeiras.</li>
+    </ul>
+    <p>O Kash é um auxiliar de acompanhamento pessoal. Não presta qualquer aconselhamento financeiro, contabilístico ou fiscal.</p>
+    <p>Nada nas presentes condições suprime os direitos que o direito do consumo lhe reconhece e aos quais não é possível renunciar por contrato, nem limita a responsabilidade em caso de culpa grave ou dolo.</p>
+
+    <h2><span class="n">9.</span>Distribuição pelo Google Play</h2>
+    <p>A aplicação é distribuída pelo Google Play. A transferência e a instalação regem-se igualmente pelas condições da Google, que se aplicam em complemento das presentes. A Google não é parte no presente contrato e não presta qualquer garantia sobre a aplicação.</p>
+    <p>Qualquer questão relativa à própria loja — instalação, pagamento, reembolso — é tratada através do Google Play.</p>
+
+    <h2><span class="n">10.</span>Alteração das presentes condições</h2>
+    <p>Estas condições podem ser atualizadas, nomeadamente quando as funcionalidades evoluem. A data no topo da página indica sempre a versão em vigor. A continuação da utilização da aplicação após a publicação de uma nova versão vale como aceitação. Uma alteração significativa seria anunciada numa nova versão da aplicação.</p>
+
+    <h2><span class="n">11.</span>Lei aplicável e contacto</h2>
+    <p>As presentes condições regem-se pela <strong>lei francesa</strong>. Se for um consumidor residente noutro país da União Europeia, mantém o benefício das disposições imperativas da lei do seu país de residência.</p>
+    <p>Em caso de litígio, contacte primeiro o programador para procurar uma solução amigável: <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20condi%C3%A7%C3%B5es%20de%20utiliza%C3%A7%C3%A3o">support.app.bv@gmail.com</a>.</p>
+    <p>Ver também a <a href="confidentialite.html?lang=pt">política de privacidade</a> e a <a href="suppression.html?lang=pt">página de eliminação de dados</a>.</p>
+
+    <footer>
+      <p>Esta página está acessível a partir da aplicação: <strong>Mais › Dados e privacidade › Documentos publicados</strong>.</p>
+      <p>Apoio: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=pt">todas as páginas legais</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== DEUTSCH ===================== -->
+  <main id="main-de" data-titre="Kash — Nutzungsbedingungen" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Nutzungsbedingungen</h1>
+    </header>
+    <p class="maj">App Kash <span class="ref">com.florian.budgettickets</span>, herausgegeben vom Entwickler. Zuletzt aktualisiert: 9. September 2026.</p>
+
+    <h2><span class="n">1.</span>Was die App ist</h2>
+    <p>Kash ist eine Android-App, mit der du dein Haushaltsbudget durch das Scannen von Kassenbons verfolgst. Du fotografierst einen Beleg oder gibst ihn von Hand ein; die App liest ihn auf dem Gerät aus, zerlegt ihn in Artikelzeilen, sortiert ihn in deine Kategorien ein — auch in selbst angelegte — und stellt ihn deinen Umschlag-Budgets gegenüber, samt Hochrechnung zum Monatsende.</p>
+    <p>Kash erkennt außerdem wiederkehrende Zahlungen als Abos, führt einen Preisverlauf je Artikel, erlaubt einen lokalen Haushalt mit Mitgliedern und Verteilungsschlüssel und kann einen CSV-Export, einen monatlichen PDF-Bericht sowie ein verschlüsseltes lokales Sicherungsarchiv erzeugen. Eine optionale biometrische Sperre schützt den Zugang zur App.</p>
+    <p>Kash arbeitet offline, ohne Konto und ohne Server. Mit der Installation und Nutzung der App erkennst du diese Bedingungen an. Wenn du sie nicht annimmst, nutze die App nicht.</p>
+
+    <h2><span class="n">2.</span>Preis und Finanzierung</h2>
+    <p>Kash ist <strong>kostenlos</strong>. Es gibt keine Werbung, keine In-App-Käufe, kein Abonnement und keine kostenpflichtigen Funktionen.</p>
+    <p>Deine Daten werden in keiner Weise zu Geld gemacht — und könnten es auch nicht: Keine davon verlässt dein Gerät, es gibt also nichts zu verkaufen, zu teilen oder auszuwerten.</p>
+    <p>Sollte sich dieses Modell je ändern, geschähe das über eine neue Version der App, und diese Bedingungen würden vorher aktualisiert (siehe §10).</p>
+
+    <h2><span class="n">3.</span>Kein Konto, kein Cloud-Speicher</h2>
+    <p>Es gibt kein Konto: nichts anzulegen, zu merken oder wiederherzustellen. Die Kehrseite: <strong>Deine Daten liegen auf deinem Gerät und sonst nirgends</strong>, und ihre Aufbewahrung liegt in deiner Verantwortung.</p>
+    <p>Geht das Telefon verloren, wird es gestohlen, geht es kaputt oder wird zurückgesetzt, oder deinstallierst du die App, sind die Daten weg. Der Entwickler hat keine Kopie und kann nichts wiederherstellen.</p>
+    <p>Wir empfehlen dir daher dringend, regelmäßig eine Sicherung anzulegen (<em>Mehr › Sicherung</em>), das verschlüsselte Archiv sicher aufzubewahren und vor jedem Gerätewechsel eine zu erstellen.</p>
+
+    <h2><span class="n">4.</span>Verlässlichkeit der automatischen Erkennung</h2>
+    <p>Die automatische Belegerkennung (OCR) und die automatische Zuordnung von Kategorien erfolgen <strong>nach bestem Bemühen</strong>. Sie können sich bei einem Betrag, einem Datum oder einem Händler irren und einen Einkauf in die falsche Kategorie einsortieren — besonders bei verblassten, zerknitterten oder schlecht ausgeleuchteten Belegen.</p>
+    <p>Kash bittet dich, jeden Beleg vor dem Speichern zu prüfen, und markiert unsicher gelesene Felder. Diese Prüfung liegt bei dir.</p>
+    <p>Summen, Statistiken und Hochrechnungen zum Monatsende sind Richtwerte und hängen vollständig davon ab, was erfasst wurde.</p>
+    <p><strong>Kash ist kein Buchhaltungswerkzeug.</strong> Die App erzeugt keine buchhalterischen, steuerlichen oder rechtsverbindlichen Dokumente. CSV-Export und PDF-Bericht sind Hilfsdokumente für deinen eigenen Gebrauch: Sie sind weder Rechnungen noch Bescheinigungen und beweisen für sich genommen nichts.</p>
+
+    <h2><span class="n">5.</span>Zulässige Nutzung</h2>
+    <p>Kash ist für den persönlichen, privaten Gebrauch bestimmt. Du verpflichtest dich:</p>
+    <ul>
+      <li>die App nicht für rechtswidrige Zwecke zu nutzen;</li>
+      <li>keine Daten Dritter ohne deren Wissen darin zu erfassen — das gilt auch für die Mitglieder, die du einem Haushalt hinzufügst;</li>
+      <li>nicht zu versuchen, die Sicherheitsmaßnahmen der App zu umgehen, insbesondere die Verschlüsselung der Datenbank und die App-Sperre;</li>
+      <li>die App nicht zu dekompilieren, zu verändern oder weiterzuverbreiten, außer soweit das Gesetz es unabhängig von jeder vertraglichen Klausel erlaubt.</li>
+    </ul>
+
+    <h2><span class="n">6.</span>Geistiges Eigentum</h2>
+    <p>Die App, ihr Name, ihr Symbol, ihre Texte und ihr Design gehören dem Entwickler. Der Download räumt dir ein persönliches, nicht ausschließliches und nicht übertragbares Nutzungsrecht im Rahmen der Google-Play-Bedingungen ein; eine Eigentumsübertragung ist damit nicht verbunden.</p>
+    <p>Die App enthält Komponenten Dritter, die ihren eigenen Lizenzen unterliegen, insbesondere <strong>Google ML Kit</strong> für die Texterkennung und <strong>SQLCipher</strong> für die Verschlüsselung der Datenbank.</p>
+    <p>Die Daten, die du eingibst, und die Inhalte, die du mit der App erzeugst, bleiben deine. Der Entwickler erhebt darauf keinen Anspruch und könnte einen solchen mangels Kopie ohnehin nicht geltend machen.</p>
+
+    <h2><span class="n">7.</span>Verfügbarkeit, Aktualisierungen, Rückzug</h2>
+    <p>Die App wird <strong>wie besehen</strong> bereitgestellt, ohne Zusicherung eines unterbrechungsfreien Betriebs und ohne Gewähr für die Lauffähigkeit auf jedem Gerät oder jeder Android-Version.</p>
+    <p>Aktualisierungen können Funktionen hinzufügen, ändern oder entfernen, insbesondere um den Anforderungen von Android oder Google Play zu folgen.</p>
+    <p>Der Entwickler kann die Pflege der App einstellen oder sie jederzeit aus Google Play zurückziehen. Da alles lokal liegt, funktioniert eine bereits installierte Kopie weiter; exportiere oder sichere deine Daten dennoch, bevor du deinstallierst oder das Telefon wechselst.</p>
+
+    <h2><span class="n">8.</span>Haftungsbeschränkung</h2>
+    <p>Soweit gesetzlich zulässig, haftet der Entwickler nicht:</p>
+    <ul>
+      <li>für den Verlust der auf deinem Gerät gespeicherten Daten, gleich aus welchem Grund (Verlust, Diebstahl, Defekt, Zurücksetzen, Deinstallation, fehlende Sicherung);</li>
+      <li>für Erkennungs- oder Zuordnungsfehler und für die Folgen von Entscheidungen, die auf den angezeigten Zahlen beruhen;</li>
+      <li>für mittelbare Schäden jeder Art, insbesondere für finanzielle Verluste.</li>
+    </ul>
+    <p>Kash ist eine Hilfe zur persönlichen Übersicht. Die App erteilt keine finanzielle, buchhalterische oder steuerliche Beratung.</p>
+    <p>Nichts in diesen Bedingungen nimmt dir Rechte, die dir das Verbraucherrecht zwingend gewährt, und nichts beschränkt die Haftung bei grober Fahrlässigkeit oder Vorsatz.</p>
+
+    <h2><span class="n">9.</span>Vertrieb über Google Play</h2>
+    <p>Die App wird über Google Play vertrieben. Download und Installation unterliegen zusätzlich den Bedingungen von Google, die ergänzend gelten. Google ist nicht Partei dieses Vertrags und übernimmt keine Gewähr für die App.</p>
+    <p>Alle Fragen zum Store selbst — Installation, Zahlung, Erstattung — laufen über Google Play.</p>
+
+    <h2><span class="n">10.</span>Änderungen dieser Bedingungen</h2>
+    <p>Diese Bedingungen können aktualisiert werden, insbesondere wenn sich Funktionen ändern. Das Datum oben auf der Seite nennt stets die geltende Fassung. Wer die App nach Veröffentlichung einer neuen Fassung weiter nutzt, nimmt sie damit an. Eine wesentliche Änderung würde in einer neuen Version der App angekündigt.</p>
+
+    <h2><span class="n">11.</span>Anwendbares Recht und Kontakt</h2>
+    <p>Diese Bedingungen unterliegen <strong>französischem Recht</strong>. Bist du Verbraucher mit Wohnsitz in einem anderen Land der Europäischen Union, bleiben dir die zwingenden Vorschriften des Rechts deines Wohnsitzlandes erhalten.</p>
+    <p>Wende dich im Streitfall zuerst an den Entwickler, damit eine gütliche Lösung gesucht werden kann: <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20Nutzungsbedingungen">support.app.bv@gmail.com</a>.</p>
+    <p>Siehe auch die <a href="confidentialite.html?lang=de">Datenschutzerklärung</a> und die <a href="suppression.html?lang=de">Seite zur Datenlöschung</a>.</p>
+
+    <footer>
+      <p>Diese Seite ist aus der App heraus verlinkt: <strong>Mehr › Daten und Datenschutz › Veröffentlichte Dokumente</strong>.</p>
+      <p>Support: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=de">alle rechtlichen Seiten</a></p>
+    </footer>
+  </main>
+
+  <!-- ===================== ITALIANO ===================== -->
+  <main id="main-it" data-titre="Kash — Condizioni d&rsquo;uso" hidden>
+    <header class="top">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14.5l-2.33 1.8-2.34-1.8-2.33 1.8-2.34-1.8-2.33 1.8L5 18.5Z" fill="#4C8DFF"/>
+          <g stroke="#141C2B" stroke-width="1.6" stroke-linecap="round">
+            <path d="M8 7.8h8"/><path d="M8 11h8"/><path d="M8 14.2h5"/>
+          </g>
+        </svg>
+      </span>
+      <h1>Condizioni d&rsquo;uso</h1>
+    </header>
+    <p class="maj">App Kash <span class="ref">com.florian.budgettickets</span>, pubblicata dallo sviluppatore. Ultimo aggiornamento: 9 settembre 2026.</p>
+
+    <h2><span class="n">1.</span>Che cos&rsquo;è l&rsquo;app</h2>
+    <p>Kash è un&rsquo;app Android per seguire il budget familiare tramite la scansione degli scontrini. Fotografi uno scontrino oppure lo inserisci a mano; l&rsquo;app lo legge sul dispositivo, lo scompone in righe articolo, lo classifica nelle tue categorie — comprese quelle che crei tu — e lo confronta con i tuoi budget a buste, con una proiezione di fine mese.</p>
+    <p>Kash rileva inoltre i pagamenti ricorrenti come abbonamenti, tiene uno storico dei prezzi per articolo, consente di creare una famiglia locale con i suoi membri e una chiave di ripartizione, e sa produrre un&rsquo;esportazione CSV, un rapporto PDF mensile e un archivio di backup locale cifrato. Un blocco biometrico facoltativo protegge l&rsquo;accesso all&rsquo;app.</p>
+    <p>Kash funziona offline, senza account e senza server. Installare e usare l&rsquo;app significa accettare le presenti condizioni. Se non le accetti, non usare l&rsquo;app.</p>
+
+    <h2><span class="n">2.</span>Prezzo e finanziamento</h2>
+    <p>Kash è <strong>gratuita</strong>. Non c&rsquo;è pubblicità, non ci sono acquisti in-app, né abbonamenti, né funzioni a pagamento.</p>
+    <p>I tuoi dati non vengono monetizzati in alcun modo, e non potrebbero esserlo: nessuno esce dal tuo dispositivo, quindi non c&rsquo;è nulla da vendere, condividere o sfruttare.</p>
+    <p>Se questo modello dovesse cambiare, avverrebbe con una nuova versione dell&rsquo;app e le presenti condizioni sarebbero aggiornate prima (vedi §10).</p>
+
+    <h2><span class="n">3.</span>Nessun account, nessuna archiviazione nel cloud</h2>
+    <p>Non c&rsquo;è account: niente da creare, da ricordare o da recuperare. Il rovescio della medaglia è che <strong>i tuoi dati vivono sul tuo dispositivo e da nessun&rsquo;altra parte</strong>, e che la loro conservazione è una tua responsabilità.</p>
+    <p>Se il telefono viene perso, rubato, si rompe o viene ripristinato, oppure se disinstalli l&rsquo;app, i dati spariscono. Lo sviluppatore non ne conserva copia e non può ripristinare nulla.</p>
+    <p>Ti consigliamo quindi vivamente di fare regolarmente un backup (<em>Altro › Backup</em>), di conservare l&rsquo;archivio cifrato in un luogo sicuro e di crearne uno prima di cambiare telefono.</p>
+
+    <h2><span class="n">4.</span>Affidabilità della lettura automatica</h2>
+    <p>La lettura automatica degli scontrini (OCR) e l&rsquo;assegnazione automatica delle categorie sono fornite <strong>secondo il miglior impegno possibile</strong>. Possono sbagliare un importo, una data o un negozio e classificare un acquisto nella categoria sbagliata, in particolare su scontrini sbiaditi, spiegazzati o poco illuminati.</p>
+    <p>Kash ti chiede di verificare ogni scontrino prima di salvarlo e segnala i campi letti con scarsa affidabilità. Quella verifica spetta a te.</p>
+    <p>Totali, statistiche e proiezioni di fine mese sono indicativi e dipendono interamente da ciò che è stato inserito.</p>
+    <p><strong>Kash non è uno strumento di contabilità.</strong> Non produce alcun documento contabile, fiscale o giuridicamente vincolante. L&rsquo;esportazione CSV e il rapporto PDF sono documenti di comodo, per uso personale: non sono fatture né certificati e da soli non provano nulla.</p>
+
+    <h2><span class="n">5.</span>Uso consentito</h2>
+    <p>Kash è destinata a un uso personale e privato. Ti impegni a:</p>
+    <ul>
+      <li>non usare l&rsquo;app per finalità illecite;</li>
+      <li>non registrarvi dati di terzi a loro insaputa — questo vale per i membri che aggiungi a una famiglia;</li>
+      <li>non tentare di aggirare le misure di sicurezza dell&rsquo;app, in particolare la cifratura del database e il blocco;</li>
+      <li>non decompilare, modificare o ridistribuire l&rsquo;app, salvo nella misura in cui la legge lo consenta a prescindere da qualsiasi clausola contrattuale.</li>
+    </ul>
+
+    <h2><span class="n">6.</span>Proprietà intellettuale</h2>
+    <p>L&rsquo;app, il suo nome, la sua icona, i suoi testi e il suo design appartengono allo sviluppatore. Il download ti conferisce un diritto d&rsquo;uso personale, non esclusivo e non trasferibile, nel quadro delle condizioni di Google Play; non comporta alcun trasferimento di proprietà.</p>
+    <p>L&rsquo;app integra componenti di terzi che restano soggetti alle rispettive licenze, in particolare <strong>Google ML Kit</strong> per il riconoscimento del testo e <strong>SQLCipher</strong> per la cifratura del database.</p>
+    <p>I dati che inserisci e i contenuti che produci con l&rsquo;app restano tuoi. Lo sviluppatore non rivendica alcun diritto su di essi e, non avendone copia, non potrebbe comunque esercitarlo.</p>
+
+    <h2><span class="n">7.</span>Disponibilità, aggiornamenti, ritiro</h2>
+    <p>L&rsquo;app è fornita <strong>così com&rsquo;è</strong>, senza garanzia di funzionamento continuo né di compatibilità con tutti i dispositivi o con tutte le versioni di Android.</p>
+    <p>Gli aggiornamenti possono aggiungere, modificare o rimuovere funzioni, in particolare per seguire i requisiti di Android o di Google Play.</p>
+    <p>Lo sviluppatore può cessare la manutenzione dell&rsquo;app o ritirarla da Google Play in qualsiasi momento. Poiché tutto è locale, una copia già installata continua a funzionare; esporta comunque o esegui un backup dei tuoi dati prima di disinstallare o di cambiare telefono.</p>
+
+    <h2><span class="n">8.</span>Limitazione di responsabilità</h2>
+    <p>Nei limiti consentiti dalla legge, lo sviluppatore non può essere ritenuto responsabile:</p>
+    <ul>
+      <li>della perdita dei dati conservati sul tuo dispositivo, qualunque ne sia la causa (smarrimento, furto, rottura, ripristino, disinstallazione, assenza di backup);</li>
+      <li>degli errori di lettura o di categorizzazione, né delle conseguenze di decisioni prese sulla base delle cifre mostrate;</li>
+      <li>dei danni indiretti di qualsiasi natura, in particolare delle perdite finanziarie.</li>
+    </ul>
+    <p>Kash è un ausilio al monitoraggio personale. Non fornisce alcuna consulenza finanziaria, contabile o fiscale.</p>
+    <p>Nulla nelle presenti condizioni elimina i diritti che la normativa a tutela dei consumatori ti riconosce e ai quali non è possibile rinunciare per contratto, né limita la responsabilità in caso di colpa grave o dolo.</p>
+
+    <h2><span class="n">9.</span>Distribuzione tramite Google Play</h2>
+    <p>L&rsquo;app è distribuita tramite Google Play. Il download e l&rsquo;installazione sono disciplinati anche dalle condizioni di Google, che si applicano in aggiunta alle presenti. Google non è parte del presente contratto e non fornisce alcuna garanzia sull&rsquo;app.</p>
+    <p>Qualsiasi questione relativa allo store in sé — installazione, pagamento, rimborso — passa da Google Play.</p>
+
+    <h2><span class="n">10.</span>Modifica delle presenti condizioni</h2>
+    <p>Queste condizioni possono essere aggiornate, in particolare quando le funzioni cambiano. La data in cima alla pagina indica sempre la versione in vigore. Continuare a usare l&rsquo;app dopo la pubblicazione di una nuova versione equivale ad accettarla. Una modifica rilevante verrebbe annunciata in una nuova versione dell&rsquo;app.</p>
+
+    <h2><span class="n">11.</span>Legge applicabile e contatti</h2>
+    <p>Le presenti condizioni sono soggette alla <strong>legge francese</strong>. Se sei un consumatore residente in un altro paese dell&rsquo;Unione europea, conservi il beneficio delle disposizioni imperative della legge del tuo paese di residenza.</p>
+    <p>In caso di controversia, contatta prima lo sviluppatore per cercare una soluzione amichevole: <a href="mailto:support.app.bv@gmail.com?subject=Kash%20-%20condizioni%20d%27uso">support.app.bv@gmail.com</a>.</p>
+    <p>Vedi anche l&rsquo;<a href="confidentialite.html?lang=it">informativa sulla privacy</a> e la <a href="suppression.html?lang=it">pagina di cancellazione dei dati</a>.</p>
+
+    <footer>
+      <p>Questa pagina è raggiungibile dall&rsquo;app: <strong>Altro › Dati e privacy › Documenti pubblicati</strong>.</p>
+      <p>Assistenza: <a href="mailto:support.app.bv@gmail.com">support.app.bv@gmail.com</a> — <a href="index.html?lang=it">tutte le pagine legali</a></p>
+    </footer>
+  </main>
+
+</div>
+
+<script>
+/* =========================================================================
+   Choix de la langue — vanilla, aucune requête externe.
+   Ordre de priorité :
+     1. le paramètre « ?lang=xx » de l'URL, qui l'emporte sur tout le reste :
+        l'application ouvre ces pages avec la langue choisie dans ses réglages,
+        laquelle peut différer de celle du téléphone ;
+     2. sinon navigator.languages / navigator.language, comparés sur le
+        préfixe de deux lettres (« fr-CA » correspond donc à « fr ») ;
+     3. sinon l'anglais.
+   Repli sans JavaScript : la section anglaise n'a PAS l'attribut « hidden »
+   dans le HTML, elle reste donc visible telle quelle ; les cinq autres
+   restent masquées et la barre de langues, masquée elle aussi, n'affiche
+   pas de boutons inertes.
+   ========================================================================= */
+(function () {
+  var LANGUES = ['en', 'fr', 'es', 'pt', 'de', 'it'];
+  var DEFAUT = 'en';
+
+  /** Renvoie le code à deux lettres si la langue est gérée, sinon une chaîne vide. */
+  function normaliser(valeur) {
+    var code = String(valeur || '').slice(0, 2).toLowerCase();
+    return LANGUES.indexOf(code) > -1 ? code : '';
+  }
+
+  /** Applique l'ordre de priorité décrit ci-dessus. */
+  function langueChoisie() {
+    var parametre = /[?&]lang=([^&#]*)/.exec(location.search);
+    var depuisUrl = parametre ? normaliser(decodeURIComponent(parametre[1])) : '';
+    if (depuisUrl) return depuisUrl;
+
+    var liste = (navigator.languages && navigator.languages.length)
+      ? navigator.languages
+      : [navigator.language || ''];
+    for (var i = 0; i < liste.length; i++) {
+      var trouvee = normaliser(liste[i]);
+      if (trouvee) return trouvee;
+    }
+    return DEFAUT;
+  }
+
+  /** Affiche une seule section et met la pastille correspondante en « actif ». */
+  function appliquer(langue) {
+    if (LANGUES.indexOf(langue) < 0) langue = DEFAUT;
+    for (var i = 0; i < LANGUES.length; i++) {
+      var code = LANGUES[i];
+      var section = document.getElementById('main-' + code);
+      var pastille = document.getElementById('pill-' + code);
+      if (section) {
+        section.hidden = (code !== langue);
+        if (code === langue && section.getAttribute('data-titre')) {
+          document.title = section.getAttribute('data-titre');
+        }
+      }
+      if (pastille) {
+        if (code === langue) {
+          pastille.className = 'actif';
+          pastille.setAttribute('aria-current', 'true');
+        } else {
+          pastille.className = '';
+          pastille.removeAttribute('aria-current');
+        }
+      }
+    }
+    document.documentElement.lang = langue;
+  }
+
+  var barre = document.getElementById('langues');
+  if (barre) {
+    barre.hidden = false; /* les boutons ne servent que si le script tourne */
+    barre.addEventListener('click', function (evenement) {
+      var cible = evenement.target;
+      var demande = cible && cible.getAttribute ? cible.getAttribute('data-lang') : null;
+      if (demande) appliquer(demande);
+    });
+  }
+
+  appliquer(langueChoisie());
+})();
+</script>
+</body>
+</html>
